@@ -1,0 +1,19 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+:root {
+	--main-bg: grey;
+	--soft-bg: lightgrey;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+.main {
+	font-family: 'Noto Sans Hebrew', sans-serif;
+}
