@@ -1,6 +1,6 @@
 const Savings = (): JSX.Element => {
 	return (
-		<h1>חסכון</h1>
+		<h2>חסכון</h2>
 	);
 }
 

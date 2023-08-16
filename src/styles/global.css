@@ -2,11 +2,16 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	text-align: right;
 }
 
 :root {
-	--main-bg: grey;
-	--soft-bg: lightgrey;
+	--main-bg: #2a3447;
+	--soft-bg: #384256;
+	--dark-bg: #222b3c;
+	--main-color: white;
+	--soft-color: #ddd;
+	--dark-color: #2a3447;
 }
 
 a {
@@ -16,4 +21,22 @@ a {
 
 .main {
 	font-family: 'Noto Sans Hebrew', sans-serif;
+	background-color: var(--main-bg);
+	color: var(--main-color);
+
+	.container {
+		display: flex;
+		flex-direction: row-reverse;
+		align-items: center;
+
+		.menu-container {
+			padding: 0 1rem;
+			border-left: .2rem solid var(--soft-bg);
+		}
+
+		.content-container {
+			padding: 1rem 2rem;
+			width: 100%;
+		}
+	}
 }

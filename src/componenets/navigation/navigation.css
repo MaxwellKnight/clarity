@@ -1,0 +1,57 @@
+.navigation {
+	width: 100%;
+	padding: 1rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	.logo{
+		display: flex;
+		align-items: center;
+	}
+
+	.icons{
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+		color: var(--main-color);
+
+		.notification {
+			position: relative;
+
+			& span {
+				font-size: .8rem;
+				background-color: firebrick;
+				border-radius: 50%;
+				width: 1.2rem;
+				height: 1.2rem;
+				position: absolute;
+				right: -5px;
+				top: -5px;
+				text-align: center;
+			}
+		}
+
+		.icon {
+			width: 2rem;
+			cursor: pointer;
+		}
+
+		.user{
+			display: flex;
+			align-items: center;
+
+			& img {
+				width: 26px;
+				height: 26px;
+				border-radius: 50%;
+				object-fit: cover;
+			}
+
+			& span {
+				font-size: 1.2rem;
+				margin-inline: 1rem;
+			}
+		}
+	}
+}

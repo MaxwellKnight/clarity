@@ -2,7 +2,9 @@ import './footer.css';
 
 const Footer = (): JSX.Element => {
 	return (
-		<h2>תחתית</h2>
+		<div className="footer">
+			<span>Clarity@ All rights reserved</span>
+		</div>
 	)
 }
 

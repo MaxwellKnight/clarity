@@ -1,7 +1,7 @@
 
 const Home = (): JSX.Element => {
 	return (
-		<h1>בית</h1>
+		<h2>בית</h2>
 	);
 }
 
