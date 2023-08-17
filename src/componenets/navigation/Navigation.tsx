@@ -8,8 +8,6 @@ const Navigation = (): JSX.Element => {
 			</div>
 			<div className="icons">
 				<img className="icon" src="/icons/search-icon.svg" alt="" />
-				<img className="icon" src="/icons/apps-icon.svg" alt="" />
-				<img className="icon" src="/icons/expand-icon.svg" alt="" />
 				<div className="notification">
 					<img className="icon" src="/icons/notification-icon.svg" alt="" />
 					<span>1</span>

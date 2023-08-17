@@ -17,7 +17,7 @@ const App = () : JSX.Element => {
 
 	const Layout = (): JSX.Element => {
 		return (
-			<div className="main">
+			<div className="main" data-type="emperical" dir="rtl">
 				<Navigation />
 				<div className="container">
 					<div className="menu-container">

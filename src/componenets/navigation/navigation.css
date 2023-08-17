@@ -2,17 +2,27 @@
 	width: 100%;
 	padding: 1rem;
 	display: flex;
+	flex-direction: row-reverse;
 	align-items: center;
 	justify-content: space-between;
 
 	.logo{
 		display: flex;
 		align-items: center;
+		border-bottom: 1px solid var(--soft-color);
+		border-radius: .5rem;
+		padding: .5rem;
+
+		& span {
+			font-size: 1.2rem;
+			letter-spacing: .5rem;
+		}
 	}
 
 	.icons{
 		display: flex;
 		align-items: center;
+		flex-direction: row-reverse;
 		gap: 1rem;
 		color: var(--main-color);
 
@@ -35,6 +45,7 @@
 		.icon {
 			width: 2rem;
 			cursor: pointer;
+			color: var(--main-color);
 		}
 
 		.user{

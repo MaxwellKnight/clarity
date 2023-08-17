@@ -1,11 +1,12 @@
 .menu {
+	min-height: 100%;
 
 	.item {
 		display: flex;
 		flex-direction: column;
 
 		& .title {
-			font-size: 1.5rem;
+			font-size: 2rem;
 			font-weight: 200;
 			color: var(--soft-color);
 			padding: 0 0 .2rem 0;
@@ -13,6 +14,7 @@
 
 		& .list-item {
 			display: flex;
+			flex-direction: row-reverse;;
 			align-items: center;
 			justify-content: right;
 			gap: 1rem;
