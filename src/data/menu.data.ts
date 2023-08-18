@@ -13,7 +13,8 @@ export const menu = [
 				title_he: "מבט על",
 				title_ar: "ملخص",
 				title_ru: "обзор",
-				url: "/icons/easy-glanse.svg"
+				url: "/icons/easy-glanse.svg",
+				link: "/"
 			},
 			{
 				id: 2,
@@ -21,7 +22,8 @@ export const menu = [
 				title_he: "הוצאות",
 				title_ar: "نفقات",
 				title_ru: "затраты",
-				url: "/icons/expenses.svg"
+				url: "/icons/expenses.svg",
+				link: "/expenses"
 			},
 			{
 				id: 3,
@@ -29,7 +31,8 @@ export const menu = [
 				title_he: "מטרות ויעדים",
 				title_ar: "الأحلام والأهداف",
 				title_ru: "мечты и цели",
-				url: "/icons/goals.svg"
+				url: "/icons/goals.svg",
+				link: "/savings"
 			}
 		]
 	}

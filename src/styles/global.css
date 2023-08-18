@@ -2,12 +2,12 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	text-align: right;
+	/* text-align: right; */
 }
 
 :root {
 	/* layout colors */
-	--main-bg: #2a3447;
+	--main-bg: #1e2634;
 	--soft-bg: #384256;
 	--dark-bg: #222b3c;
 
@@ -63,6 +63,9 @@ a {
 	background-color: var(--main-bg);
 	color: var(--main-color);
 	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 
 	.container {
 		display: flex;
@@ -72,7 +75,7 @@ a {
 		.menu-container {
 			padding: 0 2rem;
 			font-size: 20px;
-			border-left: .2rem solid var(--soft-bg);
+			border-inline-end: .2rem solid var(--soft-bg);
 		}
 
 		.content-container {

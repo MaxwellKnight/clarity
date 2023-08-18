@@ -12,12 +12,16 @@ import Menu from "./componenets/menu/Menu";
 import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
 import './styles/global.css';
+import { UIContext } from "./context/UIContext";
+import { useContext } from "react";
+import { UIState } from "./context/ui_context.types";
 
 const App = () : JSX.Element => {
+	const { lang, theme } : UIState = useContext(UIContext);
 
 	const Layout = (): JSX.Element => {
 		return (
-			<div className="main" data-type="emperical" dir="rtl">
+			<div className="main" data-type={theme} dir={lang.dir}>
 				<Navigation />
 				<div className="container">
 					<div className="menu-container">
@@ -42,11 +46,11 @@ const App = () : JSX.Element => {
 				element: <Home />
 				},
 				{
-				path: "expenses",
+				path: "/expenses",
 				element: <Expenses />
 				},
 				{
-					path: "savings",
+					path: "/savings",
 					element: <Savings />
 				}]},
 		{
