@@ -1,7 +1,7 @@
 import { Line, LineChart, ResponsiveContainer } from 'recharts';
 import { chart_box } from '../../data/chart_box.data';
 import { useContext } from 'react';
-import { UIContext } from '../../context/UIContext';
+import { UIContext } from '../../context';
 import { UIState } from '../../types';
 import './chartBox.css';
 import { PieChartLabel } from '../../types';

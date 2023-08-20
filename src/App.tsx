@@ -12,7 +12,7 @@ import Menu from "./componenets/menu/Menu";
 import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
 import './styles/global.css';
-import { UIContext } from "./context/UIContext";
+import { UIContext } from "./context";
 import { useContext } from "react";
 import { UIState } from "./types";
 

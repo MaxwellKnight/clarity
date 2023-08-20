@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { PieChartData } from '../../types/charts.types';
 import './categoryBox.css';
-import { UIContext } from '../../context/UIContext';
+import { UIContext } from '../../context';
 import { UIState } from '../../types';
 
 const CategoryBox = ({ categories, colors } : { categories: PieChartData[], colors: string[] }): JSX.Element => {
