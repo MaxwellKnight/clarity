@@ -1,6 +1,6 @@
 .line-chart {
-	display: flex;
-	justify-content: space-between;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
 	text-align: center;
 	height: 100%;
 	gap: 1rem;
@@ -11,6 +11,8 @@
 		align-items: center;
 
 		& .chart-title {
+			font-size: 1.5rem;
+			color: var(--soft-color);
 			text-transform: uppercase;
 		}
 		
@@ -21,7 +23,6 @@
 	}
 
 	& .chart-info {
-		white-space: nowrap;
 		display: flex;
 		flex-direction: column;
 		gap: 2rem;
@@ -42,5 +43,6 @@
 
 	& .chart {
 		height: 100%;
+		width: 100%;
 	}
 }

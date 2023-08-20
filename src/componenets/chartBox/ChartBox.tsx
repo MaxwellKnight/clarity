@@ -1,9 +1,10 @@
 import { Line, LineChart, ResponsiveContainer } from 'recharts';
 import { chart_box } from '../../data/chart_box.data';
-import './chartBox.css';
 import { useContext } from 'react';
 import { UIContext } from '../../context/UIContext';
-import { UIState } from '../../context/ui_context.types';
+import { UIState } from '../../types';
+import './chartBox.css';
+import { PieChartLabel } from '../../types';
 
 const chartData = [
 	{
@@ -44,17 +45,18 @@ const chartData = [
 	}
  ];
 
-const ChartBox = ({ title, text } : { title: "income" | "expense" , text: {title: string, label: string}}): JSX.Element => {
+
+const ChartBox = ({ title, label, flux } : { title: "income" | "expense" , label: PieChartLabel, flux: string}): JSX.Element => {
 	const { lang } : { lang: UIState["lang"] } = useContext<UIState>(UIContext)
 	return (
 		<div className="line-chart">
 			<div className="chart-info">
 				<div className="chart-income">
 					<span className="chart-title">{chart_box[`title_${title}_${lang.lang}`]}</span>
-					<h2 className="chart-label">{text.title}</h2>
+					<h2 className="chart-label">{label.amount}</h2>
 				</div>
 				<div className="chart-desc">
-					<span className="percentage">{text.label}</span>
+					<span className="percentage" data-type={flux}>{label.percentage}%</span>
 					<span className="chart-subdesc">{chart_box[`desc_${lang.lang}`]}</span>
 				</div>
 			</div>

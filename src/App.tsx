@@ -14,7 +14,7 @@ import Register from "./pages/register/Register";
 import './styles/global.css';
 import { UIContext } from "./context/UIContext";
 import { useContext } from "react";
-import { UIState } from "./context/ui_context.types";
+import { UIState } from "./types";
 
 const App = () : JSX.Element => {
 	const { lang, theme } : UIState = useContext(UIContext);

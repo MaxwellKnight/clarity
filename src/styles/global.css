@@ -11,22 +11,13 @@
 	--soft-bg: #384256;
 	--dark-bg: #222b3c;
 
+	--negative: #e83b3b;
+	--positive: #00C49F;
+
 	/* text colors */
 	--main-color: white;
 	--soft-color: #ddd;
 	--dark-color: #2a3447;
-}
-
-[data-type='dark'] {
-	/* layout colors */
-	--main-bg: #4EA1D3;
-	--soft-bg: #9AA4EC;
-	--dark-bg: #6474E5;
-
-	/* text colors */
-	--main-color: #FFFF;
-	--soft-color: #F8C8C6;
-	--dark-color: #F4A4A4;
 }
 
 [data-type='light'] {
@@ -51,6 +42,14 @@
 	--main-color: #FFFF;
 	--soft-color: #F8C8C6;
 	--dark-color: #F58F7C;
+}
+
+[data-type='positive'] {
+	color: var(--positive);
+}
+
+[data-type='negative'] {
+	color: var(--negative);
 }
 
 a {

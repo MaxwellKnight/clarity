@@ -1,27 +1,13 @@
 import { PieChart, Pie, Cell } from 'recharts';
 import './pieBox.css';
+import { PieChartData, PieChartEntry } from '../../types';
 
-const data = [
-	{ name: 'Group A', value: 400 },
-	{ name: 'Group B', value: 300 },
-	{ name: 'Group C', value: 300 },
-	{ name: 'Group D', value: 900 },
-	{ name: 'Group D', value: 300 },
-	{ name: 'Group D', value: 200 },
-	{ name: 'Group D', value: 100 },
-	{ name: 'Group D', value: 100 },
-	{ name: 'Group D', value: 500 },
-	{ name: 'Group D', value: 500 },
-	{ name: 'Group D', value: 500 },
-	{ name: 'Group D', value: 500 },
-	{ name: 'Group D', value: 1100 },
-	{ name: 'Group D', value: 1100 },
-	{ name: 'Group D', value: 1100 },
-	{ name: 'Group D', value: 1100 },
- ];
- const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
-
-const PieBox = (): JSX.Element => {
+const PieBox = ({ colors, categories }: { colors: string[], categories: PieChartData[] }): JSX.Element => {
+	const data: PieChartEntry[] = categories.map((category) => ({
+		name: category.category_en,
+		value: category.amount
+	}))
+	
 	return(
 		<div className="pie-box">
 			<div className="pie">
@@ -37,12 +23,10 @@ const PieBox = (): JSX.Element => {
 						dataKey="value"
 					>
 						{data.map((_entry, index) => (
-							<Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+							<Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
 						))}
 					</Pie>
 				</PieChart>
-			</div>
-			<div className="pie-box-desc">
 			</div>
 		</div>
 	)

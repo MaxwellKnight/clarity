@@ -2,7 +2,7 @@ import './navigation.css';
 
 const Navigation = (): JSX.Element => {
 	return (
-		<div className="navigation">
+		<nav className="navigation" dir="rtl">
 			<div className="logo">
 				<span>Clarity</span>
 			</div>
@@ -13,7 +13,7 @@ const Navigation = (): JSX.Element => {
 					<span>1</span>
 				</div>
 				<div className="user">
-					<span>לואיש</span>
+					<span>Louish</span>
 					<img 
 						className='user-icon'
 						src="https://images.pexels.com/photos/1404819/pexels-photo-1404819.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
@@ -22,7 +22,7 @@ const Navigation = (): JSX.Element => {
 				</div>
 				<img  src="/icons/settings.svg" className="icon" alt="" />
 			</div>
-		</div>
+		</nav>
 	)
 }
 
