@@ -1,9 +1,7 @@
 import './home.css';
-import ChartBox from '../../componenets/chartBox/ChartBox';
-import PieBox from '../../componenets/pieBox/PieBox';
-import CategoryBox from '../../componenets/categoryBox/CategoryBox';
 import { generateColors } from '../../utils/colors';
 import { pieChartData, income, expense } from '../../data/pie_chart.data';
+import { CategoryBox, ChartBox, PieBox } from '../../componenets';
 
 let colors: string[] = generateColors(pieChartData.length);
 

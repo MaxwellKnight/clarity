@@ -2,7 +2,6 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	/* text-align: right; */
 }
 
 :root {
@@ -75,10 +74,11 @@ a {
 			padding: 0 2rem;
 			font-size: 20px;
 			border-inline-end: .2rem solid var(--soft-bg);
+			align-self: flex-start;
 		}
 
 		.content-container {
-			padding: 1rem 2rem;
+			padding: 0 2rem;
 			width: 100%;
 		}
 	}

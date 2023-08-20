@@ -1,15 +1,21 @@
 import { createContext, useReducer } from "react";
 import { UIState, UIAction} from "../../types";
 import * as lang from "../../constants/langs";
+import { UIConstants } from "../../constants/ui_constants";
+
+const INITIAL_STATE : UIState = {
+	lang: lang.he,
+	theme: "emperical"
+}
 
 const reducer = (state: UIState, action: UIAction) => {
 	switch(action.type){
-		case 'lang':
+		case UIConstants.CHANGE_LANG:
 			return {
 				...state, 
 				lang: action.value_lang
 			};
-		case 'theme':
+		case UIConstants.CHANGE_THEME:
 			return {
 				...state,
 				theme: action.value_theme
@@ -19,10 +25,10 @@ const reducer = (state: UIState, action: UIAction) => {
 	}
 }
 
-export const UIContext = createContext<UIState>({ lang: lang.he, theme: "emperical" });
+export const UIContext = createContext<UIState>(INITIAL_STATE);
 
 export const UIContextProvider = ({ children } : { children: JSX.Element }) => {
-	const [state, dispatch] = useReducer(reducer, { lang: lang.en, theme: "" })
+	const [state, dispatch] = useReducer(reducer, INITIAL_STATE)
 
 	return (
 		<UIContext.Provider value={{...state, dispatch}}>

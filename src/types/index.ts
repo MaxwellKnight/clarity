@@ -1,3 +1,5 @@
+import { PieChartLabel,  PieChartData, PieChartEntry } from './charts.types';
+import { UIConstant } from './constants.types';
 import {
 	Hebrew,
 	English,
@@ -7,8 +9,6 @@ import {
 	UIAction,
 	UIState
 }from './ui_context.types';
-
-import { PieChartLabel,  PieChartData, PieChartEntry } from './charts.types';
 
 export type {
 	Hebrew,
@@ -20,5 +20,6 @@ export type {
 	UIState,
 	PieChartLabel,
 	PieChartData,
-	PieChartEntry
+	PieChartEntry,
+	UIConstant
 }
