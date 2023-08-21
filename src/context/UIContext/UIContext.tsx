@@ -1,11 +1,11 @@
-import { createContext, useReducer } from "react";
+import { ReactNode, createContext, useReducer } from "react";
 import { UIState, UIAction} from "../../types";
 import * as lang from "../../constants/langs";
 import { UIConstants } from "../../constants/ui_constants";
 
 const INITIAL_STATE : UIState = {
 	lang: lang.he,
-	theme: "emperical"
+	theme: ""
 }
 
 const reducer = (state: UIState, action: UIAction) => {
@@ -21,13 +21,15 @@ const reducer = (state: UIState, action: UIAction) => {
 				theme: action.value_theme
 			};
 		default:
-			return state
+			return state;
 	}
 }
 
 export const UIContext = createContext<UIState>(INITIAL_STATE);
 
-export const UIContextProvider = ({ children } : { children: JSX.Element }) => {
+type Props = { children: ReactNode };
+
+export const UIContextProvider = ({ children } : Props) => {
 	const [state, dispatch] = useReducer(reducer, INITIAL_STATE)
 
 	return (

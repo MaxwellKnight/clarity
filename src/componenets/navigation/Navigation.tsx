@@ -2,7 +2,7 @@ import './navigation.css';
 
 const Navigation = (): JSX.Element => {
 	return (
-		<nav className="navigation" dir="rtl">
+		<nav className="navigation">
 			<div className="logo">
 				<span>Clarity</span>
 			</div>

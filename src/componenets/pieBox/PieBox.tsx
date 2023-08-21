@@ -2,7 +2,12 @@ import { PieChart, Pie, Cell } from 'recharts';
 import './pieBox.css';
 import { PieChartData, PieChartEntry } from '../../types';
 
-const PieBox = ({ colors, categories }: { colors: string[], categories: PieChartData[] }): JSX.Element => {
+type Props = { 
+	colors: string[], 
+	categories: PieChartData[] 
+};
+
+const PieBox = ({ colors, categories }: Props): JSX.Element => {
 	const data: PieChartEntry[] = categories.map((category) => ({
 		name: category.category_en,
 		value: category.amount

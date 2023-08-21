@@ -4,7 +4,12 @@ import './categoryBox.css';
 import { UIContext } from '../../context';
 import { UIState } from '../../types';
 
-const CategoryBox = ({ categories, colors } : { categories: PieChartData[], colors: string[] }): JSX.Element => {
+type Props = {
+ 	categories: PieChartData[], 
+	colors: string[]
+}
+
+const CategoryBox = ({ categories, colors } : Props): JSX.Element => {
 	const { lang } = useContext<UIState>(UIContext);
 
 	return (
