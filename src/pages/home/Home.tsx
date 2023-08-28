@@ -9,6 +9,7 @@ const Home = () : JSX.Element => {
 	return (
 		<main className="home">
 			<div className="box box-1">
+				<span className='pie-total'>{pieChartData.reduce((acc, curr) => acc + curr.amount, 0)}</span>
 				<PieBox categories={pieChartData} colors={colors}/>
 			</div>
 			<div className="box box-2">

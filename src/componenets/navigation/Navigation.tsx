@@ -20,7 +20,6 @@ const Navigation = (): JSX.Element => {
 						alt="user profile image" 
 					/>
 				</div>
-				<img  src="/icons/settings.svg" className="icon" alt="" />
 			</div>
 		</nav>
 	)

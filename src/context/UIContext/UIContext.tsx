@@ -5,7 +5,7 @@ import { UIConstants } from "../../constants/ui_constants";
 
 const INITIAL_STATE : UIState = {
 	lang: lang.he,
-	theme: ""
+	theme: "dark"
 }
 
 const reducer = (state: UIState, action: UIAction) => {

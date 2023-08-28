@@ -18,6 +18,7 @@ const CategoryBox = ({ categories, colors } : Props): JSX.Element => {
 				<div className="category" key={colors[index]}>
 					<span className='category-box' style={{backgroundColor: colors[index]}}></span>
 					<p>{category[`category_${lang.lang}`]}</p>
+					<p className='category-amount'>({category[`amount`]})</p>
 				</div>
 			))}
 		</div>

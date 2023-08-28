@@ -9,39 +9,39 @@ import { PieChartLabel } from '../../types';
 const chartData = [
 	{
 	  name: 'Page A',
-	  uv: 4000,
-	  pv: 2400,
-	  amt: 2400,
+	  uv: 300,
+	  pv: 500,
+	  amt: 50,
 	},
 	{
 	  name: 'Page B',
 	  uv: 3000,
 	  pv: 1398,
-	  amt: 2210,
+	  amt: 500,
 	},
 	{
 	  name: 'Page C',
 	  uv: 2000,
 	  pv: 9800,
-	  amt: 2290,
+	  amt: 156,
 	},
 	{
 	  name: 'Page D',
 	  uv: 2780,
 	  pv: 3908,
-	  amt: 2000,
+	  amt: 640,
 	},
 	{
 	  name: 'Page E',
 	  uv: 1890,
 	  pv: 4800,
-	  amt: 2181,
+	  amt: 100,
 	},
 	{
 	  name: 'Page F',
 	  uv: 2390,
 	  pv: 3800,
-	  amt: 2500,
+	  amt: 150,
 	}
  ];
 
@@ -68,7 +68,7 @@ const ChartBox = ({ title, label, flux } : Props): JSX.Element => {
 			<div className="chart">
 				<ResponsiveContainer width="100%" height="100%">
 					<LineChart width={300} height={100} data={chartData}>
-						<Line type="monotone" dataKey="pv" stroke="#8884d8" strokeWidth={2} dot={false}/>
+						<Line type="basis" dataKey="pv" stroke="#8884d8" strokeWidth={2} dot={false}/>
 					</LineChart>
 				</ResponsiveContainer>
 				

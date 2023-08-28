@@ -15,7 +15,7 @@
 
 	/* text colors */
 	--main-color: white;
-	--soft-color: #ddd;
+	--soft-color: #bbbbbb;
 	--dark-color: #2a3447;
 }
 
@@ -82,4 +82,12 @@ a {
 			width: 100%;
 		}
 	}
+}
+
+.main, [data-type='dark']{
+	background: hsla(219, 38%, 32%, 1);
+	background: radial-gradient(circle, hsla(219, 38%, 32%, 1) 0%, hsla(219, 28%, 18%, 1) 100%);
+	background: -moz-radial-gradient(circle, hsla(219, 38%, 32%, 1) 0%, hsla(219, 28%, 18%, 1) 100%);
+	background: -webkit-radial-gradient(circle, hsla(219, 38%, 32%, 1) 0%, hsla(219, 28%, 18%, 1) 100%);
+	filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#334971", endColorstr="#222B3C", GradientType=1 );
 }

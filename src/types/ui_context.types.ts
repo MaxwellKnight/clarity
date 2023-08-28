@@ -1,9 +1,9 @@
 import { Dispatch } from "react";
 
-export type Hebrew = { lang: "he", dir: "rtl" };
-export type English = { lang: "en", dir: "ltr" };
-export type Russian = { lang: "ru", dir: "ltr" };
-export type Arabic = { lang: "ar", dir: "rtl" };
+interface Hebrew { lang: "he", dir: "rtl" };
+interface English { lang: "en", dir: "ltr" };
+interface Russian { lang: "ru", dir: "ltr" };
+interface Arabic { lang: "ar", dir: "rtl" };
 export type LangType = Hebrew | Arabic | English | Russian;
 
 export type UIState = {

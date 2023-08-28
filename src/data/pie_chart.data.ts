@@ -51,14 +51,14 @@ export const pieChartData: PieChartData[] = [
 		 category_he: "היגיינה",
 		 category_ar: "نظافة",
 		 category_ru: "гигиена",
-		 amount: 55
+		 amount: 500
 	},
 	{
 		 category_en: "health",
 		 category_he: "בריאות",
 		 category_ar: "صحة",
 		 category_ru: "здоровье",
-		 amount: 21
+		 amount: 150
 	},
 	{
 		 category_en: "home",
@@ -121,6 +121,6 @@ export const pieChartData: PieChartData[] = [
 		 category_he: "מתנות",
 		 category_ar: "هدايا",
 		 category_ru: "подарки",
-		 amount: 100
+		 amount: 250
 	}
 ];
