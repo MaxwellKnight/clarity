@@ -1,0 +1,17 @@
+.custom-tooltip {
+	background-color: var(--dark-bg);
+	padding: 1rem 2rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+	font-weight: bold;
+	border-radius: 1rem;
+
+	& .desc {
+		font-size: 1.5rem;
+		color: white;
+		text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
+	}
+}

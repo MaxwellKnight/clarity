@@ -1,7 +1,7 @@
 import { PieChart, Pie, Cell, Tooltip } from 'recharts';
 import './pieBox.css';
 import { PieChartData, PieChartEntry } from '../../types';
-import { CustomTooltip, renderCustomizedLabel } from '../../utils';
+import { CustomTooltip, CustomizedLabel } from '../../utils';
 import { UIContext } from '../../context';
 import { useContext } from 'react';
 
@@ -31,13 +31,13 @@ const PieBox = ({ colors, categories }: Props): JSX.Element => {
 						paddingAngle={0}
 						dataKey="value"
 						labelLine={false}
-						label={renderCustomizedLabel}
+						label={CustomizedLabel}
 					>
 						{data.map((_entry, index) => (
 							<Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
 							))}
 					</Pie>
-					<Tooltip content={<CustomTooltip lang={lang.lang} />}/>
+					<Tooltip content={<CustomTooltip lang={lang} data={categories}/>}/>
 				</PieChart>
 			</div>
 		</div>

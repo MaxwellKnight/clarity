@@ -2,9 +2,9 @@ import { TooltipProps } from "recharts";
 import { ValueType, NameType } from "recharts/types/component/DefaultTooltipContent";
 import { LangType } from "../types";
 import { PieChartData } from "../types";
-import { pieChartData } from "../data/pie_chart.data";
+import '../styles/rechartsCustom.css';
 
-interface CustomLabel {
+interface CustomLabelProps {
 	cx: number,
 	cy: number,
 	innerRadius: number,
@@ -14,37 +14,38 @@ interface CustomLabel {
 	index?: number
 }
 
-interface CustomToolipProps extends TooltipProps<ValueType, NameType> {
-	lang: LangType["lang"]
+interface CustomTooltipProps extends TooltipProps<ValueType, NameType> {
+	lang: LangType;
+	data: PieChartData[]
 }
 
 export const CustomTooltip = ({
 	active,
 	payload,
-	label,
 	lang,
-}: CustomToolipProps) => {
+	data,
+}: CustomTooltipProps) => {
 	if (active && payload) {
-		const category: PieChartData | undefined = pieChartData.find((category) => category.category_en === payload[0].payload.name);
+		const label: PieChartData | undefined = data.find((label) => label.category_en === payload[0].payload.name);
 
 		return (
-			<div className="custom-tooltip">
-			<p className="label">{`${label} : ${category && category[`category_${lang}`]}`}</p>
-			<p className="desc">Anything you want can be displayed here.</p>
+			<div className="custom-tooltip" dir={lang.dir}>
+				<p className="label">{`${label && label[`category_${lang.lang}`]}`}</p>
+				<p className="desc" style={{color: payload[0].payload.fill}}>{label && label?.amount}</p>
 			</div>
 		);
 	}
 	return null;
 };
 
-export const renderCustomizedLabel = ({ 
+export const CustomizedLabel = ({ 
 	cx, 
 	cy,
 	midAngle, 
 	innerRadius, 
 	outerRadius,
 	percent 
-}: CustomLabel) => {
+}: CustomLabelProps) => {
 
 	const RADIAN = Math.PI / 180;
 	const radius = innerRadius + (outerRadius - innerRadius) * 1.3;

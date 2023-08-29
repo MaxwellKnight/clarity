@@ -40,3 +40,10 @@
 	border-radius: .5rem;
 	cursor: default;
 }
+
+
+@media (width < 50rem) {
+	.menu{
+		color: currentColor;
+	}
+}

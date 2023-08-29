@@ -1,9 +1,4 @@
 .home {
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	grid-auto-rows: minmax(15rem, auto);
-	gap: 1rem;
-
 	& .box {
 		padding: 1rem;
 		border-radius: .5rem;
@@ -34,5 +29,14 @@
 	& .box-4 {
 		grid-row: span 2;
 		grid-column: span 2;
+	}
+}
+
+@media (width > 50rem){
+	.home {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		grid-auto-rows: minmax(15rem, auto);
+		gap: 1rem;
 	}
 }
