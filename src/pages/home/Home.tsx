@@ -6,6 +6,7 @@ import { CategoryBox, ChartBox, PieBox } from '../../componenets';
 let colors: string[] = generateColors(pieChartData.length);
 
 const Home = () : JSX.Element => {
+
 	return (
 		<main className="home">
 			<div className="box box-1">
