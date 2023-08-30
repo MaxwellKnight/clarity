@@ -1,9 +1,9 @@
 import { generateColors } from "./colors";
-import { CustomizedLabel } from "./rechartsCustom";
-import { CustomTooltip } from "./rechartsCustom";
+import { CustomizedPieChartLabel } from "./rechartsCustom";
+import { CustomPieChartTooltip } from "./rechartsCustom";
 
 export {
 	generateColors,
-	CustomizedLabel,
-	CustomTooltip
+	CustomizedPieChartLabel,
+	CustomPieChartTooltip
 }

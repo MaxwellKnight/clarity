@@ -4,7 +4,7 @@ import { LangType } from "../types";
 import { PieChartData } from "../types";
 import '../styles/rechartsCustom.css';
 
-interface CustomLabelProps {
+interface CustomPieChartLabelProps {
 	cx: number,
 	cy: number,
 	innerRadius: number,
@@ -19,7 +19,7 @@ interface CustomTooltipProps extends TooltipProps<ValueType, NameType> {
 	data: PieChartData[]
 }
 
-export const CustomTooltip = ({
+export const CustomPieChartTooltip = ({
 	active,
 	payload,
 	lang,
@@ -38,14 +38,14 @@ export const CustomTooltip = ({
 	return null;
 };
 
-export const CustomizedLabel = ({ 
+export const CustomizedPieChartLabel = ({ 
 	cx, 
 	cy,
 	midAngle, 
 	innerRadius, 
 	outerRadius,
 	percent 
-}: CustomLabelProps) => {
+}: CustomPieChartLabelProps) => {
 
 	const RADIAN = Math.PI / 180;
 	const radius = innerRadius + (outerRadius - innerRadius) * 1.3;
