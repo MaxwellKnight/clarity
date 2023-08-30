@@ -4,7 +4,7 @@ Certainly! Below is a template for a README file for your ongoing personal finan
 
 # Personal Finance App
 
-Welcome to the Personal Finance App project! This is a web application developed using TypeScript and React to help you manage your personal finances effectively.
+Welcome to the Personal Finance App project! This is an ongoing web application developed using TypeScript and React to help you manage your personal finances effectively.
 
 ![Homepage Screenshot](clarity-screenshot.png)
 
@@ -46,25 +46,9 @@ The app should now be running at `http://localhost:5173`.
 
 Here are a few screenshots showcasing the app's functionality:
 
-_(Add more details about how to use your app effectively, along with screenshots of different pages and features.)_
-
 ## Technologies Used
 
 - TypeScript
 - React
 - CSS (or your preferred styling method)
 - ... (List any other major technologies or libraries used in your project)
-
-## Contributing
-
-Contributions are welcome! If you find any issues or have suggestions for improvements, feel free to open an issue or submit a pull request. Please read our [Contribution Guidelines](CONTRIBUTING.md) for more information.
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
-
----
-
-_(End of README template)_
-
-Remember to replace the placeholders with actual information specific to your project. Additionally, create the necessary files like `CONTRIBUTING.md`, `LICENSE`, and any other files you might want to include for your project's organization.
