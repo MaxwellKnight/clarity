@@ -4,7 +4,7 @@ import { CheckingData } from "../types/charts.types";
 const getRandomNumber = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
 
 
-const getCheckingHistory = () => {
+export const getCheckingHistory = () => {
 	const checkingHistory: CheckingHistoryData[] = [];
 	const months: MonthType[] = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
 	for (const month of months) {
@@ -16,7 +16,7 @@ const getCheckingHistory = () => {
   return checkingHistory;
 }
 
-const checkingData: CheckingData = {
+export const checkingData: CheckingData = {
 	title_he: 'היסטורית הכנסות מול הוצאות',
 	title_en: 'History of income vs expenses',
 	title_ru: 'История доходов и расходов',
@@ -28,5 +28,21 @@ const checkingData: CheckingData = {
 	colors: ['#bbbbbb', '#82ca9d', '#8884d8']
 }
 
-export {getCheckingHistory, checkingData};
+
+export const checkingTooltipData = {
+	income_he: 'הכנסה',
+	income_en: "income",
+	income_ru: "",
+	income_ar: "",
+
+	expenses_he: 'הוצאות',
+	expenses_en: "expenses",
+	expenses_ru: "",
+	expenses_ar: "",
+
+	saving_he: 'חסכונות',
+	saving_en: "savings",
+	saving_ru: "",
+	saving_ar: ""
+}
 

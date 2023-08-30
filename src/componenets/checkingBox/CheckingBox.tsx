@@ -4,6 +4,7 @@ import { CheckingHistoryData } from '../../types';
 import { checkingData } from '../../data/checking_box.data';
 import { useContext } from 'react';
 import { UIContext } from '../../context';
+import { CustomCheckingTooltip } from '../../utils/rechartsCustom';
 
 interface Props {
 	data: CheckingHistoryData[]
@@ -34,7 +35,7 @@ const CheckingBox = ({ data }: Props) => {
 					>
 						<XAxis dataKey="month" scale="auto"/>
 						<YAxis width={30} />
-						<Tooltip />
+						<Tooltip content={<CustomCheckingTooltip lang={lang}/>}/>
 						<Bar dataKey="income" fill="#8884d8" />
           			<Bar dataKey="expenses" fill="#82ca9d" />
 						<Area type="monotone" dataKey="saving" stroke="#bbbbbb" strokeWidth={5} fill="#bbbbbb" dot={true}/>

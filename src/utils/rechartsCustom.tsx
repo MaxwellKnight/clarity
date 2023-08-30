@@ -1,7 +1,8 @@
 import { TooltipProps } from "recharts";
 import { ValueType, NameType } from "recharts/types/component/DefaultTooltipContent";
-import { LangType } from "../types";
+import {  LangType } from "../types";
 import { PieChartData } from "../types";
+import { checkingTooltipData } from "../data/checking_box.data";
 import '../styles/rechartsCustom.css';
 
 interface CustomPieChartLabelProps {
@@ -14,17 +15,25 @@ interface CustomPieChartLabelProps {
 	index?: number
 }
 
-interface CustomTooltipProps extends TooltipProps<ValueType, NameType> {
+
+interface CustomTooltipPie  {
 	lang: LangType;
 	data: PieChartData[]
 }
+
+interface CustomTooltipChecking  {
+	lang: LangType;
+}
+
+type CustomPieTooltiProps = TooltipProps<ValueType, NameType> & CustomTooltipPie;
+type CustomCheckingTooltiProps = TooltipProps<ValueType, NameType> & CustomTooltipChecking;
 
 export const CustomPieChartTooltip = ({
 	active,
 	payload,
 	lang,
 	data,
-}: CustomTooltipProps) => {
+}: CustomPieTooltiProps) => {
 	if (active && payload) {
 		const label: PieChartData | undefined = data.find((label) => label.category_en === payload[0].payload.name);
 
@@ -58,3 +67,36 @@ export const CustomizedPieChartLabel = ({
 	  </text>
 	);
  };
+
+
+ export const CustomCheckingTooltip = ({
+	active,
+	payload,
+	lang,
+}: CustomCheckingTooltiProps) => {
+	if (active && payload) {
+		const data = payload[0];
+		const incomeColor = payload[0].color;
+		const expensesColor = payload[1].color;
+		const savingsColor = payload[2].color;
+		return (
+			<div className="custom-tooltip" dir={lang.dir}>
+				<div className="checking">
+					<div className="checking-item">
+						<span className="checking-title" style={{color: incomeColor}}>{checkingTooltipData[`income_${lang.lang}`]}</span>
+						<span>{data.payload.income}</span>
+					</div>
+					<div className="checking-item">
+						<span className="checking-title" style={{color: expensesColor}}>{checkingTooltipData[`expenses_${lang.lang}`]}</span>
+						<span>{data.payload.expenses}</span>
+					</div>
+					<div className="checking-item">
+						<span className="checking-title" style={{color: savingsColor}}>{checkingTooltipData[`saving_${lang.lang}`]}</span>
+						<span>{data.payload.saving}</span>
+					</div>
+				</div>
+			</div>
+		);
+	}
+	return null;
+};
