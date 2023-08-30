@@ -31,7 +31,7 @@ export const CustomTooltip = ({
 		return (
 			<div className="custom-tooltip" dir={lang.dir}>
 				<p className="label">{`${label && label[`category_${lang.lang}`]}`}</p>
-				<p className="desc" style={{color: payload[0].payload.fill}}>{label && label?.amount}</p>
+				<p className="desc">{label && label.amount}</p>
 			</div>
 		);
 	}

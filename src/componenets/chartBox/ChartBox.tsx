@@ -1,4 +1,4 @@
-import { Line, LineChart, ResponsiveContainer } from 'recharts';
+import { Line, LineChart, ResponsiveContainer, Tooltip } from 'recharts';
 import { chart_box } from '../../data/chart_box.data';
 import { useContext } from 'react';
 import { UIContext } from '../../context';
@@ -11,37 +11,37 @@ const chartData = [
 	  name: 'Page A',
 	  uv: 300,
 	  pv: 500,
-	  amt: 50,
+	  amount: 50,
 	},
 	{
 	  name: 'Page B',
 	  uv: 3000,
 	  pv: 1398,
-	  amt: 500,
+	  amount: 500,
 	},
 	{
 	  name: 'Page C',
 	  uv: 2000,
 	  pv: 9800,
-	  amt: 156,
+	  amount: 156,
 	},
 	{
 	  name: 'Page D',
 	  uv: 2780,
 	  pv: 3908,
-	  amt: 640,
+	  amount: 640,
 	},
 	{
 	  name: 'Page E',
 	  uv: 1890,
 	  pv: 4800,
-	  amt: 100,
+	  amount: 100,
 	},
 	{
 	  name: 'Page F',
 	  uv: 2390,
 	  pv: 3800,
-	  amt: 150,
+	  amount: 150,
 	}
  ];
 
@@ -58,7 +58,7 @@ const ChartBox = ({ title, label, flux } : Props): JSX.Element => {
 			<div className="chart-info">
 				<div className="chart-income">
 					<span className="chart-title">{chart_box[`title_${title}_${lang.lang}`]}</span>
-					<h2 className="chart-label">{label.amount}</h2>
+					<h2 className="chart-label">{label.totalAmount}</h2>
 				</div>
 				<div className="chart-desc">
 					<span className="percentage" data-type={flux}>{label.percentage}%</span>
@@ -66,9 +66,20 @@ const ChartBox = ({ title, label, flux } : Props): JSX.Element => {
 				</div>
 			</div>
 			<div className="chart">
-				<ResponsiveContainer width="100%" height="100%">
+				<ResponsiveContainer width="99%" height="100%">
 					<LineChart width={300} height={100} data={chartData}>
-						<Line type="basis" dataKey="pv" stroke="#8884d8" strokeWidth={2} dot={false}/>
+						<Tooltip 
+							contentStyle={{background: "transparent", border: "none"}}
+							labelStyle={{display: "none"}}
+							position={{x: 0, y: 0}}
+						/>
+						<Line 
+							type="monotone" 
+							dataKey="amount" 
+							stroke="#8884d8" 
+							strokeWidth={2} 
+							dot={false}
+						/>
 					</LineChart>
 				</ResponsiveContainer>
 				

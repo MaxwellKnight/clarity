@@ -1,12 +1,12 @@
 import { PieChartLabel, PieChartData } from "../types";
 
 export const income: PieChartLabel = {
-	amount: 7000,
+	totalAmount: 7000,
 	percentage: -4.5,
 }
 
 export const expense: PieChartLabel = {
-	amount: 4000,
+	totalAmount: 4000,
 	percentage: 7
 }
 

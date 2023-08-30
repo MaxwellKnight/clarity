@@ -18,6 +18,15 @@ export const menu = [
 			},
 			{
 				id: 2,
+				title_en: "My budget",
+				title_he: "התקציב שלי",
+				title_ar: "ميزانيتي",
+				title_ru: "мой бюджет",
+				url: "/icons/budget-icon.svg",
+				link: "/budget"
+			},
+			{
+				id: 3,
 				title_en: "Expense explorer",
 				title_he: "הוצאות",
 				title_ar: "نفقات",
@@ -26,7 +35,7 @@ export const menu = [
 				link: "/expenses"
 			},
 			{
-				id: 3,
+				id: 4,
 				title_en: "Dreams & goals",
 				title_he: "מטרות ויעדים",
 				title_ar: "الأحلام والأهداف",

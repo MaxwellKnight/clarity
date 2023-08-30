@@ -6,6 +6,16 @@ import {
 	UIState
 }from './ui_context.types';
 
+type MonthType = "JAN" | "FEB" | "MAR" | "APR" | "MAY" | "JUN" |
+				 "JUL" | "AUG" | "SEP" | "OCT" | "NOV" | "DEC";
+
+interface CheckingHistoryData {
+	month: MonthType,
+	income: number,
+	expenses: number,
+	saving: number
+}
+
 export type {
 	LangType,
 	UIAction,
@@ -13,5 +23,7 @@ export type {
 	PieChartLabel,
 	PieChartData,
 	PieChartEntry,
-	UIConstant
+	UIConstant,
+	MonthType,
+	CheckingHistoryData
 }

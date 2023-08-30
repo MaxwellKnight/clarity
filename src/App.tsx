@@ -3,18 +3,18 @@ import {
 	RouterProvider,
 	Outlet
  } from "react-router-dom";
-import Home from "./pages/home/Home";
-import Expenses from "./pages/expenses/Expenses";
-import Savings from "./pages/savings/Savings";
-import Navigation from "./componenets/navigation/Navigation";
-import Footer from "./componenets/footer/Footer";
-import Menu from "./componenets/menu/Menu";
-import Login from "./pages/login/Login";
-import Register from "./pages/register/Register";
+import {	Budget,
+			Expenses,
+			Home,
+			Login,
+			Register,
+			Savings
+} from "./pages";
 import './styles/global.css';
 import { UIContext } from "./context";
 import { useContext } from "react";
 import { UIState } from "./types";
+import { Navigation, Menu, Footer } from "./componenets";
 
 const App = () : JSX.Element => {
 	const { lang, theme } : UIState = useContext(UIContext);
@@ -52,7 +52,12 @@ const App = () : JSX.Element => {
 				{
 					path: "/savings",
 					element: <Savings />
-				}]},
+				},
+				{
+					path: "/budget",
+					element: <Budget />
+				}
+				]},
 		{
 			path: "/login",
 			element: <Login />
