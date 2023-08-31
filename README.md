@@ -1,7 +1,3 @@
-Certainly! Below is a template for a README file for your ongoing personal finance app project developed in TypeScript and React. Remember to replace placeholders with actual information and customize it further as needed.
-
----
-
 # Personal Finance App
 
 Welcome to the Personal Finance App project! This is an ongoing web application developed using TypeScript and React to help you manage your personal finances effectively.
