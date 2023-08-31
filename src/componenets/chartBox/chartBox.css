@@ -2,8 +2,6 @@
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	text-align: center;
-	height: 100%;
-	gap: 1rem;
 
 	& .chart-income {
 		display: flex;
@@ -11,21 +9,21 @@
 		align-items: center;
 
 		& .chart-title {
-			font-size: 1.5rem;
+			font-size: 1.2rem;
 			color: var(--soft-color);
 			text-transform: uppercase;
 		}
 		
 		& .chart-label {
 			margin: .5rem;
-			font-size: 2.5rem;
+			font-size: 1.8rem;
 		}
 	}
 
 	& .chart-info {
 		display: flex;
 		flex-direction: column;
-		gap: 2rem;
+
 		height: 100%;
 		
 		& .chart-desc {
@@ -35,14 +33,10 @@
 			}
 
 			& :first-child {
-				font-size: 2rem;
+				font-size: 1.5rem;
 				margin-block: 1rem;
 			}
 		}
 	}
 
-	& .chart {
-		height: 100%;
-		width: 100%;
-	}
 }

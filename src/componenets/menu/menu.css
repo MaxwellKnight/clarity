@@ -41,8 +41,14 @@
 	cursor: default;
 }
 
+@media (max-width: 1000px){
+	.menu-container {
+		display: none;
+	}
+}
 
-@media (width < 50rem) {
+
+@media (min-width: 50rem) {
 	.menu{
 		color: currentColor;
 	}

@@ -25,6 +25,10 @@ interface CustomTooltipChecking  {
 	lang: LangType;
 }
 
+interface CustomTooltip extends TooltipProps<ValueType, NameType>  {
+	lang: LangType,
+}
+
 type CustomPieTooltiProps = TooltipProps<ValueType, NameType> & CustomTooltipPie;
 type CustomCheckingTooltiProps = TooltipProps<ValueType, NameType> & CustomTooltipChecking;
 
@@ -95,6 +99,22 @@ export const CustomizedPieChartLabel = ({
 						<span>{data.payload.saving}</span>
 					</div>
 				</div>
+			</div>
+		);
+	}
+	return null;
+};
+
+export const CustomChartTooltip = ({
+	active,
+	payload,
+	lang,
+}: CustomTooltip) => {
+	if (active && payload) {
+		console.log(payload);
+		return (
+			<div className="custom-tooltip" dir={lang.dir}>
+				<span className="custom-chart-tooltip">{payload[0].payload.amount}</span>
 			</div>
 		);
 	}

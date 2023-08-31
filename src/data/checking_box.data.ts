@@ -30,19 +30,19 @@ export const checkingData: CheckingData = {
 
 
 export const checkingTooltipData = {
-	income_he: 'הכנסה',
+	income_he: 'הכנסות',
 	income_en: "income",
-	income_ru: "",
-	income_ar: "",
+	income_ru: "доходы",
+	income_ar: "الإيرادات",
 
 	expenses_he: 'הוצאות',
 	expenses_en: "expenses",
-	expenses_ru: "",
-	expenses_ar: "",
+	expenses_ru: "затраты",
+	expenses_ar: "نفقات",
 
 	saving_he: 'חסכונות',
 	saving_en: "savings",
-	saving_ru: "",
-	saving_ar: ""
+	saving_ru: "Экономия",
+	saving_ar: "مدخرات"
 }
 

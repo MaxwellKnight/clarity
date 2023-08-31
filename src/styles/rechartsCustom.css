@@ -25,6 +25,7 @@
 	flex-direction: column;
 	align-items: flex-start;
 	justify-content: space-between;
+	text-transform: capitalize;
 	font-weight: 400;
 	gap: 1rem;
 	font-size: 1.2rem;
@@ -39,4 +40,9 @@
 			font-weight: 500;
 		}
 	}
+}
+
+.custom-chart-tooltip {
+	font-size: 1.2rem;
+	font-weight: 400;
 }

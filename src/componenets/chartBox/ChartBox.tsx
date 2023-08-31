@@ -5,6 +5,7 @@ import { UIContext } from '../../context';
 import { UIState } from '../../types';
 import './chartBox.css';
 import { PieChartLabel } from '../../types';
+import { CustomChartTooltip } from '../../utils/rechartsCustom';
 
 const chartData = [
 	{
@@ -66,11 +67,10 @@ const ChartBox = ({ title, label, flux } : Props): JSX.Element => {
 				</div>
 			</div>
 			<div className="chart">
-				<ResponsiveContainer width="99%" height="100%">
-					<LineChart width={300} height={100} data={chartData}>
+				<ResponsiveContainer width="99%" height="99%">
+					<LineChart width={100} height={100} data={chartData}>
 						<Tooltip 
-							contentStyle={{background: "transparent", border: "none"}}
-							labelStyle={{display: "none"}}
+							content={<CustomChartTooltip lang={lang} />}
 							position={{x: 0, y: 0}}
 						/>
 						<Line 
