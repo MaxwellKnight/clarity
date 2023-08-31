@@ -1,7 +1,9 @@
 .home {
 	display: flex;
 	flex-direction: column;
+	position: relative;
 	gap: 1rem;
+	font-size: .7rem;
 	.box {
 		padding: 1rem;
 		border-radius: .5rem;
@@ -10,21 +12,23 @@
 
 	.box-1{
 		grid-area: income;
-
-		.pie-total {
-			font-weight: bold;
-			font-size: 2rem;
-			position: absolute;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-		}
 	}	
 	.box-2 {
 		grid-area: expenses;
 	}
 	.box-3{
+		position: relative;
+		display: grid;
+		place-items: center;
 		grid-area: piechart;
+		width: 100%;
+		.pie-total {
+			position: absolute;
+			align-items: center;
+			font-weight: bold;
+			font-size: 1.5rem;
+			z-index: 10;
+		}
 	}
 	.box-4 {
 		grid-area: categorybox;
@@ -32,8 +36,23 @@
 	}
 	.box-5 {
 		grid-area: checking;
+		overflow-x: scroll;
 	}
 	
+}
+
+@media (min-width: 600px){
+	.home {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: minmax(200px, auto);
+		grid-template-areas: 
+			"income 			expenses"
+			"piechart 		piechart"
+			"categorybox 	categorybox"
+			"checking 		checking";
+		gap: 1rem;
+	}
 }
 
 @media (min-width: 900px){
@@ -47,6 +66,7 @@
 			"categorybox 	categorybox"
 			"checking 		checking";
 		gap: 1rem;
+		font-size: 1rem;
 	}
 }
 

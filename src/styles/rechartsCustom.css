@@ -45,4 +45,15 @@
 .custom-chart-tooltip {
 	font-size: 1.2rem;
 	font-weight: 400;
+	z-index: 1000;
+}
+
+.none {
+	display: block;
+}
+
+@media (max-width: 500px){
+	.none {
+		display: none;
+	}
 }

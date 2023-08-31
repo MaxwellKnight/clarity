@@ -1,4 +1,4 @@
-import { PieChart, Pie, Cell, Tooltip } from 'recharts';
+import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from 'recharts';
 import './pieBox.css';
 import { PieChartData, PieChartEntry } from '../../types';
 import { CustomPieChartTooltip, CustomizedPieChartLabel } from '../../utils';
@@ -21,24 +21,24 @@ const PieBox = ({ colors, categories }: Props): JSX.Element => {
 	return(
 		<div className="pie-box">
 			<div className="pie">
-				<PieChart width={500} height={500}>
-					<Pie
-						data={data}
-						cx={245}
-						cy={250}
-						innerRadius={100}
-						outerRadius={200}
-						paddingAngle={0}
-						dataKey="value"
-						labelLine={false}
-						label={CustomizedPieChartLabel}
-					>
-						{data.map((_entry, index) => (
-							<Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
-							))}
-					</Pie>
-					<Tooltip content={<CustomPieChartTooltip lang={lang} data={categories}/>}/>
-				</PieChart>
+				<ResponsiveContainer width="99%" height={400}>
+					<PieChart>
+						<Pie
+							data={data}
+							paddingAngle={0}
+							innerRadius={80}
+							outerRadius={120}
+							dataKey="value"
+							labelLine={false}
+							label={CustomizedPieChartLabel}
+							>
+							{data.map((_entry, index) => (
+								<Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
+								))}
+						</Pie>
+						<Tooltip content={<CustomPieChartTooltip lang={lang} data={categories}/>}/>
+					</PieChart>
+					</ResponsiveContainer>
 			</div>
 		</div>
 	)

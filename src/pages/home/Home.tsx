@@ -19,8 +19,8 @@ const Home = () : JSX.Element => {
 				<ChartBox title="expense" label={expense} flux='positive'/>	
 			</div>
 			<div className="box box-3">
-				<span className='pie-total'>{pieChartData.reduce((acc, curr) => acc + curr.amount, 0)}</span>
 				<PieBox categories={pieChartData} colors={colors}/>
+				<span className='pie-total'>{pieChartData.reduce((acc, curr) => acc + curr.amount, 0)}</span>
 			</div>
 			<div className="box box-4">
 				<CategoryBox categories={pieChartData} colors={colors}/>

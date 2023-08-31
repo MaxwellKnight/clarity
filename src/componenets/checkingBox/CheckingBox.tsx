@@ -26,14 +26,12 @@ const CheckingBox = ({ data }: Props) => {
 				</div>
 			</div>
 			<div className="checking-chart">
-				<ResponsiveContainer width="99%" height="100%">
+				<ResponsiveContainer width="99%" height="99%">
 					<ComposedChart
-						width={200}
-						height={200}
 						data={data}
 						margin={{ left: 30 }}
 					>
-						<XAxis dataKey="month" scale="auto"/>
+						<XAxis dataKey="month" scale="auto" />
 						<YAxis width={30} />
 						<Tooltip content={<CustomCheckingTooltip lang={lang}/>}/>
 						<Bar dataKey="income" fill="#8884d8" />

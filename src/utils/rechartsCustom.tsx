@@ -61,12 +61,12 @@ export const CustomizedPieChartLabel = ({
 }: CustomPieChartLabelProps) => {
 
 	const RADIAN = Math.PI / 180;
-	const radius = innerRadius + (outerRadius - innerRadius) * 1.3;
+	const radius = innerRadius + (outerRadius - innerRadius) * 1.8;
 	const x = cx + radius * Math.cos(-midAngle * RADIAN);
 	const y = cy + radius * Math.sin(-midAngle * RADIAN);
  
 	return (
-	  <text x={x} y={y} fill="white" textAnchor={'middle'} dominantBaseline="central">
+	  <text className='none' x={x} y={y} fill="white" textAnchor={'middle'} dominantBaseline="central">
 		 {percent > 0.02 && `${(percent * 100).toFixed(1)}%`}
 	  </text>
 	);
