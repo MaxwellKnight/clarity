@@ -17,9 +17,9 @@
 			justify-content: center;
 			width: 100%;
 			margin-block: 1.5rem;
-			gap: 5rem;
+			gap: 2rem;
 			text-transform: capitalize;
-			font-size: 1.2rem;
+			font-size: .8rem;
 
 			.info-item {
 				display: flex;
@@ -31,6 +31,12 @@
 					width: 1rem;
 					border-radius: .2rem;
 				}
+			}
+		}
+
+		@media (min-width: 1280px){
+			.info-label {
+				font-size: 1.2rem;
 			}
 		}
 	}

@@ -2,7 +2,7 @@ import { ResponsiveContainer, ComposedChart, XAxis, YAxis, Tooltip, Bar, Area } 
 import './checkingBox.css';
 import { CheckingHistoryData } from '../../types';
 import { checkingData } from '../../data/checking_box.data';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { UIContext } from '../../context';
 import { CustomCheckingTooltip } from '../../utils/rechartsCustom';
 
@@ -12,6 +12,23 @@ interface Props {
 
 const CheckingBox = ({ data }: Props) => {
 	const { lang } = useContext(UIContext);
+	const [composedChartData, setComposedChartData] = useState([...data]);
+
+	const handleOnResize = (width: number) => {
+		if(width < 400){
+			setComposedChartData(() => data.slice(8, 12));
+			return;
+		}
+		else if(width < 500) {
+			setComposedChartData(() => data.slice(6, 12));
+			return;
+		}
+		else if(width > 900){
+			setComposedChartData(() => data);
+			return;
+		}
+	}
+
 	return (
 		<div className='checking-box'>
 			<div className="checking-info">
@@ -26,9 +43,9 @@ const CheckingBox = ({ data }: Props) => {
 				</div>
 			</div>
 			<div className="checking-chart">
-				<ResponsiveContainer width="99%" height="99%">
+				<ResponsiveContainer width="99%" height="99%" onResize={(width: number) => handleOnResize(width)}>
 					<ComposedChart
-						data={data}
+						data={composedChartData}
 						margin={{ left: 30 }}
 					>
 						<XAxis dataKey="month" scale="auto" />

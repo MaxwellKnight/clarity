@@ -111,7 +111,6 @@ export const CustomChartTooltip = ({
 	lang,
 }: CustomTooltip) => {
 	if (active && payload) {
-		console.log(payload);
 		return (
 			<div className="custom-tooltip" dir={lang.dir}>
 				<span className="custom-chart-tooltip">{payload[0].payload.amount}</span>
