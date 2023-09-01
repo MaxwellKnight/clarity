@@ -8,8 +8,6 @@ interface Props {
 	uiState: UIState,
 	handleCloseNavbar: () => void,
 }
-
-
 const MobileNavigation = ({ uiState, handleCloseNavbar }: Props) => {
 
 	return ReactDOM.createPortal((

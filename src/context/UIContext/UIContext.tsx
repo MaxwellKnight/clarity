@@ -26,7 +26,7 @@ const reducer = (state: UIState, action: UIAction) => {
 	}
 }
 
-export const UIContext = createContext<UIState>(INITIAL_STATE);
+export const UIContext = createContext<UIState | null>(null);
 
 type Props = { children: ReactNode };
 export const UIContextProvider = ({ children } : Props) => {
@@ -40,7 +40,7 @@ export const UIContextProvider = ({ children } : Props) => {
 }
 
 export const useUIContext = (): UIState => {
-	const context = useContext<UIState>(UIContext);
+	const context = useContext<UIState | null>(UIContext);
 	if(!context){
 		throw new Error("Can not use UIContext outside of it's provider!");
 	}

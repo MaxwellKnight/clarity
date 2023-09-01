@@ -10,17 +10,15 @@ import {	Budget,
 			Register,
 			Savings
 } from "./pages";
-import './styles/global.css';
-import { UIState } from "./types";
-import { Navigation, Menu, Footer } from "./componenets";
-import MobileNavigation from "./componenets/mobileNavigation/mobileNavigation";
+import { Navigation, Menu, Footer, MobileNavigation } from "./componenets";
 import { useUIContext } from "./context/UIContext/UIContext";
 import { UIConstants } from "./constants/ui_constants";
+import './styles/global.css';
 
 const { CLOSE_NAVBAR } = UIConstants
 
 const App = () : JSX.Element => {
-	const { dispatch, ...uiState } : UIState = useUIContext();
+	const { dispatch, ...uiState } = useUIContext();
 	const closeNavbarAction = { type: CLOSE_NAVBAR, ...uiState }
 	const { theme, lang, isNavOpen} = uiState;
 

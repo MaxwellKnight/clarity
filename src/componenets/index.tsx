@@ -5,6 +5,7 @@ import Menu from "./menu/Menu";
 import PieBox from "./pieBox/PieBox";
 import Navigation from "./navigation/Navigation";
 import CheckingBox from "./checkingBox/CheckingBox";
+import MobileNavigation from "./mobileNavigation/mobileNavigation";
 
 export {
 	CategoryBox,
@@ -13,5 +14,6 @@ export {
 	Menu,
 	PieBox,
 	Navigation,
-	CheckingBox
+	CheckingBox,
+	MobileNavigation
 };
