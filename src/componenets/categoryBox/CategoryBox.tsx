@@ -1,8 +1,6 @@
-import { useContext } from 'react';
 import { PieChartData } from '../../types/charts.types';
 import './categoryBox.css';
-import { UIContext } from '../../context';
-import { UIState } from '../../types';
+import { useUIContext } from '../../context/UIContext/UIContext';
 
 type Props = {
  	categories: PieChartData[], 
@@ -10,7 +8,7 @@ type Props = {
 }
 
 const CategoryBox = ({ categories, colors } : Props): JSX.Element => {
-	const { lang } = useContext<UIState>(UIContext);
+	const { lang } = useUIContext();
 
 	return (
 		<div className="category-box">

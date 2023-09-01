@@ -1,6 +1,6 @@
 .custom-tooltip {
 	background-color: var(--dark-bg);
-	padding: 1rem 2rem;
+	padding: .5rem 1rem;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -14,7 +14,7 @@
 	}
 
 	& .desc {
-		font-size: 1.5rem;
+		font-size: 1.2rem;
 		color: white;
 		text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
 	}
@@ -28,7 +28,7 @@
 	text-transform: capitalize;
 	font-weight: 400;
 	gap: 1rem;
-	font-size: 1.2rem;
+	font-size: 1rem;
 
 	.checking-item {
 		width: 100%;
@@ -43,13 +43,19 @@
 }
 
 .custom-chart-tooltip {
-	font-size: 1.2rem;
+	font-size: 1rem;
 	font-weight: 400;
 	z-index: 1000;
 }
 
 .none {
 	display: block;
+}
+
+@media (min-width: 800px){
+	.checking {
+		font-size: 1.2rem;
+	}
 }
 
 @media (max-width: 500px){

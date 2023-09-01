@@ -2,8 +2,7 @@ import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from 'recharts';
 import './pieBox.css';
 import { PieChartData, PieChartEntry } from '../../types';
 import { CustomPieChartTooltip, CustomizedPieChartLabel } from '../../utils';
-import { UIContext } from '../../context';
-import { useContext } from 'react';
+import { useUIContext } from '../../context/UIContext/UIContext';
 
 type Props = { 
 	colors: string[], 
@@ -11,7 +10,7 @@ type Props = {
 };
 
 const PieBox = ({ colors, categories }: Props): JSX.Element => {
-	const { lang } = useContext(UIContext);
+	const { lang } = useUIContext();
 
 	const data: PieChartEntry[] = categories.map((category) => ({
 		name: category.category_en,

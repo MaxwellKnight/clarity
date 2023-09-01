@@ -1,12 +1,10 @@
 import { Link, Location, useLocation } from 'react-router-dom';
 import { menu } from '../../data/menu.data';
-import { useContext } from 'react';
-import { UIContext } from '../../context';
-import { UIState } from '../../types';
 import './menu.css';
+import { useUIContext } from '../../context/UIContext/UIContext';
 
 const Menu = (): JSX.Element => {
-	const { lang } = useContext<UIState>(UIContext);
+	const { lang } = useUIContext();
 	const location : Location = useLocation();
 
 	return (

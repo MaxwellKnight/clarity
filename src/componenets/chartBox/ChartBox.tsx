@@ -1,11 +1,9 @@
 import { Line, LineChart, ResponsiveContainer, Tooltip } from 'recharts';
 import { chart_box } from '../../data/chart_box.data';
-import { useContext } from 'react';
-import { UIContext } from '../../context';
-import { UIState } from '../../types';
 import './chartBox.css';
 import { PieChartLabel } from '../../types';
 import { CustomChartTooltip } from '../../utils/rechartsCustom';
+import { useUIContext } from '../../context/UIContext/UIContext';
 
 const chartData = [
 	{
@@ -53,7 +51,7 @@ const chartData = [
  }
 
 const ChartBox = ({ title, label, flux } : Props): JSX.Element => {
-	const { lang } = useContext<UIState>(UIContext)
+	const { lang } = useUIContext()
 	return (
 		<div className="line-chart">
 			<div className="chart-info">

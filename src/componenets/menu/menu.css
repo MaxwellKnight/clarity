@@ -41,20 +41,11 @@
 	cursor: default;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 800px) {
 	.menu{
 		color: currentColor;
 	}
 	.menu-container {
-		display: none;
-	}
-}
-
-@media (max-width: 800px){
-	.title{
-		display: none;
-	}
-	.list-item-title{
 		display: none;
 	}
 }

@@ -11,18 +11,18 @@ import {	Budget,
 			Savings
 } from "./pages";
 import './styles/global.css';
-import { UIContext } from "./context";
-import { useContext } from "react";
 import { UIState } from "./types";
 import { Navigation, Menu, Footer } from "./componenets";
+import MobileNavigation from "./componenets/mobileNavigation/mobileNavigation";
+import { useUIContext } from "./context/UIContext/UIContext";
 
 const App = () : JSX.Element => {
-	const { lang, theme } : UIState = useContext(UIContext);
-
+	const { lang, theme, isNavOpen } : UIState = useUIContext();
 	const Layout = (): JSX.Element => {
 		return (
 			<div className="main" data-type={theme} dir={lang.dir}>
 				<Navigation />
+				{isNavOpen && <MobileNavigation />}
 				<div className="container">
 					<div className="menu-container">
 						<Menu />
