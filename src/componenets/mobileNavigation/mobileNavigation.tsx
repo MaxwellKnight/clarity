@@ -1,17 +1,16 @@
 import ReactDOM  from 'react-dom';
 import { Link } from 'react-router-dom';
-import { useUIContext } from '../../context/UIContext/UIContext';
 import { menu } from '../../data/menu.data';
-import { UIConstants } from '../../constants/ui_constants';
 import './mobileNavigation.css';
+import { UIState } from '../../types';
 
-const { CLOSE_NAVBAR } = UIConstants;
+interface Props {
+	uiState: UIState,
+	handleCloseNavbar: () => void,
+}
 
-const MobileNavigation = () => {
-	const { dispatch, ...uiState } = useUIContext();
-	const closeNavbarAction = { type: CLOSE_NAVBAR, ...uiState }
 
-	const handleCloseNavbar = () => dispatch && dispatch(closeNavbarAction);
+const MobileNavigation = ({ uiState, handleCloseNavbar }: Props) => {
 
 	return ReactDOM.createPortal((
 		<div className="mobile-navigation" onClick={handleCloseNavbar}>

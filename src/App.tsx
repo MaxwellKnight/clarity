@@ -15,14 +15,21 @@ import { UIState } from "./types";
 import { Navigation, Menu, Footer } from "./componenets";
 import MobileNavigation from "./componenets/mobileNavigation/mobileNavigation";
 import { useUIContext } from "./context/UIContext/UIContext";
+import { UIConstants } from "./constants/ui_constants";
+
+const { CLOSE_NAVBAR } = UIConstants
 
 const App = () : JSX.Element => {
-	const { lang, theme, isNavOpen } : UIState = useUIContext();
+	const { dispatch, ...uiState } : UIState = useUIContext();
+	const closeNavbarAction = { type: CLOSE_NAVBAR, ...uiState }
+	const { theme, lang, isNavOpen} = uiState;
+
+	const handleCloseNavbar = () => dispatch && dispatch(closeNavbarAction);
 	const Layout = (): JSX.Element => {
 		return (
 			<div className="main" data-type={theme} dir={lang.dir}>
 				<Navigation />
-				{isNavOpen && <MobileNavigation />}
+				{isNavOpen && <MobileNavigation handleCloseNavbar={handleCloseNavbar} uiState={uiState}/>}
 				<div className="container">
 					<div className="menu-container">
 						<Menu />
