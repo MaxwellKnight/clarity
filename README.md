@@ -47,4 +47,4 @@ Here are a few screenshots showcasing the app's functionality:
 - TypeScript
 - React
 - CSS (or your preferred styling method)
-- ... (List any other major technologies or libraries used in your project)
+- ...
