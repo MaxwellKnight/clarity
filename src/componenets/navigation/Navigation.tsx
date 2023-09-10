@@ -1,11 +1,11 @@
 import './navigation.css';
-import { UIAction } from '../../types';
 import { UIConstants } from '../../constants/ui_constants';
 import { useUIContext } from '../../context/UIContext/UIContext';
+import { Notification }  from '../../componenets';
 
-const Navigation = (): JSX.Element => {
+const Navigation = () => {
 	const { dispatch, lang, theme } = useUIContext();
-	const closeNavbarAction: UIAction = { type: UIConstants.OPEN_NAVBAR, lang, theme }
+	const closeNavbarAction = { type: UIConstants.OPEN_NAVBAR, lang, theme }
 	const handleOpenNavbar = () => dispatch && dispatch(closeNavbarAction);
 
 	return (
@@ -18,6 +18,7 @@ const Navigation = (): JSX.Element => {
 				<div className="notification">
 					<img className="icon" src="/icons/notification-icon.svg" alt="" />
 					<span>1</span>
+					<Notification />
 				</div>
 				<div className="user">
 					<img className="menu-icon" src="/icons/menu-icon.svg" alt="" onClick={handleOpenNavbar} />

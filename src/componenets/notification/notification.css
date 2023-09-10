@@ -1,0 +1,10 @@
+.notification-box{
+	position: absolute;
+	top: 100;
+	width: 300px;
+	aspect-ratio: 2 / 1;
+	z-index: 10;
+	background-color: firebrick;
+	margin-block-start: 1rem;
+	border-radius: .5rem;
+}

@@ -1,11 +1,12 @@
-import CategoryBox from "./categoryBox/CategoryBox";
-import ChartBox from "./chartBox/ChartBox";
+import CategoryBox from "./charts/categoryBox/CategoryBox";
+import ChartBox from "./charts/chartBox/ChartBox";
 import Footer from "./footer/Footer";
 import Menu from "./menu/Menu";
 import PieBox from "./pieBox/PieBox";
 import Navigation from "./navigation/Navigation";
-import CheckingBox from "./checkingBox/CheckingBox";
+import CheckingBox from "./charts/checkingBox/CheckingBox";
 import MobileNavigation from "./mobileNavigation/mobileNavigation";
+import Notification from "./notification/Notification";
 
 export {
 	CategoryBox,
@@ -15,5 +16,6 @@ export {
 	PieBox,
 	Navigation,
 	CheckingBox,
-	MobileNavigation
+	MobileNavigation,
+	Notification,
 };

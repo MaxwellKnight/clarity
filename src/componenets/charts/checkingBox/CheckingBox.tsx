@@ -1,10 +1,10 @@
 import { ResponsiveContainer, ComposedChart, XAxis, YAxis, Tooltip, Bar, Area } from 'recharts';
 import './checkingBox.css';
-import { CheckingHistoryData } from '../../types';
-import { checkingData } from '../../data/checking_box.data';
+import { CheckingHistoryData } from '../../../types';
+import { checkingData } from '../../../data/checking_box.data';
 import {  useState } from 'react';
-import { CustomCheckingTooltip } from '../../utils/rechartsCustom';
-import { useUIContext } from '../../context/UIContext/UIContext';
+import { CustomCheckingTooltip } from '../../../utils/rechartsCustom';
+import { useUIContext } from '../../../context/UIContext/UIContext';
 
 interface Props {
 	data: CheckingHistoryData[]
