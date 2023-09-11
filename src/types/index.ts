@@ -1,5 +1,6 @@
 import { PieChartLabel,  PieChartData, PieChartEntry } from './charts.types';
 import { UIConstant } from './constants.types';
+import { AccountActionType, Account, AccountAction, AccountState } from './account_context.types';
 import {
 	LangType,
 	UIAction,
@@ -25,5 +26,9 @@ export type {
 	PieChartEntry,
 	UIConstant,
 	MonthType,
-	CheckingHistoryData
+	CheckingHistoryData,
+	AccountActionType,
+	Account,
+	AccountAction,
+	AccountState
 }

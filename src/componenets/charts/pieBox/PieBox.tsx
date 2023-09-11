@@ -1,8 +1,8 @@
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from 'recharts';
 import './pieBox.css';
-import { PieChartData, PieChartEntry } from '../../types';
-import { CustomPieChartTooltip, CustomizedPieChartLabel } from '../../utils';
-import { useUIContext } from '../../context/UIContext/UIContext';
+import { PieChartData, PieChartEntry } from '../../../types';
+import { CustomPieChartTooltip, CustomizedPieChartLabel } from '../../../utils';
+import { useUIContext } from '../../../context';
 
 type Props = { 
 	colors: string[], 

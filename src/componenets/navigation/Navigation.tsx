@@ -1,12 +1,28 @@
 import './navigation.css';
-import { UIConstants } from '../../constants/ui_constants';
-import { useUIContext } from '../../context/UIContext/UIContext';
-import { Notification }  from '../../componenets';
+import { UIConstants } from '../../constants';
+import { useUIContext } from '../../context';
+import { Notifications }  from '../../componenets';
+import { useState } from 'react';
+
+const notificationsData: {title: string, content: string}[] = [
+	{
+		title: "תוכנית חדשה", 
+		content: "קולהע צופעט למרקוח איבן איף, ברומץ כלרשט מיחוצים. קלאצי ושבעגט ליבם סולגק."
+	}, 
+	{
+		title: "תוכנית חדשה", 
+		content: "קולהע צופעט למרקוח איבן איף, ברומץ כלרשט מיחוצים. קלאצי ושבעגט ליבם סולגק."
+	}, 
+	{
+		title: "תוכנית חדשה", 
+		content: "קולהע צופעט למרקוח איבן איף, ברומץ כלרשט מיחוצים. קלאצי ושבעגט ליבם סולגק."
+	}, 
+]
 
 const Navigation = () => {
-	const { dispatch, lang, theme } = useUIContext();
-	const closeNavbarAction = { type: UIConstants.OPEN_NAVBAR, lang, theme }
-	const handleOpenNavbar = () => dispatch && dispatch(closeNavbarAction);
+	const { dispatch, ...state } = useUIContext();
+	const [toggleNotification, setToggleNotification] = useState(false);
+	const handleOpenNavbar = () => dispatch && dispatch({ type: UIConstants.OPEN_NAVBAR, ...state });
 
 	return (
 		<nav className="navigation">
@@ -15,10 +31,14 @@ const Navigation = () => {
 			</div>
 			<div className="icons">
 				<img className="icon" src="/icons/search-icon.svg" alt="" />
-				<div className="notification">
+				<div className="notification" onClick={() => setToggleNotification((prev => !prev))}>
 					<img className="icon" src="/icons/notification-icon.svg" alt="" />
-					<span>1</span>
-					<Notification />
+					{notificationsData.length > 0 && <span>{notificationsData.length}</span>}
+					{toggleNotification && 
+						<Notifications 
+							data={notificationsData}
+						/>
+					}
 				</div>
 				<div className="user">
 					<img className="menu-icon" src="/icons/menu-icon.svg" alt="" onClick={handleOpenNavbar} />

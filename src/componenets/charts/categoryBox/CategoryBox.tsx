@@ -1,6 +1,6 @@
-import { PieChartData } from '../../../types/charts.types';
+import { PieChartData } from '../../../types';
 import './categoryBox.css';
-import { useUIContext } from '../../../context/UIContext/UIContext';
+import { useUIContext } from '../../../context';
 
 type Props = {
  	categories: PieChartData[], 

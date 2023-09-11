@@ -1,12 +1,11 @@
 import { ReactNode, createContext, useContext, useReducer } from "react";
 import { UIState, UIAction} from "../../types";
-import * as lang from "../../constants/langs";
-import { UIConstants } from "../../constants/ui_constants";
+import { UIConstants, he } from "../../constants";
 
 const { CHANGE_LANG, CHANGE_THEME, OPEN_NAVBAR, CLOSE_NAVBAR } = UIConstants;
 
 const INITIAL_STATE : UIState = {
-	lang: lang.he,
+	lang: he,
 	theme: "dark",
 	isNavOpen: false,
 }

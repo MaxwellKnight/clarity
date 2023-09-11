@@ -4,7 +4,7 @@ import { CheckingHistoryData } from '../../../types';
 import { checkingData } from '../../../data/checking_box.data';
 import {  useState } from 'react';
 import { CustomCheckingTooltip } from '../../../utils/rechartsCustom';
-import { useUIContext } from '../../../context/UIContext/UIContext';
+import { useUIContext } from '../../../context';
 
 interface Props {
 	data: CheckingHistoryData[]

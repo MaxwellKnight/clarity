@@ -1,7 +1,7 @@
 import { Link, Location, useLocation } from 'react-router-dom';
 import { menu } from '../../data/menu.data';
+import { useUIContext } from '../../context';
 import './menu.css';
-import { useUIContext } from '../../context/UIContext/UIContext';
 
 const Menu = (): JSX.Element => {
 	const { lang } = useUIContext();
