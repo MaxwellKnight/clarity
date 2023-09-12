@@ -9,6 +9,7 @@ import MobileNavigation from "./mobileNavigation/mobileNavigation";
 import Notifications from "./notification/Notifications";
 import ProgressGrid from "./progressGrid/ProgressGrid";
 import CheckingWidget from "./widgets/checkingWidget/CheckingWidget";
+import Dropdown from "./dropdown/Dropdown";
 
 export {
 	CategoryBox,
@@ -21,5 +22,6 @@ export {
 	MobileNavigation,
 	Notifications,
 	ProgressGrid,
-	CheckingWidget
+	CheckingWidget,
+	Dropdown
 };

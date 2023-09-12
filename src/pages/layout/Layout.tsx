@@ -1,8 +1,8 @@
 import { Outlet } from 'react-router-dom';
 import { Footer, Menu, Navigation } from '../../componenets';
 import { AccountContextProvier, useUIContext } from '../../context';
-import './layout.css';
 import { NotificationData } from '../../types';
+import './layout.css';
 
 interface LayoutProps {
 	isMobileNavOpen: boolean,
@@ -13,7 +13,7 @@ interface LayoutProps {
 const Layout = ({isMobileNavOpen, notifications, closeMobileNav}: LayoutProps): JSX.Element => {
 	const ui = useUIContext();
 	return (
-		<main className="main" data-type={ui.theme} dir={ui.lang.dir}>
+		<div className="main" data-type={ui.theme} dir={ui.lang.dir}>
 			<Navigation 
 				isMobile={isMobileNavOpen}
 				notifications={notifications} 
@@ -23,14 +23,14 @@ const Layout = ({isMobileNavOpen, notifications, closeMobileNav}: LayoutProps): 
 				<div className="menu-container">
 					<Menu />
 				</div>
-				<div className="content-container">
+				<main className="content-container">
 					<AccountContextProvier>
 						<Outlet />
 					</AccountContextProvier>
-				</div>
+				</main>
 			</div>
 			<Footer />
-		</main>
+		</div>
 	)
 }
 
