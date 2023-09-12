@@ -1,9 +1,10 @@
-import { generateColors } from "./colors";
-import { CustomizedPieChartLabel } from "./rechartsCustom";
-import { CustomPieChartTooltip } from "./rechartsCustom";
+import { generateColors } from "./colors.utils";
+import { CustomizedPieChartLabel } from "./recharts.utils";
+import { CustomPieChartTooltip, CustomCheckingTooltip } from "./recharts.utils";
 
 export {
 	generateColors,
 	CustomizedPieChartLabel,
-	CustomPieChartTooltip
+	CustomPieChartTooltip,
+	CustomCheckingTooltip
 }

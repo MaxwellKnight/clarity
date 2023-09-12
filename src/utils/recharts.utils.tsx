@@ -15,7 +15,6 @@ interface CustomPieChartLabelProps {
 	index?: number
 }
 
-
 interface CustomTooltipPie  {
 	lang: LangType;
 	data: PieChartData[]
@@ -59,7 +58,6 @@ export const CustomizedPieChartLabel = ({
 	outerRadius,
 	percent 
 }: CustomPieChartLabelProps) => {
-
 	const RADIAN = Math.PI / 180;
 	const radius = innerRadius + (outerRadius - innerRadius) * 1.8;
 	const x = cx + radius * Math.cos(-midAngle * RADIAN);
@@ -87,15 +85,27 @@ export const CustomizedPieChartLabel = ({
 			<div className="custom-tooltip" dir={lang.dir}>
 				<div className="checking">
 					<div className="checking-item">
-						<span className="checking-title" style={{color: incomeColor}}>{checkingTooltipData[`income_${lang.lang}`]}</span>
+						<span 
+							className="checking-title" 
+							style={{color: incomeColor}}>
+									{checkingTooltipData[`income_${lang.lang}`]}
+						</span>
 						<span>{data.payload.income}</span>
 					</div>
 					<div className="checking-item">
-						<span className="checking-title" style={{color: expensesColor}}>{checkingTooltipData[`expenses_${lang.lang}`]}</span>
+						<span 
+							className="checking-title" 
+							style={{color: expensesColor}}>
+								{checkingTooltipData[`expenses_${lang.lang}`]}
+						</span>
 						<span>{data.payload.expenses}</span>
 					</div>
 					<div className="checking-item">
-						<span className="checking-title" style={{color: savingsColor}}>{checkingTooltipData[`saving_${lang.lang}`]}</span>
+						<span 
+							className="checking-title" 
+							style={{color: savingsColor}}>
+								{checkingTooltipData[`saving_${lang.lang}`]}
+						</span>
 						<span>{data.payload.saving}</span>
 					</div>
 				</div>

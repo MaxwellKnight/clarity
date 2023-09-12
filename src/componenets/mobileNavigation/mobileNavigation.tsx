@@ -2,17 +2,26 @@ import { Link } from 'react-router-dom';
 import { menu } from '../../data/menu.data';
 import './mobileNavigation.css';
 import { useUIContext } from '../../context';
+import { NotificationData } from '../../types';
+import { Notifications } from '..';
 
 interface MobileNavigationProps {
+	notifications: NotificationData[],
 	handleCloseNavbar: () => void,
 }
-const MobileNavigation = ({ handleCloseNavbar }: MobileNavigationProps) => {
+const MobileNavigation = ({ notifications, handleCloseNavbar }: MobileNavigationProps) => {
 	const ui = useUIContext();
 
 	return (
 		<div className="mobile-navigation" onClick={handleCloseNavbar}>
+			{notifications.length > 0 && <div className="navigation-item">
+				<span className='notification-title'>התראות</span>
+			</div>}
+			<div className="navigation-item">
+				<Notifications data={notifications}/>
+			</div>
 			{menu.map((item) => (
-				<div className="item" key={item.id}>
+				<div className="navigation-item" key={item.id}>
 					{item.list_items.map((listItem) => (
 						<Link 
 							to={listItem.link}

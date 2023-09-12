@@ -7,6 +7,8 @@ import Navigation from "./navigation/Navigation";
 import CheckingBox from "./charts/checkingBox/CheckingBox";
 import MobileNavigation from "./mobileNavigation/mobileNavigation";
 import Notifications from "./notification/Notifications";
+import ProgressGrid from "./progressGrid/ProgressGrid";
+import CheckingWidget from "./widgets/checkingWidget/CheckingWidget";
 
 export {
 	CategoryBox,
@@ -18,4 +20,6 @@ export {
 	CheckingBox,
 	MobileNavigation,
 	Notifications,
+	ProgressGrid,
+	CheckingWidget
 };

@@ -21,16 +21,6 @@ export interface Account {
 	rent: number,
 	cashReserve: number,
 	reserve: number
-	expenses: () => number,
-	netIncome: () => number,
-	basicExpenses: () => number,
-	basicNonCredit: () => number,
-	luxuryExpenses: () => number,
-	maxCredit: () => number,
-	netChange: () => number,
-	quickReserve: () => number,
-	antChange: () => number,
-	availableBalance: () => number,
 }
 
 export interface AccountAction {

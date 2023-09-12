@@ -24,36 +24,6 @@ const initial: AccountState = {
 	cashReserve: 300,
 	possDev: 100,
 	reserve: 100,
-	expenses: function (){ 
-		return this.credit + this.cash + this.fixed
-	},
-	netIncome: function() {
-		return this.income - this.expenses();
-	},
-	basicExpenses: function(){
-		return this.housing + this.fixedBasic + this.fixedFromBank;
-	},
-	luxuryExpenses: function() {
-		return this.income - this.basicExpenses() - this.savingGoal;
-	},
-	basicNonCredit: function() {
-		return this.rent + this.fixedFromBank;
-	},
-	maxCredit: function(){
-		return this.basicExpenses() + this.luxuryExpenses() - this.basicNonCredit() - this.cash;
-	},
-	netChange: function() {
-		return this.netIncome() - this.savingSub;
-	},
-	quickReserve: function() {
-		return this.cashReserve - this.reserve;
-	},
-	antChange: function(){
-		return this.income - this.basicNonCredit() - this.maxCredit() - this.savingSub - this.possDev - this.quickReserve();
-	},
-	availableBalance: function(){
-		return this.balance + this.antChange() - this.quickReserve()
-	},
 }
 
 interface AccountContextProviderProps {

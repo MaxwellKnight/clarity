@@ -1,0 +1,9 @@
+.progress-grid {
+	width: 50rem;
+	height: 300px;
+
+	.grid {
+		background-color: var(--main-color);
+		text-align: center;
+	}
+}

@@ -13,7 +13,7 @@ interface LayoutProps {
 const Layout = ({isMobileNavOpen, notifications, closeMobileNav}: LayoutProps): JSX.Element => {
 	const ui = useUIContext();
 	return (
-		<div className="main" data-type={ui.theme} dir={ui.lang.dir}>
+		<main className="main" data-type={ui.theme} dir={ui.lang.dir}>
 			<Navigation 
 				isMobile={isMobileNavOpen}
 				notifications={notifications} 
@@ -30,7 +30,7 @@ const Layout = ({isMobileNavOpen, notifications, closeMobileNav}: LayoutProps): 
 				</div>
 			</div>
 			<Footer />
-		</div>
+		</main>
 	)
 }
 

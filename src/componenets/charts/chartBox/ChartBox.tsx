@@ -2,7 +2,7 @@ import { Line, LineChart, ResponsiveContainer, Tooltip } from 'recharts';
 import { chart_box } from '../../../data/chart_box.data';
 import './chartBox.css';
 import { PieChartLabel } from '../../../types';
-import { CustomChartTooltip } from '../../../utils/rechartsCustom';
+import { CustomChartTooltip } from '../../../utils/recharts.utils';
 import { useUIContext } from '../../../context/UIContext/UIContext';
 
 const chartData = [

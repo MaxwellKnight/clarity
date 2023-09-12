@@ -1,5 +1,5 @@
 import './home.css';
-import { generateColors } from '../../utils/colors';
+import { generateColors } from '../../utils/colors.utils';
 import { pieChartData, income, expense } from '../../data/pie_chart.data';
 import { CategoryBox, ChartBox, CheckingBox, PieBox } from '../../componenets';
 import { getCheckingHistory } from '../../data/checking_box.data';
@@ -11,7 +11,7 @@ const checkingHistory: CheckingHistoryData[] = getCheckingHistory();
 const Home = () : JSX.Element => {
 
 	return (
-		<main className="home">
+		<section className="home">
 			<div className="box box-1">
 				<ChartBox title="income" label={income} flux='negative'/>
 			</div>
@@ -28,7 +28,7 @@ const Home = () : JSX.Element => {
 			<div className="box box-5">
 				<CheckingBox data={checkingHistory}/>
 			</div>
-		</main>
+		</section>
 	);
 }
 

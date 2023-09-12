@@ -11,7 +11,8 @@ interface NavigationProps {
 
 const Navigation = ({isMobile, notifications, closeMobileNav}: NavigationProps) => {
 	const [toggleNotification, setToggleNotification] = useState(false);
-
+	const handleToggleNotifications = () => setToggleNotification(prev => !prev)
+	
 	return (!isMobile ? 
 		<nav className="navigation">
 			<div className="logo">
@@ -24,7 +25,7 @@ const Navigation = ({isMobile, notifications, closeMobileNav}: NavigationProps) 
 						className="icon" 
 						src="/icons/notification-icon.svg" 
 						alt="notification icon" 
-						onClick={() => setToggleNotification((prev => !prev))}
+						onClick={handleToggleNotifications}
 					/>
 					{notifications.length > 0 && <span>{notifications.length}</span>}
 					{toggleNotification && <Notifications data={notifications}/> }
@@ -39,7 +40,7 @@ const Navigation = ({isMobile, notifications, closeMobileNav}: NavigationProps) 
 					/>
 				</div>
 			</div>
-		</nav> : <MobileNavigation handleCloseNavbar={closeMobileNav} />
+		</nav> : <MobileNavigation notifications={notifications} handleCloseNavbar={closeMobileNav} />
 	)
 }
 

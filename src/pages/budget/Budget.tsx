@@ -1,10 +1,17 @@
+import { CheckingWidget } from '../../componenets';
 import './budget.css';
 
+
+const widgetData = {
+	income: 11867,
+	fixedExpenses: 3903,
+	dynamicExpenses: 3830,
+}
 const Budget = () => {
 	return (
-		<div className='my-budget'>
-			התקציב שלי
-		</div>
+		<section className='my-budget'>
+			<CheckingWidget {...widgetData}/>
+		</section>
 	)
 };
 
