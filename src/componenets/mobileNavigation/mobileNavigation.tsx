@@ -2,13 +2,13 @@ import ReactDOM  from 'react-dom';
 import { Link } from 'react-router-dom';
 import { menu } from '../../data/menu.data';
 import './mobileNavigation.css';
-import { UIState } from '../../types';
+import { useUIContext } from '../../context';
 
-interface Props {
-	uiState: UIState,
+interface MobileNavigationProps {
 	handleCloseNavbar: () => void,
 }
-const MobileNavigation = ({ uiState, handleCloseNavbar }: Props) => {
+const MobileNavigation = ({ handleCloseNavbar }: MobileNavigationProps) => {
+	const ui = useUIContext();
 
 	return ReactDOM.createPortal((
 		<div className="mobile-navigation" onClick={handleCloseNavbar}>
@@ -21,7 +21,7 @@ const MobileNavigation = ({ uiState, handleCloseNavbar }: Props) => {
 							key={listItem.id}
 						>
 							<img src={listItem.url} alt="easy glanse" />
-							<span className='list-item-title'>{listItem[`title_${uiState.lang.lang}`]}</span>
+							<span className='list-item-title'>{listItem[`title_${ui.lang.lang}`]}</span>
 						</Link>
 					))}
 				</div>

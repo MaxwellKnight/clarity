@@ -4,12 +4,12 @@ import { PieChartData, PieChartEntry } from '../../../types';
 import { CustomPieChartTooltip, CustomizedPieChartLabel } from '../../../utils';
 import { useUIContext } from '../../../context';
 
-type Props = { 
+type PieBoxProps = { 
 	colors: string[], 
 	categories: PieChartData[],
 };
 
-const PieBox = ({ colors, categories }: Props): JSX.Element => {
+const PieBox = ({ colors, categories }: PieBoxProps): JSX.Element => {
 	const { lang } = useUIContext();
 
 	const data: PieChartEntry[] = categories.map((category) => ({

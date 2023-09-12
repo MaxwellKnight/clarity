@@ -2,12 +2,12 @@ import { PieChartData } from '../../../types';
 import './categoryBox.css';
 import { useUIContext } from '../../../context';
 
-type Props = {
+type CategoryBoxProps = {
  	categories: PieChartData[], 
 	colors: string[]
 }
 
-const CategoryBox = ({ categories, colors } : Props): JSX.Element => {
+const CategoryBox = ({ categories, colors } : CategoryBoxProps): JSX.Element => {
 	const { lang } = useUIContext();
 
 	return (

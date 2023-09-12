@@ -9,11 +9,10 @@ export type LangType = Hebrew | Arabic | English | Russian;
 export type UIState = {
 	lang: LangType,
 	theme: string,
-	isNavOpen: boolean,
 	dispatch?: Dispatch<UIAction>,
 };
 
-type UIActionType = 'CHANGE_LANG' | 'CHANGE_THEME' | 'OPEN_NAVBAR' | 'CLOSE_NAVBAR';
+type UIActionType = 'CHANGE_LANG' | 'CHANGE_THEME';
 export type UIAction = {
 	type: UIActionType,
 	lang: LangType,

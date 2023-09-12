@@ -1,47 +1,36 @@
 import './navigation.css';
-import { UIConstants } from '../../constants';
-import { useUIContext } from '../../context';
-import { Notifications }  from '../../componenets';
+import { MobileNavigation, Notifications }  from '../../componenets';
 import { useState } from 'react';
+import { NotificationData } from '../../types';
 
-const notificationsData: {title: string, content: string}[] = [
-	{
-		title: "תוכנית חדשה", 
-		content: "קולהע צופעט למרקוח איבן איף, ברומץ כלרשט מיחוצים. קלאצי ושבעגט ליבם סולגק."
-	}, 
-	{
-		title: "תוכנית חדשה", 
-		content: "קולהע צופעט למרקוח איבן איף, ברומץ כלרשט מיחוצים. קלאצי ושבעגט ליבם סולגק."
-	}, 
-	{
-		title: "תוכנית חדשה", 
-		content: "קולהע צופעט למרקוח איבן איף, ברומץ כלרשט מיחוצים. קלאצי ושבעגט ליבם סולגק."
-	}, 
-]
+interface NavigationProps {
+	isMobile: boolean,
+	notifications: NotificationData[],
+	closeMobileNav: () => void
+}
 
-const Navigation = () => {
-	const { dispatch, ...state } = useUIContext();
+const Navigation = ({isMobile, notifications, closeMobileNav}: NavigationProps) => {
 	const [toggleNotification, setToggleNotification] = useState(false);
-	const handleOpenNavbar = () => dispatch && dispatch({ type: UIConstants.OPEN_NAVBAR, ...state });
 
-	return (
+	return (isMobile ?
 		<nav className="navigation">
 			<div className="logo">
 				<span>Clarity</span>
 			</div>
 			<div className="icons">
 				<img className="icon" src="/icons/search-icon.svg" alt="" />
-				<div className="notification" onClick={() => setToggleNotification((prev => !prev))}>
-					<img className="icon" src="/icons/notification-icon.svg" alt="" />
-					{notificationsData.length > 0 && <span>{notificationsData.length}</span>}
-					{toggleNotification && 
-						<Notifications 
-							data={notificationsData}
-						/>
-					}
+				<div className="notification">
+					<img 
+						className="icon" 
+						src="/icons/notification-icon.svg" 
+						alt="notification icon" 
+						onClick={() => setToggleNotification((prev => !prev))}
+					/>
+					{notifications.length > 0 && <span>{notifications.length}</span>}
+					{toggleNotification && <Notifications data={notifications}/> }
 				</div>
 				<div className="user">
-					<img className="menu-icon" src="/icons/menu-icon.svg" alt="" onClick={handleOpenNavbar} />
+					<img className="menu-icon" src="/icons/menu-icon.svg" alt="" onClick={closeMobileNav} />
 					<span>Louish</span>
 					<img 
 						className='user-icon'
@@ -50,7 +39,7 @@ const Navigation = () => {
 					/>
 				</div>
 			</div>
-		</nav>
+		</nav> : <MobileNavigation handleCloseNavbar={closeMobileNav} />
 	)
 }
 

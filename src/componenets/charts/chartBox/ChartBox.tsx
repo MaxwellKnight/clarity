@@ -44,13 +44,13 @@ const chartData = [
 	}
  ];
 
- type Props = {
+ type ChartBoxProps = {
 	title: "income" | "expense",
 	label: PieChartLabel,
 	flux: string
  }
 
-const ChartBox = ({ title, label, flux } : Props): JSX.Element => {
+const ChartBox = ({ title, label, flux } : ChartBoxProps): JSX.Element => {
 	const { lang } = useUIContext()
 	return (
 		<div className="line-chart">

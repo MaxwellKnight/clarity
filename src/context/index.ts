@@ -1,8 +1,9 @@
-import { UIContext, UIContextProvider } from './UIContext/UIContext';
-import { useUIContext } from './UIContext/UIContext';
+import { useUIContext, UIContextProvider } from './UIContext/UIContext';
+import { useAccount, AccountContextProvier } from './AccountContext/AccountContext';
 
 export {
-	UIContext,
 	UIContextProvider,
-	useUIContext
+	AccountContextProvier,
+	useUIContext,
+	useAccount,
 }

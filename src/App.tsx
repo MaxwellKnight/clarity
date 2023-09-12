@@ -3,37 +3,54 @@ import {
 	RouterProvider,
 	Outlet
  } from "react-router-dom";
-import {	Budget,
-			Expenses,
-			Home,
-			Login,
-			Register,
-			Savings
+import {	
+	Budget,
+	Expenses,
+	Home,
+	Login,
+	Register,
+	Savings
 } from "./pages";
-import { Navigation, Menu, Footer, MobileNavigation } from "./componenets";
-import { useUIContext } from "./context/UIContext/UIContext";
-import { UIConstants } from "./constants/ui_constants";
+import { useState } from "react";
+import { useUIContext } from "./context";
+import { NotificationData } from "./types";
+import { AccountContextProvier } from "./context";
+import { Navigation, Menu, Footer } from "./componenets";
 import './styles/global.css';
 
-const { CLOSE_NAVBAR } = UIConstants
+const notificationsData: NotificationData[] = [
+	{
+		title: "תוכנית חדשה", 
+		content: "קולהע צופעט למרקוח איבן איף, ברומץ כלרשט מיחוצים. קלאצי ושבעגט ליבם סולגק."
+	}, 
+	{
+		title: "תוכנית חדשה", 
+		content: "קולהע צופעט למרקוח איבן איף, ברומץ כלרשט מיחוצים. קלאצי ושבעגט ליבם סולגק."
+	}, 
+	{
+		title: "תוכנית חדשה", 
+		content: "קולהע צופעט למרקוח איבן איף, ברומץ כלרשט מיחוצים. קלאצי ושבעגט ליבם סולגק."
+	}, 
+]
 
 const App = () : JSX.Element => {
-	const { dispatch, ...uiState } = useUIContext();
-	const closeNavbarAction = { type: CLOSE_NAVBAR, ...uiState }
-	const { theme, lang, isNavOpen} = uiState;
+	const { dispatch, ...ui } = useUIContext();
+	const [isMobileNavOpen, toggleIsNavOpen] = useState(false);
 
-	const handleCloseNavbar = () => dispatch && dispatch(closeNavbarAction);
+	const handleToggle = () => toggleIsNavOpen(prev => !prev);
+
 	const Layout = (): JSX.Element => {
 		return (
-			<div className="main" data-type={theme} dir={lang.dir}>
-				<Navigation />
-				{isNavOpen && <MobileNavigation handleCloseNavbar={handleCloseNavbar} uiState={uiState}/>}
+			<div className="main" data-type={ui.theme} dir={ui.lang.dir}>
+				<Navigation isMobile={isMobileNavOpen} notifications={notificationsData} closeMobileNav={handleToggle}/>
 				<div className="container">
 					<div className="menu-container">
 						<Menu />
 					</div>
 					<div className="content-container">
-						<Outlet />
+						<AccountContextProvier>
+							<Outlet />
+						</AccountContextProvier>
 					</div>
 				</div>
 				<Footer />
@@ -41,36 +58,18 @@ const App = () : JSX.Element => {
 		)
 	}
 
-	const router = createBrowserRouter([
-		{
-			path: "/",
-			element: <Layout />,
-			children: [
-				{
-				path: "/",
-				element: <Home />
-				},
-				{
-				path: "/expenses",
-				element: <Expenses />
-				},
-				{
-					path: "/savings",
-					element: <Savings />
-				},
-				{
-					path: "/budget",
-					element: <Budget />
-				}
-				]},
-		{
-			path: "/login",
-			element: <Login />
-		},
-		{
-			path: "/register",
-			element: <Register />
-		}
+	const router = createBrowserRouter([{
+		path: "/",
+		element: <Layout />,
+		children: [
+			{ path: "/", element: <Home /> },
+			{ path: "/expenses", element: <Expenses /> },
+			{ path: "/savings", element: <Savings /> },
+			{ path: "/budget", element: <Budget /> }
+		]},
+
+		{ path: "/login", element: <Login /> },
+		{ path: "/register", element: <Register /> }
 	]);
 
   return (
