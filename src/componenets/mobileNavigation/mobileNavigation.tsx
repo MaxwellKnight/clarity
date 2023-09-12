@@ -1,4 +1,3 @@
-import ReactDOM  from 'react-dom';
 import { Link } from 'react-router-dom';
 import { menu } from '../../data/menu.data';
 import './mobileNavigation.css';
@@ -10,7 +9,7 @@ interface MobileNavigationProps {
 const MobileNavigation = ({ handleCloseNavbar }: MobileNavigationProps) => {
 	const ui = useUIContext();
 
-	return ReactDOM.createPortal((
+	return (
 		<div className="mobile-navigation" onClick={handleCloseNavbar}>
 			{menu.map((item) => (
 				<div className="item" key={item.id}>
@@ -27,7 +26,7 @@ const MobileNavigation = ({ handleCloseNavbar }: MobileNavigationProps) => {
 				</div>
 			))}
 		</div>
-	), document.getElementById("root")!);
+	)
 };
 
 export default MobileNavigation;

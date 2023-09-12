@@ -4,6 +4,7 @@ import Home from "./home/Home";
 import Login from "./login/Login";
 import Register from "./register/Register";
 import Savings from "./savings/Savings";
+import Layout from "./layout/Layout";
 
 export {
 	Budget,
@@ -11,5 +12,6 @@ export {
 	Home,
 	Login,
 	Register,
-	Savings
+	Savings,
+	Layout
 };

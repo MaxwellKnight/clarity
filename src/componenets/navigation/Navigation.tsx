@@ -1,7 +1,7 @@
 import './navigation.css';
-import { MobileNavigation, Notifications }  from '../../componenets';
 import { useState } from 'react';
 import { NotificationData } from '../../types';
+import { MobileNavigation, Notifications }  from '../../componenets';
 
 interface NavigationProps {
 	isMobile: boolean,
@@ -12,7 +12,7 @@ interface NavigationProps {
 const Navigation = ({isMobile, notifications, closeMobileNav}: NavigationProps) => {
 	const [toggleNotification, setToggleNotification] = useState(false);
 
-	return (isMobile ?
+	return (!isMobile ? 
 		<nav className="navigation">
 			<div className="logo">
 				<span>Clarity</span>

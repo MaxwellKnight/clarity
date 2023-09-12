@@ -58,40 +58,5 @@ a {
 
 body {
 	font-size: 14px;
-}
-
-.main {
-	font-family: 'Noto Sans Hebrew', sans-serif;
-	background-color: var(--main-bg);
-	color: var(--main-color);
-	min-height: 100vh;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-
-	.container {
-		display: flex;
-		align-items: center;
-		height: 100%;
-
-		.menu-container {
-			padding: 0 2rem;
-			font-size: 20px;
-			border-inline-end: .2rem solid var(--soft-bg);
-			align-self: flex-start;
-		}
-
-		.content-container {
-			padding: 0 2rem;
-			width: 100%;
-		}
-	}
-}
-
-.main, [data-type='dark']{
-	background: hsla(219, 38%, 32%, 1);
-	background: radial-gradient(circle, hsla(219, 38%, 32%, 1) 0%, hsla(219, 28%, 18%, 1) 100%);
-	background: -moz-radial-gradient(circle, hsla(219, 38%, 32%, 1) 0%, hsla(219, 28%, 18%, 1) 100%);
-	background: -webkit-radial-gradient(circle, hsla(219, 38%, 32%, 1) 0%, hsla(219, 28%, 18%, 1) 100%);
-	filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#334971", endColorstr="#222B3C", GradientType=1 );
+	position: relative;
 }
