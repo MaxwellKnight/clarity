@@ -13,10 +13,10 @@ interface LayoutProps {
 }
 
 const Layout = ({isMobileNavOpen, notifications, closeMobileNav, dir}: LayoutProps): JSX.Element => {
-	const ui = useTheme();
+	const { theme } = useTheme();
 	return (
 		<Suspense fallback={<div>Loading...</div>}>
-			<div className="main" data-type={ui.theme} dir={dir}>
+			<div className="main" data-type={theme} dir={dir}>
 				<Navigation 
 					isMobile={isMobileNavOpen}
 					notifications={notifications} 
