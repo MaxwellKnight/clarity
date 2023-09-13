@@ -13,7 +13,6 @@ const Budget = () => {
 				className=''
 				label='חודש'
 				options={[{value: 0, label: 0}, {value: 1, label: 1}]}
-				renderOption={(option) => option.label}
 			/>
 			<CheckingWidget {...widgetData}/>
 		</section>

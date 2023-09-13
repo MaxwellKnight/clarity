@@ -1,6 +1,7 @@
 import { Link, Location, useLocation } from 'react-router-dom';
 import { menu } from '../../data/menu.data';
 import { useUIContext } from '../../context';
+import { Icon } from '../../componenets';
 import './menu.css';
 
 const Menu = (): JSX.Element => {
@@ -18,7 +19,12 @@ const Menu = (): JSX.Element => {
 							className={`list-item ${location.pathname === listItem.link ? 'active' : ''}`} 
 							key={listItem.id}
 						>
-							<img src={listItem.url} alt="easy glanse" />
+							<Icon 
+								svg={{
+									fill: '#ffff'
+								}}
+								name={listItem.url}
+							/>
 							<span className='list-item-title'>{listItem[`title_${lang.lang}`]}</span>
 						</Link>
 					))}

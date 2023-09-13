@@ -7,7 +7,7 @@ interface CheckingWidgetProps {
 	dynamicExpenses: number,
 }
 const CheckingWidget = ({income, fixedExpenses, dynamicExpenses}: CheckingWidgetProps) => {
-	const savings = income - fixedExpenses - dynamicExpenses;
+	const savings = income - (fixedExpenses + dynamicExpenses);
 	return (
 		<div className="checking-widget">
 			<div className="income">

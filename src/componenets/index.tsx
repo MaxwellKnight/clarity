@@ -10,6 +10,7 @@ import Notifications from "./notification/Notifications";
 import ProgressGrid from "./progressGrid/ProgressGrid";
 import CheckingWidget from "./widgets/checkingWidget/CheckingWidget";
 import Dropdown from "./dropdown/Dropdown";
+import Icon from "./icon/Icon";
 
 export {
 	CategoryBox,
@@ -23,5 +24,6 @@ export {
 	Notifications,
 	ProgressGrid,
 	CheckingWidget,
-	Dropdown
+	Dropdown,
+	Icon
 };
