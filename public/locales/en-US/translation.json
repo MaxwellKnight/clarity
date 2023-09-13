@@ -1,0 +1,76 @@
+{
+	"overview": "overview",
+	"my_budget": "my budget",
+	"my_goals": "goals",
+	"compared_to_last_month": "compared to last month",
+	"income": "income",
+	"net_income": "net income",
+	"expenses": "expenses",
+	"savings": "savings",
+	"saving": "saving",
+	"month": "month",
+	"choose_month": "choose a month",
+	"fixed_expenses": "fixed expenses",
+	"dynamic_expenses": "dynamic expenses",
+
+	"menu": {
+		"quick_menu": "quick menu",
+		"overview": "overview",
+		"my_budget": "my budget",
+		"expense_explorer": "expense explorer",
+		"dreams_goals": "dreams & goals"
+	},
+
+	"categories": {
+		"vacation": "vacation",
+		"restaurant": "restaurant",
+		"hobby": "hobby",
+		"grocery": "grocery",
+		"clothing": "clothing",
+		"hygiene": "hygiene",
+		"health": "health",
+		"home": "home",
+		"insurance": "insurance",
+		"travel": "travel",
+		"loan_mortgage": "loan mortgage",
+		"investment": "investment",
+		"check": "check",
+		"tax": "tax",
+		"cash": "cash",
+		"gift": "gift"
+	},
+
+	"checking": {
+		"title": "history of income vs expenses"
+	},
+
+	"months_full": {
+		"JAN": "Januray",
+		"FEB": "February",
+		"MAR": "March",
+		"APR": "April",
+		"MAY": "May",
+		"JUN": "June",
+		"JUL": "July",
+		"AUG": "August",
+		"SEP": "September",
+		"OCT": "October",
+		"NOV": "November",
+		"DEC": "December"
+	},
+
+	"months_short": {
+		"JAN": "JAN",
+		"FEB": "FEB",
+		"MAR": "MAR",
+		"APR": "APR",
+		"MAY": "MAY",
+		"JUN": "JUN",
+		"JUL": "JUL",
+		"AUG": "AUG",
+		"SEP": "SEP",
+		"OCT": "OCT",
+		"NOV": "NOV",
+		"DEC": "DEC"
+	}
+}

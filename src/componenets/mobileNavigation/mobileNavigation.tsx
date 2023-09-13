@@ -1,17 +1,16 @@
 import { Link } from 'react-router-dom';
 import { menu } from '../../data/menu.data';
 import './mobileNavigation.css';
-import { useUIContext } from '../../context';
 import { NotificationData } from '../../types';
-import { Notifications } from '..';
+import { Icon, Notifications } from '..';
+import { useTranslation } from 'react-i18next';
 
 interface MobileNavigationProps {
 	notifications: NotificationData[],
 	handleCloseNavbar: () => void,
 }
 const MobileNavigation = ({ notifications, handleCloseNavbar }: MobileNavigationProps) => {
-	const ui = useUIContext();
-
+	const { t } = useTranslation();
 	return (
 		<div className="mobile-navigation" onClick={handleCloseNavbar}>
 			{notifications.length > 0 && <div className="navigation-item">
@@ -28,8 +27,13 @@ const MobileNavigation = ({ notifications, handleCloseNavbar }: MobileNavigation
 							className={`list-item ${location.pathname === listItem.link ? 'active' : ''}`} 
 							key={listItem.id}
 						>
-							<img src={listItem.url} alt="easy glanse" />
-							<span className='list-item-title'>{listItem[`title_${ui.lang.lang}`]}</span>
+							<Icon 
+								svg={{
+									fill: '#ffff'
+								}}
+								name={listItem.url}
+							/>
+							<span className='list-item-title'>{t(`translation:menu.${listItem.title}`)}</span>
 						</Link>
 					))}
 				</div>

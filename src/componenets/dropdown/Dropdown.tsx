@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import './dropdown.css';
 
 interface BasicOption {
@@ -15,13 +16,14 @@ const Dropdown = <Option extends BasicOption>({
 	label, 
 	options
 }: DropdownProps<Option>) => {
+	const { t } = useTranslation();
 	return (
 		<div className={`dropdown ${className ? className: ''}`}>
 			<p>{label}</p>
 			<select>
 				{options.map((option, index) => 
 					<option key={index} value={option.value}>
-						{option.label}	
+						{t(`translation:months_full.${option.label}`)}	
 					</option>
 				)}
 			</select>

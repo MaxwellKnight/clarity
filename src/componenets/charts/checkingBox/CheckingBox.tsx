@@ -4,15 +4,15 @@ import { CheckingHistoryData } from '../../../types';
 import { checkingData } from '../../../data/checking_box.data';
 import { useState } from 'react';
 import { CustomCheckingTooltip } from '../../../utils';
-import { useUIContext } from '../../../context';
+import { useTranslation } from 'react-i18next';
 
 interface CheckingBoxProps {
 	data: CheckingHistoryData[]
 }
 
 const CheckingBox = ({ data }: CheckingBoxProps) => {
-	const { lang } = useUIContext();
 	const [composedChartData, setComposedChartData] = useState([...data]);
+	const { t } = useTranslation();
 
 	const handleOnResize = (width: number) => {
 		if(width < 400){
@@ -32,12 +32,12 @@ const CheckingBox = ({ data }: CheckingBoxProps) => {
 	return (
 		<div className='checking-box'>
 			<div className="checking-info">
-				<h2>{checkingData[`title_${lang.lang}`]}</h2>
+				<h2>{t(`translation:checking.title`)}</h2>
 				<div className="info-label">
-					{checkingData[`list_${lang.lang}`].map((label: string, index: number) => (
+					{checkingData.list.map((label: string, index: number) => (
 						<div key={index} className='info-item'>
 							<span className='label-box' style={{backgroundColor: checkingData.colors[index]}}></span>
-							<span>{label}</span>
+							<span>{t(`translation:${label}`)}</span>
 						</div>
 					))}
 				</div>
@@ -50,7 +50,7 @@ const CheckingBox = ({ data }: CheckingBoxProps) => {
 					>
 						<XAxis dataKey="month" scale="auto" />
 						<YAxis width={30} />
-						<Tooltip content={<CustomCheckingTooltip lang={lang}/>}/>
+						<Tooltip content={<CustomCheckingTooltip />}/>
 						<Bar dataKey="income" fill="#8884d8" />
           			<Bar dataKey="expenses" fill="#82ca9d" />
 						<Area type="monotone" dataKey="saving" stroke="#bbbbbb" strokeWidth={5} fill="#bbbbbb" dot={true}/>

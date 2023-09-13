@@ -1,4 +1,6 @@
+import { useTranslation } from 'react-i18next';
 import { CheckingWidget, Dropdown } from '../../componenets';
+import { months } from '../../data/budget.data';
 import './budget.css';
 
 const widgetData = {
@@ -7,14 +9,17 @@ const widgetData = {
 	dynamicExpenses: 3830,
 }
 const Budget = () => {
+	const { t } = useTranslation();
 	return (
 		<section className='my-budget'>
-			<Dropdown 
-				className=''
-				label='חודש'
-				options={[{value: 0, label: 0}, {value: 1, label: 1}]}
-			/>
-			<CheckingWidget {...widgetData}/>
+			<div className='month-selector'>
+				<Dropdown 
+					className=''
+					label={t(`translation:choose_month`)}
+					options={months}
+				/>
+				<CheckingWidget {...widgetData}/>
+			</div>
 		</section>
 	)
 };

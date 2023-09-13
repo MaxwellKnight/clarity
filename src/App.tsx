@@ -11,9 +11,10 @@ import {
 	Register,
 	Savings
 } from "./pages";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { NotificationData } from "./types";
 import './styles/global.css';
+import { useTranslation } from "react-i18next";
 
 const notificationsData: NotificationData[] = [
 	{
@@ -33,6 +34,11 @@ const notificationsData: NotificationData[] = [
 const App = () : JSX.Element => {
 	const [isMobileNavOpen, toggleIsNavOpen] = useState(false);
 	const handleToggle = () => toggleIsNavOpen(prev => !prev);
+	const { i18n } = useTranslation();
+	useEffect(() => {
+		const lang = navigator.language;
+		i18n.changeLanguage(lang);
+	}, [])
 
 	const router = createBrowserRouter([{
 		path: "/",
@@ -41,6 +47,7 @@ const App = () : JSX.Element => {
 				closeMobileNav={handleToggle} 
 				isMobileNavOpen={isMobileNavOpen} 
 				notifications={notificationsData}
+				dir={i18n.dir(navigator.language)}
 			/>,
 		children: [
 			{ path: "/", element: <Home /> },

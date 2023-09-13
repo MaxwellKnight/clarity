@@ -16,11 +16,11 @@ const Home = () : JSX.Element => {
 				<ChartBox title="income" label={income} flux='negative'/>
 			</div>
 			<div className="box box-2">
-				<ChartBox title="expense" label={expense} flux='positive'/>	
+				<ChartBox title="expenses" label={expense} flux='positive'/>	
 			</div>
 			<div className="box box-3">
 				<PieBox categories={pieChartData} colors={colors}/>
-				<span className='pie-total'>{pieChartData.reduce((acc, curr) => acc + curr.amount, 0)}</span>
+				<span className='pie-total'>{pieChartData.reduce((acc, curr) => acc + curr.value, 0)}</span>
 			</div>
 			<div className="box box-4">
 				<CategoryBox categories={pieChartData} colors={colors}/>

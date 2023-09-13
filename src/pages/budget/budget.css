@@ -1,0 +1,6 @@
+.my-budget {
+	> div {
+		max-width: 400px;
+		margin-inline: auto;
+	}
+}

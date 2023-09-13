@@ -1,0 +1,76 @@
+{
+	"overview": "מבט על",
+	"my_budget": "התקציב שלי",
+	"my_goals": "יעדים ומטרות",
+	"compared_to_last_month": "בהשוואה לחודש קודם",
+	"income": "הכנסות",
+	"net_income": "הכנסה נטו",
+	"expenses": "הוצאות",
+	"savings": "חסכונות",
+	"saving": "חסכון",
+	"month": "חודש",
+	"choose_month": "בחר חודש",
+	"fixed_expenses": "הוצאות קבועות",
+	"dynamic_expenses": "הוצאות משתנות",
+
+	"menu": {
+		"quick_menu": "ניווט מהיר",
+		"overview": "מבט על",
+		"my_budget": "התקציב שלי",
+		"expense_explorer": "הוצאות",
+		"dreams_goals": "יעדים ומטרות"
+	},
+
+	"categories": {
+		"vacation": "חופשה",
+		"restaurant": "מסעדנות",
+		"hobby": "תחביב",
+		"grocery": "מכולת",
+		"clothing": "בגדים",
+		"hygiene": "הגיינה",
+		"health": "בריאות",
+		"home": "בית",
+		"insurance": "ביטוח",
+		"travel": "תחבורה",
+		"loan_mortgage": "הלוואה ומשכנתא",
+		"investment": "השקעה",
+		"check": "צ'ק",
+		"tax": "מס",
+		"cash": "מזומן",
+		"gift": "מתנות"
+	},
+
+	"checking": {
+		"title": "היסטוריית הכנסות כנגד הוצאות"
+	},
+
+	"months_full": {
+		"JAN": "ינואר",
+		"FEB": "פברואר",
+		"MAR": "מרץ",
+		"APR": "אפריל",
+		"MAY": "מאי",
+		"JUN": "יוני",
+		"JUL": "יולי",
+		"AUG": "אוגוסט",
+		"SEP": "ספטמבר",
+		"OCT": "אוקטובר",
+		"NOV": "נובמבר",
+		"DEC": "דצמבר"
+	},
+
+	"months_short": {
+		"JAN": "ינו",
+		"FEB": "פבר",
+		"MAR": "מרץ",
+		"APR": "אפר",
+		"MAY": "מאי",
+		"JUN": "יונ",
+		"JUL": "יול",
+		"AUG": "אוג",
+		"SEP": "ספט",
+		"OCT": "אוק",
+		"NOV": "נוב",
+		"DEC": "דצמ"
+	}
+}

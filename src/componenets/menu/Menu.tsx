@@ -1,18 +1,17 @@
 import { Link, Location, useLocation } from 'react-router-dom';
 import { menu } from '../../data/menu.data';
-import { useUIContext } from '../../context';
 import { Icon } from '../../componenets';
 import './menu.css';
+import { useTranslation } from 'react-i18next';
 
 const Menu = (): JSX.Element => {
-	const { lang } = useUIContext();
 	const location : Location = useLocation();
-
+	const { t } = useTranslation();
 	return (
 		<div className="menu">
 			{menu.map((item) => (
 				<div className="item" key={item.id}>
-					<span className='title'>{item[`title_${lang.lang}`]}</span>
+					<span className='title'>{t('translation:menu.quick_menu')}</span>
 					{item.list_items.map((listItem) => (
 						<Link 
 							to={listItem.link}
@@ -25,7 +24,7 @@ const Menu = (): JSX.Element => {
 								}}
 								name={listItem.url}
 							/>
-							<span className='list-item-title'>{listItem[`title_${lang.lang}`]}</span>
+							<span className='list-item-title'>{t(`translation:menu.${listItem.title}`)}</span>
 						</Link>
 					))}
 				</div>

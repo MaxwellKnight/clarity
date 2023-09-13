@@ -1,9 +1,8 @@
 import { TooltipProps } from "recharts";
 import { ValueType, NameType } from "recharts/types/component/DefaultTooltipContent";
-import {  LangType } from "../types";
-import { PieChartData } from "../types";
-import { checkingTooltipData } from "../data/checking_box.data";
 import '../styles/rechartsCustom.css';
+import { useTranslation } from "react-i18next";
+import { PieChartEntry } from "../types";
 
 interface CustomPieChartLabelProps {
 	cx: number,
@@ -16,34 +15,25 @@ interface CustomPieChartLabelProps {
 }
 
 interface CustomTooltipPie  {
-	lang: LangType;
-	data: PieChartData[]
+	data: PieChartEntry[]
 }
 
-interface CustomTooltipChecking  {
-	lang: LangType;
-}
-
-interface CustomTooltip extends TooltipProps<ValueType, NameType>  {
-	lang: LangType,
-}
+type CustomTooltip = TooltipProps<ValueType, NameType> 
 
 type CustomPieTooltiProps = TooltipProps<ValueType, NameType> & CustomTooltipPie;
-type CustomCheckingTooltiProps = TooltipProps<ValueType, NameType> & CustomTooltipChecking;
 
 export const CustomPieChartTooltip = ({
 	active,
 	payload,
-	lang,
 	data,
 }: CustomPieTooltiProps) => {
+	const { t } = useTranslation();
 	if (active && payload) {
-		const label: PieChartData | undefined = data.find((label) => label.category_en === payload[0].payload.name);
-
+		const category: PieChartEntry | undefined = data.find((category) => category.name === payload[0].payload.name);
 		return (
-			<div className="custom-tooltip" dir={lang.dir}>
-				<p className="label">{`${label && label[`category_${lang.lang}`]}`}</p>
-				<p className="desc">{label && label.amount}</p>
+			<div className="custom-tooltip">
+				<p className="label">{`${category && t(`translation:categories.${category.name}`)}`}</p>
+				<p className="desc">{category && category.value}</p>
 			</div>
 		);
 	}
@@ -74,21 +64,23 @@ export const CustomizedPieChartLabel = ({
  export const CustomCheckingTooltip = ({
 	active,
 	payload,
-	lang,
-}: CustomCheckingTooltiProps) => {
+}: CustomTooltip) => {
+
+	const { t } = useTranslation();
+
 	if (active && payload) {
 		const data = payload[0];
 		const incomeColor = payload[0].color;
 		const expensesColor = payload[1].color;
 		const savingsColor = payload[2].color;
 		return (
-			<div className="custom-tooltip" dir={lang.dir}>
+			<div className="custom-tooltip">
 				<div className="checking">
 					<div className="checking-item">
 						<span 
 							className="checking-title" 
 							style={{color: incomeColor}}>
-									{checkingTooltipData[`income_${lang.lang}`]}
+									{t(`translation:net_income`)}
 						</span>
 						<span>{data.payload.income}</span>
 					</div>
@@ -96,7 +88,7 @@ export const CustomizedPieChartLabel = ({
 						<span 
 							className="checking-title" 
 							style={{color: expensesColor}}>
-								{checkingTooltipData[`expenses_${lang.lang}`]}
+								{t(`translation:expenses`)}
 						</span>
 						<span>{data.payload.expenses}</span>
 					</div>
@@ -104,7 +96,7 @@ export const CustomizedPieChartLabel = ({
 						<span 
 							className="checking-title" 
 							style={{color: savingsColor}}>
-								{checkingTooltipData[`saving_${lang.lang}`]}
+								{t(`translation:savings`)}
 						</span>
 						<span>{data.payload.saving}</span>
 					</div>
@@ -118,11 +110,10 @@ export const CustomizedPieChartLabel = ({
 export const CustomChartTooltip = ({
 	active,
 	payload,
-	lang,
 }: CustomTooltip) => {
 	if (active && payload) {
 		return (
-			<div className="custom-tooltip" dir={lang.dir}>
+			<div className="custom-tooltip">
 				<span className="custom-chart-tooltip">{payload[0].payload.amount}</span>
 			</div>
 		);

@@ -17,32 +17,8 @@ export const getCheckingHistory = () => {
 }
 
 export const checkingData: CheckingData = {
-	title_he: 'היסטורית הכנסות מול הוצאות',
-	title_en: 'History of income vs expenses',
-	title_ru: 'История доходов и расходов',
-	title_ar: 'تاريخ الدخل مقابل النفقات',
-	list_he: ['חסכון', 'הוצאות', 'הכנסה נטו'],
-	list_en: ['saving', 'expenses', 'net income'],
-	list_ru: ['экономия', 'затраты', 'чистая прибыль'],
-	list_ar: ['إنقاذ', 'نفقات', '', 'كنسا نتو'],
+	title: 'title',
+	list: ['savings', 'expenses', 'net_income'],
 	colors: ['#bbbbbb', '#82ca9d', '#8884d8']
-}
-
-
-export const checkingTooltipData = {
-	income_he: 'הכנסות',
-	income_en: "income",
-	income_ru: "доходы",
-	income_ar: "الإيرادات",
-
-	expenses_he: 'הוצאות',
-	expenses_en: "expenses",
-	expenses_ru: "затраты",
-	expenses_ar: "نفقات",
-
-	saving_he: 'חסכונות',
-	saving_en: "savings",
-	saving_ru: "Экономия",
-	saving_ar: "مدخرات"
 }
 

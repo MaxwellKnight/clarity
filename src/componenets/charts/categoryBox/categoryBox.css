@@ -42,3 +42,9 @@
 		grid-template-columns: repeat(4, 1fr);
 	}
 }
+
+@media (min-width: 1400px){
+	.category-box{
+		grid-template-columns: repeat(3, 1fr);
+	}
+}

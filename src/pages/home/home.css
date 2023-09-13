@@ -73,7 +73,7 @@
 @media (min-width: 1400px){
 	.home {
 		display: grid;
-		grid-template-columns: repeat(3, 1fr);
+		grid-template-columns: 500px 1fr 1fr;
 		grid-template-rows: minmax(200px, auto);
 		grid-template-areas: 
 			"piechart 			income 			expenses"

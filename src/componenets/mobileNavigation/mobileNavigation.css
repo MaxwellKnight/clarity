@@ -29,6 +29,7 @@
 		> .list-item {
 			display: flex;
 			flex-direction: row-reverse;
+			justify-content: space-between;
 			align-items: center;
 			gap: 2rem;
 			width: 100%;
@@ -44,7 +45,7 @@
 		.title {
 			display: block;
 		}
-		& img {
+		& svg {
 			width: 2rem;
 			height: 2rem;
 		}

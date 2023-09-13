@@ -1,22 +1,21 @@
-import { PieChartData } from '../../../types';
+import { useTranslation } from 'react-i18next';
+import { PieChartEntry } from '../../../types';
 import './categoryBox.css';
-import { useUIContext } from '../../../context';
 
 type CategoryBoxProps = {
- 	categories: PieChartData[], 
+ 	categories: PieChartEntry[], 
 	colors: string[]
 }
 
 const CategoryBox = ({ categories, colors } : CategoryBoxProps): JSX.Element => {
-	const { lang } = useUIContext();
-
+	const { t } = useTranslation();
 	return (
 		<div className="category-box">
-			{categories.map((category: PieChartData, index: number) => (
+			{categories.map((category: PieChartEntry, index: number) => (
 				<div className="category" key={colors[index]}>
 					<span className='category-box' style={{backgroundColor: colors[index]}}></span>
-					<p>{category[`category_${lang.lang}`]}</p>
-					<p className='category-amount'>({category[`amount`]})</p>
+					<p>{t(`translation:categories.${category.name}`)}</p>
+					<p className='category-amount'>({category.value})</p>
 				</div>
 			))}
 		</div>
