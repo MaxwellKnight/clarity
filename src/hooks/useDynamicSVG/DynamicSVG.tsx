@@ -11,7 +11,7 @@ export const useDynamicSVG = (name: string, options: SVGOptions = {}) => {
 	useEffect(() => {
 		const fetchSVG = async () => {
 		  try {
-			 const response = await fetch(`../../../public/icons/${name}`);
+			 const response = await fetch(`/icons/${name}`);
 			 if (!response.ok) {
 				throw new Error(`Failed to fetch SVG: ${response.status}`);
 			 }
