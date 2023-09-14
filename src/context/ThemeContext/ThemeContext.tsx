@@ -10,7 +10,7 @@ export const ThemeContext = createContext<Theme | null>(null);
 
 type Props = { children: ReactNode };
 export const ThemeContextProvider = ({ children } : Props) => {
-	const [theme, setTheme] = useState('');
+	const [theme, setTheme] = useState('dark');
 
 	return (
 		<ThemeContext.Provider value={{theme, setTheme}}>

@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { MonthlyChecking } from '../../types';
 import { months, getYearlyChecking } from '../../data/budget.data';
 import { BarBox, CheckingWidget, Dropdown, PieBoxActive } from '../../componenets';
-import { getRandomColor } from '../../utils/colors.utils';
+import { generateColors } from '../../utils/colors.utils';
 import './budget.css';
 
 const yearlyChecking = getYearlyChecking();
@@ -12,6 +12,14 @@ const sum = (expenses: MonthlyChecking[]) => expenses.reduce((prev, curr) => pre
 
 const ExpenseSection = ({expenses, label} : { expenses: MonthlyChecking[], label: string}) => {
 	const { t } = useTranslation();
+
+	const parse = (expenses: MonthlyChecking[]) => expenses.map((month, index) => ({
+		name: t(`translation:categories.${month.category}`),
+		value: month.value,
+		fill: colors[index]
+	}))
+
+	const colors = generateColors(expenses.length);
 	return (
 		<div className="budget-expenses">
 			<div className="budget-expenses-info">
@@ -19,17 +27,14 @@ const ExpenseSection = ({expenses, label} : { expenses: MonthlyChecking[], label
 				<p><span>{t("translation:charge")}</span> : ₪{sum(expenses)}</p>
 			</div>
 			<div className="budget-expenses-charts">
-				<PieBoxActive data={expenses.map((month) => ({
+				<PieBoxActive data={expenses.map((month, index) => ({
 					name: t(`translation:categories.${month.category}`),
 					value: month.value,
-					fill: getRandomColor(),
+					fill: colors[index],
 					label: t(`translation:total`)
 				}))}
 				/>
-				<BarBox data={expenses.map((month) => ({
-					name: t(`translation:categories.${month.category}`),
-					value: month.value,
-				}))}/>
+				<BarBox data={parse(expenses)}/>
 			</div>
 		</div>
 	)

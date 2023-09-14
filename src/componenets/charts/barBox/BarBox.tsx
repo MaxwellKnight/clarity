@@ -3,13 +3,13 @@ import './barBox.css';
 
 type BarBoxData = {
 	name: string,
-	value: number
+	value: number,
+	fill?: string,
 }
 type BarBoxProps = {
 	data: BarBoxData[]
 }
 const BarBox = ({ data }: BarBoxProps) => {
-	console.log(data);
 	return (
 		<div className="bar-box">
 			<ResponsiveContainer width="100%" height="100%">
