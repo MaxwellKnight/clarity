@@ -14,6 +14,13 @@ interface CheckingHistoryData {
 	saving: number
 }
 
+type MonthlyChecking = {
+	isFixed: boolean,
+	date: Date,
+	category: string,
+	value: number
+}
+
 export type {
 	Theme,
 	PieChartLabel,
@@ -26,5 +33,6 @@ export type {
 	AccountAction,
 	AccountState,
 	NotificationData,
-	SVGOptions
+	SVGOptions,
+	MonthlyChecking
 }

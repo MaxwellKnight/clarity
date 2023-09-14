@@ -11,6 +11,8 @@ import ProgressGrid from "./progressGrid/ProgressGrid";
 import CheckingWidget from "./widgets/checkingWidget/CheckingWidget";
 import Dropdown from "./dropdown/Dropdown";
 import Icon from "./icon/Icon";
+import PieBoxActive from "./charts/pieBoxActive/PieBoxActive";
+import BarBox from "./charts/barBox/BarBox";
 
 export {
 	CategoryBox,
@@ -25,5 +27,7 @@ export {
 	ProgressGrid,
 	CheckingWidget,
 	Dropdown,
-	Icon
+	Icon,
+	PieBoxActive,
+	BarBox
 };

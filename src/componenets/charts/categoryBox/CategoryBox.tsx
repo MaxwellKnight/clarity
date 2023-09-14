@@ -15,7 +15,7 @@ const CategoryBox = ({ categories, colors } : CategoryBoxProps): JSX.Element => 
 				<div className="category" key={colors[index]}>
 					<span className='category-box' style={{backgroundColor: colors[index]}}></span>
 					<p>{t(`translation:categories.${category.name}`)}</p>
-					<p className='category-amount'>({category.value})</p>
+					{/* <p className='category-amount'>({category.value})</p> */}
 				</div>
 			))}
 		</div>

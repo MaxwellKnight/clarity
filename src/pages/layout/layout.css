@@ -14,14 +14,14 @@
 		height: 100%;
 
 		.menu-container {
-			padding: 0 2rem;
+			padding-inline: 1rem;
 			font-size: 20px;
 			border-inline-end: .2rem solid var(--soft-bg);
 			align-self: flex-start;
 		}
 
 		.content-container {
-			padding: 0 2rem;
+			padding-inline: 1rem;
 			width: 100%;
 		}
 	}

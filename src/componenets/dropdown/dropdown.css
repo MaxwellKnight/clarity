@@ -23,5 +23,9 @@
 			border: none;
 			text-align: center;
 		}
+
+		&:hover{
+			cursor: pointer;
+		}
 	}
 }

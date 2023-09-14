@@ -12,6 +12,8 @@
 	"choose_month": "בחר חודש",
 	"fixed_expenses": "הוצאות קבועות",
 	"dynamic_expenses": "הוצאות משתנות",
+	"charge": "חיוב",
+	"total": "סכום",
 
 	"menu": {
 		"quick_menu": "ניווט מהיר",
@@ -37,7 +39,23 @@
 		"check": "צ'ק",
 		"tax": "מס",
 		"cash": "מזומן",
-		"gift": "מתנות"
+		"gift": "מתנות",
+		"gifts": "מתכנות",
+		"gym": "חדר כושר",
+		"rent_mortgage": "שכירות/משכנתא",
+		"home_tax": "ארנונה",
+		"loans": "הלוואות",
+		"cellular_cables": "סלולר וכבלים",
+		"car_insurance": "ביטוח רכב",
+		"house_insurance": "ביטוח בית",
+		"health_insurance": "ביטוח בריאות",
+		"car_holding": "אחזקת רכב",
+		"house_holding": "אחזקת בית",
+		"electricity_bill": "חשבון חשמל",
+		"water_bill": "חשבון מים",
+		"gas_bill": "חשבון גז",
+		"health_medication": "בריאות ותרופות",
+		"tax_payments": "מיסים ותשלומים"
 	},
 
 	"checking": {
