@@ -1,24 +1,19 @@
 import { useTranslation } from 'react-i18next';
+import { useState } from 'react';
+import { months, monthlyBudget } from '../../data/budget.data';
 import { CheckingWidget, Dropdown } from '../../componenets';
-import { months } from '../../data/budget.data';
 import './budget.css';
 
-const widgetData = {
-	income: 11867,
-	fixedExpenses: 3903,
-	dynamicExpenses: 3830,
-}
 const Budget = () => {
 	const { t } = useTranslation();
+	const [selectedMonth, setSelectedMonth] = useState(1);
+	const handleChange = (month: string) => setSelectedMonth(Number(month));
+
 	return (
 		<section className='my-budget'>
 			<div className='month-selector'>
-				<Dropdown 
-					className=''
-					label={t(`translation:choose_month`)}
-					options={months}
-				/>
-				<CheckingWidget {...widgetData}/>
+				<Dropdown label={t(`translation:choose_month`)} options={months} onClick={handleChange}/>
+				<CheckingWidget {...monthlyBudget[selectedMonth - 1]}/>
 			</div>
 		</section>
 	)
