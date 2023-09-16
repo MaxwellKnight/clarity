@@ -21,6 +21,26 @@ export const relaxingColors = new Set([
 	"#66CC99", // Sage
 	"#F3A683", // Deep Peach
 	"#F7DC6F", // Medium Yellow
+	"#FF5733", // Coral
+	"#5E8C6A", // Sea Green
+	"#FFA07A", // Light Salmon
+	"#F39C12", // Orange
+	"#8E44AD", // Amethyst
+	"#F7DC6F", // Maize
+	"#D98880", // Antique Ruby
+	"#85C1E9", // Baby Blue
+	"#E74C3C", // Alizarin Crimson
+	"#48C9B0", // Medium Aquamarine
+	"#9A7D0A", // Chocolate
+	"#C0392B", // Red
+	"#3A539B", // Royal Blue
+	"#F39C12", // Sunflower Yellow
+	"#1E8449", // Shamrock Green
+	"#F0B27A", // Sandy Brown
+	"#1F618D", // Navy Blue
+	"#C70039", // Byzantine
+	"#4A235A", // Tyrian Purple
+	"#7B241C", // Chestnut
 ]);
 
 export const getRandomColor = () => {

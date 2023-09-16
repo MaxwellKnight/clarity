@@ -6,13 +6,13 @@ export const menu = [
 		list_items: [
 			{
 				id: 1,
-				title: "overview",
+				title: "month_management",
 				url: "easy-glanse.svg",
 				link: "/"
 			},
 			{
 				id: 2,
-				title: "my_budget",
+				title: "info_center",
 				link: "/budget",
 				url: "budget-icon.svg",
 			},

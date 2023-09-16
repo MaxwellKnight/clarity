@@ -17,8 +17,8 @@
 
 	"menu": {
 		"quick_menu": "ניווט מהיר",
-		"overview": "מבט על",
-		"my_budget": "התקציב שלי",
+		"month_management": "ניהול החודש",
+		"info_center": "מרכז המידע",
 		"expense_explorer": "הוצאות",
 		"dreams_goals": "יעדים ומטרות"
 	},
@@ -63,6 +63,7 @@
 	},
 
 	"months_full": {
+		"ALL": "כל החודשים",
 		"JAN": "ינואר",
 		"FEB": "פברואר",
 		"MAR": "מרץ",

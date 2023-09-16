@@ -14,11 +14,16 @@ interface CheckingHistoryData {
 	saving: number
 }
 
-type MonthlyChecking = {
+type Expense = {
 	isFixed: boolean,
 	date: Date,
 	category: string,
 	value: number
+}
+
+type MonthlyChecking = {
+	income: number,
+	expenses: Expense[]
 }
 
 export type {
@@ -34,5 +39,6 @@ export type {
 	AccountState,
 	NotificationData,
 	SVGOptions,
+	Expense,
 	MonthlyChecking
 }

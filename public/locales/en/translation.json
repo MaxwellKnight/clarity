@@ -17,8 +17,8 @@
 
 	"menu": {
 		"quick_menu": "Quick Menu",
-		"overview": "Overview",
-		"my_budget": "My Budget",
+		"month_management": "Month Management",
+		"info_center": "Info Center",
 		"expense_explorer": "Expense Explorer",
 		"dreams_goals": "Dreams & Goals"
 	},

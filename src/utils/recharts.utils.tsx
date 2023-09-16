@@ -186,3 +186,14 @@ export const CustomChartTooltip = ({
 	  </g>
 	);
  };
+
+ export const CustomTooltip = ({ active, payload } : CustomTooltip) => {
+	if (active && payload) {
+		return (
+			<div className="custom-tooltip">
+				<p className="label">{payload[0].payload.name}</p>
+				<p className="desc">{payload[0].payload.value}</p>
+			</div>
+		);
+	}
+}

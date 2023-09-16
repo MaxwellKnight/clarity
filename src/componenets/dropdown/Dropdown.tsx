@@ -17,7 +17,7 @@ const Dropdown = <Option extends BasicOption>({ className, label, options, onCli
 	return (
 		<div className={`dropdown ${className ? className: ''}`}>
 			<p>{label}</p>
-			<select onChange={(e) => onClick && onClick(e.target.value)}>
+			<select onChange={(e) => onClick && onClick(e.target.value)} defaultValue={0}>
 				{options.map((option, index) => 
 					<option key={index} value={option.value}>
 						{t(option.label.toString())}	

@@ -1,5 +1,6 @@
-import { ResponsiveContainer, BarChart, XAxis, Tooltip, Bar } from 'recharts';
+import { ResponsiveContainer, BarChart, XAxis, Tooltip, Bar, LabelList } from 'recharts';
 import './barBox.css';
+import { CustomTooltip } from '../../../utils/recharts.utils';
 
 type BarBoxData = {
 	name: string,
@@ -13,7 +14,7 @@ const BarBox = ({ data }: BarBoxProps) => {
 	return (
 		<div className="bar-box">
 			<ResponsiveContainer width="100%" height="100%">
-				<BarChart data={data}>
+				<BarChart data={data} {...{overflow: "visible"}}>
 					<XAxis 
 						dataKey="name" 
 						axisLine={false} 
@@ -26,8 +27,10 @@ const BarBox = ({ data }: BarBoxProps) => {
 						interval={0} 
 						tick={{fill: '#c3c3c3'}}
 					/>
-					<Tooltip />
-					<Bar dataKey="value" fill="#E07A5F" />
+					<Tooltip content={<CustomTooltip />}/>
+					<Bar dataKey="value" fill="#E07A5F">
+						<LabelList dataKey="value" position="top"/>
+					</Bar>
 				</BarChart>
 			</ResponsiveContainer>
 		</div>

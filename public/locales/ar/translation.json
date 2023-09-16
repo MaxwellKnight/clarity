@@ -17,8 +17,8 @@
 
 	"menu": {
 		"quick_menu": "قائمة سريعة",
-		"overview": "نظرة عامة",
-		"my_budget": "ميزانيتي",
+		"month_management": "إدارة الشهر",
+		"info_center": "مركز المعلومات",
 		"expense_explorer": "استكشاف المصروفات",
 		"dreams_goals": "الأحلام والأهداف"
 	},

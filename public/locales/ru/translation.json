@@ -17,8 +17,8 @@
 
 	"menu": {
 		"quick_menu": "быстрое меню",
-		"overview": "обзор",
-		"my_budget": "мой бюджет",
+		"month_management": "Управление месяца",
+		"info_center": "информационный центр",
 		"expense_explorer": "исследование расходов",
 		"dreams_goals": "мечты и цели"
 	},
