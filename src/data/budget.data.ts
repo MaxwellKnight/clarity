@@ -1,4 +1,4 @@
-import { MonthlyChecking } from "../types";
+import { Expense, MonthlyChecking } from "../types";
 
 export const months = [
 	{
@@ -90,3 +90,9 @@ export const getYearlyChecking = () => {
 	}
 	return expenses;
 }
+
+// export const getYearlyAverage = (yearlyExpenses: MonthlyChecking[]) => {
+// 	if(yearlyExpenses.length === 0) return null;
+// 	const keys = Object.entries(yearlyExpenses[0]);
+
+// }

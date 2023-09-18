@@ -9,14 +9,19 @@ import './budget.css';
 const yearlyChecking = getYearlyChecking();
 const sum = (expenses: Expense[]) => expenses.reduce((prev, curr) => prev + curr.value, 0);
 
-const ExpenseSection = ({expenses, label} : { expenses: Expense[], label: string}) => {
+type ExpenseSectionProps = {
+	expenses: Expense[],
+	label: string
+}
+const ExpenseSection = ({ expenses, label } : ExpenseSectionProps) => {
 	const { t } = useTranslation();
 
 	const colors = generateColors(expenses.length);
-	const parse = (expenses: Expense[]) => expenses.map((month, index) => ({
+	const parse = (expenses: Expense[], label?: string) => expenses.map((month, index) => ({
 		name: t(`translation:categories.${month.category}`),
 		value: month.value,
-		fill: colors[index]
+		fill: colors[index],
+		label: label
 	}))
 
 	return (
@@ -26,14 +31,8 @@ const ExpenseSection = ({expenses, label} : { expenses: Expense[], label: string
 				<p><span>{t("translation:charge")}</span> : ₪{sum(expenses)}</p>
 			</div>
 			<div className="budget-expenses-charts">
-				<PieBoxActive data={expenses.map((month, index) => ({
-					name: t(`translation:categories.${month.category}`),
-					value: month.value,
-					fill: colors[index],
-					label: t(`translation:total`)
-				}))}
-				/>
-				<BarBox data={parse(expenses)}/>
+				<PieBoxActive data={parse(expenses, t("translation:total"))} />
+				<BarBox data={parse(expenses)} />
 			</div>
 		</div>
 	)
@@ -59,7 +58,7 @@ const Budget = () => {
 	}, [selectedMonth]);
 
 	const handleChange = (month: string) => setSelectedMonth(Number(month));
-
+	console.log(fixedExpenses);
 	return (
 		<section className='my-budget'>
 			<div className='month-selector'>

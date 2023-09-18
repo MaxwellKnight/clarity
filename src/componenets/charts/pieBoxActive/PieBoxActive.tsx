@@ -5,7 +5,7 @@ import { renderActiveShape } from '../../../utils';
 type PieBoxActiveData = {
 	name: string, 
 	value: number,
-	label: string
+	label?: string
 }
 type PieBoxActiveProps = {
 	data: PieBoxActiveData[]
