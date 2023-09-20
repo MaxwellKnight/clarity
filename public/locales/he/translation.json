@@ -23,6 +23,7 @@
 		"dreams_goals": "יעדים ומטרות"
 	},
 
+	"category": "קטגוריה",
 	"categories": {
 		"vacation": "חופשה",
 		"restaurant": "מסעדנות",
@@ -40,7 +41,7 @@
 		"tax": "מס",
 		"cash": "מזומן",
 		"gift": "מתנות",
-		"gifts": "מתכנות",
+		"gifts": "מתנות",
 		"gym": "חדר כושר",
 		"rent_mortgage": "שכירות/משכנתא",
 		"home_tax": "ארנונה",
@@ -55,7 +56,8 @@
 		"water_bill": "חשבון מים",
 		"gas_bill": "חשבון גז",
 		"health_medication": "בריאות ותרופות",
-		"tax_payments": "מיסים ותשלומים"
+		"tax_payments": "מיסים ותשלומים",
+		"empty": "ריק"
 	},
 
 	"checking": {

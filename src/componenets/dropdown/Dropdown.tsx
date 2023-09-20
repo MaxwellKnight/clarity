@@ -7,7 +7,7 @@ interface BasicOption {
 }
 interface DropdownProps<Option extends BasicOption> {
 	className?: string,
-	label: string,
+	label?: string,
 	options: Option[],
 	onClick?: (value: string) => void
 }
@@ -21,7 +21,7 @@ const Dropdown = <Option extends BasicOption>({ className, label, options, onCli
 
 	return (
 		<div className={`dropdown ${className ? className: ''}`}>
-			<p>{label}</p>
+			{ label && <p>{label}</p> }
 			<select onChange={handleOnChange} defaultValue={0}>
 				{options.map((option, index) => 
 					<option key={index} value={option.value}>

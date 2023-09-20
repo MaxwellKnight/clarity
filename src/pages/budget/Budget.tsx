@@ -3,15 +3,10 @@ import { useFetch } from '../../hooks';
 import { generateColors } from '../../utils/colors.utils';
 import { useTranslation } from 'react-i18next';
 import { useEffect, useState } from 'react';
-import { Expense, MonthlyChecking } from '../../types';
-import { BarBox, CheckingWidget, Dropdown, PieBoxActive } from '../../componenets';
+import { Expense, MonthlyChecking, FetchResponse } from '../../types';
+import { BarBox, CheckingWidget, Dropdown, CategoryWidget, PieBoxActive } from '../../componenets';
 import './budget.css';
 
-type Response<T> = {
-	data: T,
-	loading: boolean | undefined,
-	error: string | null | undefined
-}
 type AverageChecking = {
 	income: number,
 	totalFixed: number,
@@ -67,10 +62,10 @@ const Budget = () => {
 	const [selectedMonth, setSelectedMonth] = useState(0);
 	const [currentExpenses, setCurrentExpenses] = useState<MonthlyChecking | AverageChecking>();
 
-	const { data: currentChecking, loading}: Response<MonthlyChecking | null | undefined> = 
+	const { data: currentChecking, loading}: FetchResponse<MonthlyChecking | null | undefined> = 
 		useFetch(`http://localhost:3001/info/budget/${selectedMonth}`, [selectedMonth]);
 
-	const { data: averageChecking}: Response<AverageChecking | null | undefined> = 
+	const { data: averageChecking}: FetchResponse<AverageChecking | null | undefined> = 
 		useFetch(`http://localhost:3001/info/budget/avg`);
 
 	useEffect(() => {
@@ -94,19 +89,20 @@ const Budget = () => {
 				/>
 			</div>
 			{currentExpenses && averageChecking && 
-				<>
-				<ExpenseSection 
-					expenses={currentExpenses.fixed_expenses}
-					average={averageChecking.fixed_expenses}  
-					label='fixed_expenses'
-				/>
-				<ExpenseSection 
-					expenses={currentExpenses.dynamic_expenses}
-					average={averageChecking.dynamic_expenses} 
-					label='dynamic_expenses'
-				/>
-				</>
+			<>
+			<ExpenseSection 
+				expenses={currentExpenses.dynamic_expenses}
+				average={averageChecking.dynamic_expenses} 
+				label='dynamic_expenses'
+			/>
+			<ExpenseSection 
+				expenses={currentExpenses.fixed_expenses}
+				average={averageChecking.fixed_expenses}  
+				label='fixed_expenses'
+			/>
+			</>
 			}
+			<CategoryWidget />
 		</section>
 	)
 };

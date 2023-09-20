@@ -12,7 +12,6 @@ const useFetch = <T,>(url: string, deps: unknown[] = []) => {
 				const data = await response.json();
 				if(data) dispatch({type: 'FETCH_SUCCESS', data});
 			}catch(error){
-				console.log(error);
 				dispatch({type: 'FETCH_FAILURE', error: 'Failed to fetch data'})
 			}
 		}

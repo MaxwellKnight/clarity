@@ -1,9 +1,13 @@
 import { Outlet } from 'react-router-dom';
 import { Footer, Menu, Navigation } from '../../componenets';
 import { AccountContextProvier, useTheme } from '../../context';
-import { NotificationData } from '../../types';
 import './layout.css';
 import { Suspense } from 'react';
+
+export interface NotificationData {
+	title: string,
+	content: string
+}
 
 interface LayoutProps {
 	isMobileNavOpen: boolean,

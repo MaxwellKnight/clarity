@@ -28,6 +28,13 @@ type MonthlyChecking = {
 	dynamic_expenses: Expense[]
 }
 
+/* useFetch response type */
+type FetchResponse<T> = {
+	data: T,
+	loading: boolean | undefined,
+	error: string | null | undefined
+}
+
 export type {
 	Theme,
 	PieChartLabel,
@@ -41,5 +48,6 @@ export type {
 	AccountState,
 	SVGOptions,
 	Expense,
-	MonthlyChecking
+	MonthlyChecking,
+	FetchResponse
 }

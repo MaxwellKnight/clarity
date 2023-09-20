@@ -23,6 +23,7 @@
 		"dreams_goals": "Dreams & Goals"
 	},
 
+	"category": "Category",
 	"categories": {
 		"vacation": "Vacation",
 		"restaurant": "Restaurant",
@@ -55,7 +56,8 @@
 		"water_bill": "Water Bill",
 		"gas_bill": "Gas Bill",
 		"health_medication": "Health & Medications",
-		"tax_payments": "Tax & Payments"
+		"tax_payments": "Tax & Payments",
+		"empty": "Empty"
 	},
 
 	"checking": {

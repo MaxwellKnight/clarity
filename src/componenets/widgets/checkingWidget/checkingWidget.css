@@ -1,24 +1,26 @@
 .checking-widget {
-	max-width: 300px;
+	width: min(100%, 500px);
 	text-align: center;
 	border: 2px solid var(--dark-bg);
 	border-radius: 5px;
-	flex-direction: column;
 	font-size: 1rem;
 
 
 	& > div {
 		display: flex;
-		align-items: center;
-		justify-content: center;
 		border-top: 2px solid var(--dark-bg);
 		margin-inline: auto;
 		padding: .8rem 1.2rem;
-		flex: 1;
-		gap: 2rem;
 
-		& p, span{
+		& p:first-child {
+			flex:  2;
+			text-align: start;
+			white-space: nowrap;
+		}
+
+		& p:not(:first-child), span{
 			flex: 1;
+			align-self: center;
 		}
 
 		> :nth-child(2){
@@ -30,4 +32,10 @@
 
 .savings {
 	background-color: var(--positive);
+}
+
+@media (min-width: 760px){
+	.checking-widget {
+		font-size: 1.2rem;
+	}
 }
