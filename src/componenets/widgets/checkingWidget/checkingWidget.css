@@ -1,31 +1,21 @@
 .checking-widget {
-	display: flex;
-	justify-content: center;
-	max-width: 400px;
+	max-width: 300px;
 	text-align: center;
 	border: 2px solid var(--dark-bg);
 	border-radius: 5px;
-	padding: 1rem;
 	flex-direction: column;
-	gap: 1rem;
 	font-size: 1rem;
+
 
 	& > div {
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		border-top: 2px solid var(--dark-bg);
+		margin-inline: auto;
+		padding: .8rem 1.2rem;
 		flex: 1;
 		gap: 2rem;
-
-		&:not(:first-child){
-			padding-block-start: .5rem;
-			border-top: 2px solid var(--dark-bg);
-		}
-
-		&:is(:last-child){
-			padding-block-end: .5rem;
-			border-radius: 2px;
-		}
 
 		& p, span{
 			flex: 1;

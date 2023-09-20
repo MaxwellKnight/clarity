@@ -85,7 +85,7 @@ const Budget = () => {
 	return (
 		<section className='my-budget'>
 			<div className='month-selector'>
-				<Dropdown label={t(`translation:choose_month`)} options={months} onClick={handleChange}/>
+				<Dropdown className="custom-drop-down" label={t(`translation:choose_month`)} options={months} onClick={handleChange}/>
 				
 				<CheckingWidget 
 					income={currentExpenses?.income} 

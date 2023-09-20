@@ -2,8 +2,17 @@
 .my-budget {
 	width: 100%;
 	> div {
-		width: 400px;
 		margin-inline: auto;
+	}
+
+	.month-selector {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		.custom-drop-down{
+			width: 300px;
+		}
 	}
 
 	.budget-expenses{
@@ -16,7 +25,7 @@
 
 		.budget-expenses-info {
 			margin-inline-end: auto;
-			font-size: 1.5rem;
+			font-size: 1.2rem;
 			padding: .5rem;
 			
 			& h2 {
@@ -50,6 +59,9 @@
 			}
 		}
 		@media (min-width: 1280px){
+			.budget-expenses-info {
+				font-size: 2rem;
+			}
 			.budget-expenses-charts {
 				flex-direction: row;
 		
@@ -59,6 +71,18 @@
 				& > div:nth-child(2) {
 					flex: 1;
 				}
+			}
+		}
+
+		@media (min-width: 800px){
+			.budget-expenses-info {
+				font-size: 1.7rem;
+			}
+		}
+
+		@media (min-width: 380px){
+			.budget-expenses-info {
+				font-size: 1.5rem;
 			}
 		}
 	}

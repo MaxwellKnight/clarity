@@ -34,7 +34,7 @@ const BarBox = ({ data }: BarBoxProps) => {
 					<Bar dataKey="value" fill="#E07A5F">
 						<LabelList dataKey="value" position="top"/>
 					</Bar>
-					<Area type="monotone" dataKey="avg" stroke="#7d7d7d" fill="#444444"  dot={false}/>
+					<Area type="monotone" dataKey="avg" stroke="#ffffff79" fill="#1eff7c70"  dot={false} strokeWidth={5}/>
 				</ComposedChart>
 			</ResponsiveContainer>
 		</div>
