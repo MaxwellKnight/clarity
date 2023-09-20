@@ -1,6 +1,10 @@
 import { ReactNode } from 'react';
 import './notifications.css';
-import { NotificationData } from '../../types';
+
+export interface NotificationData {
+	title: string,
+	content: string
+}
 
 interface NotificationsProps {
 	data: NotificationData[],

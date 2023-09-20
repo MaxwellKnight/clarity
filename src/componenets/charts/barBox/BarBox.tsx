@@ -1,4 +1,4 @@
-import { ResponsiveContainer, BarChart, XAxis, Tooltip, Bar, LabelList } from 'recharts';
+import { ResponsiveContainer, XAxis, Tooltip, Bar, LabelList, Area, ComposedChart } from 'recharts';
 import './barBox.css';
 import { CustomTooltip } from '../../../utils/recharts.utils';
 
@@ -6,15 +6,18 @@ type BarBoxData = {
 	name: string,
 	value: number,
 	fill?: string,
+	avg?: number
 }
 type BarBoxProps = {
-	data: BarBoxData[]
+	data: BarBoxData[],
+
 }
 const BarBox = ({ data }: BarBoxProps) => {
-	return (
+	return ( data &&
 		<div className="bar-box">
-			<ResponsiveContainer width="100%" height="100%">
-				<BarChart data={data} {...{overflow: "visible"}}>
+			<ResponsiveContainer width="100%" minHeight={300}>
+				{/* sorted: data.sort((a, b) => b.value - a.value) */}
+				<ComposedChart data={data} {...{overflow: "visible"}}> 
 					<XAxis 
 						dataKey="name" 
 						axisLine={false} 
@@ -31,7 +34,8 @@ const BarBox = ({ data }: BarBoxProps) => {
 					<Bar dataKey="value" fill="#E07A5F">
 						<LabelList dataKey="value" position="top"/>
 					</Bar>
-				</BarChart>
+					<Area type="monotone" dataKey="avg" stroke="#7d7d7d" fill="#444444"  dot={false}/>
+				</ComposedChart>
 			</ResponsiveContainer>
 		</div>
 	)

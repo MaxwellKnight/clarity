@@ -1,5 +1,3 @@
-import { Expense, MonthlyChecking } from "../types";
-
 export const months = [
 	{
 		value: 12, 
@@ -55,44 +53,4 @@ export const months = [
 	},
 ]
 
-const randomBetween = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
 
-const fixedExpenses = ['rent_mortgage', 'home_tax', 'gym', 'loans', 'cellular_cables', 'car_insurance', 'house_insurance', 'health_insurance', 'car_holding'];
-const dynamicExpenses = ['grocery', 'cash', 'restaurant', 'hobby', 'vacation', 'gifts', 'travel', 'electricity_bill', 'water_bill', 'gas_bill', 'house_holding', 'health_medication', 'tax_payments'];
-const getMonthlyChecking = (month: number): MonthlyChecking => {
-	const expenses = []
-	for(const category of fixedExpenses){
-		expenses.push({
-			isFixed: true,
-			date: new Date(2023, month, 28),
-			category,
-			value: randomBetween(50, 1000),
-		})
-	}
-	for(const category of dynamicExpenses){
-		expenses.push({
-			isFixed: false,
-			date: new Date(2023, month, 28),
-			category,
-			value: randomBetween(50, 1000)
-		})
-	}
-	return {
-		income: randomBetween(13000, 15000), 
-		expenses
-	};
-}
-
-export const getYearlyChecking = () => {
-	let expenses: MonthlyChecking[] = []
-	for(let i = 0; i < 12; i++){
-		expenses.push(getMonthlyChecking(i));
-	}
-	return expenses;
-}
-
-// export const getYearlyAverage = (yearlyExpenses: MonthlyChecking[]) => {
-// 	if(yearlyExpenses.length === 0) return null;
-// 	const keys = Object.entries(yearlyExpenses[0]);
-
-// }

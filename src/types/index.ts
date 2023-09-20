@@ -1,6 +1,5 @@
 import { PieChartLabel,  PieChartData, PieChartEntry } from './charts.types';
 import { AccountActionType, Account, AccountAction, AccountState } from './account_context.types';
-import { NotificationData } from './notifications.types';
 import { SVGOptions } from './utils.types';
 import { Theme }from './theme_context.types';
 
@@ -23,7 +22,10 @@ type Expense = {
 
 type MonthlyChecking = {
 	income: number,
-	expenses: Expense[]
+	totalFixed: number,
+	totalDynamic: number,
+	fixed_expenses: Expense[],
+	dynamic_expenses: Expense[]
 }
 
 export type {
@@ -37,7 +39,6 @@ export type {
 	Account,
 	AccountAction,
 	AccountState,
-	NotificationData,
 	SVGOptions,
 	Expense,
 	MonthlyChecking

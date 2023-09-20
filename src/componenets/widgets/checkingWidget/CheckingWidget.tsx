@@ -3,11 +3,11 @@ import './checkingWidget.css';
 
 
 interface CheckingWidgetProps {
-	income: number,
-	fixedExpenses: number,
-	dynamicExpenses: number,
+	income?: number,
+	fixedExpenses?: number,
+	dynamicExpenses?: number,
 }
-const CheckingWidget = ({income, fixedExpenses, dynamicExpenses}: CheckingWidgetProps) => {
+const CheckingWidget = ({income = 0, fixedExpenses = 0, dynamicExpenses = 0}: CheckingWidgetProps) => {
 	const { t } = useTranslation();
 	const savings = income - (fixedExpenses + dynamicExpenses);
 	return (

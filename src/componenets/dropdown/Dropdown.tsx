@@ -14,10 +14,15 @@ interface DropdownProps<Option extends BasicOption> {
 const Dropdown = <Option extends BasicOption>({ className, label, options, onClick}: DropdownProps<Option>) => {
 	const { t } = useTranslation();
 
+	const handleOnChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+		e.preventDefault();
+		onClick?.(e.target.value);
+	}
+
 	return (
 		<div className={`dropdown ${className ? className: ''}`}>
 			<p>{label}</p>
-			<select onChange={(e) => onClick && onClick(e.target.value)} defaultValue={0}>
+			<select onChange={handleOnChange} defaultValue={0}>
 				{options.map((option, index) => 
 					<option key={index} value={option.value}>
 						{t(option.label.toString())}	
