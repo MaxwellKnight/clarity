@@ -65,6 +65,7 @@
 	},
 
 	"months_full": {
+		"ALL": "All months",
 		"JAN": "January",
 		"FEB": "February",
 		"MAR": "March",

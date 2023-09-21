@@ -23,6 +23,7 @@
 		"dreams_goals": "мечты и цели"
 	},
 
+	"category": "категория",
 	"categories": {
 		"vacation": "отпуск",
 		"restaurant": "ресторан",
@@ -53,8 +54,10 @@
 		"house_holding": "Уход за домом",
 		"electricity_bill": "Счет за электроэнергию",
 		"water_bill": "Счет за воду",
+		"gas_bill": "счет за газ",
 		"health_medication": "Здоровье и медикаменты",
-		"tax_payments": "Налоги и платежи"
+		"tax_payments": "Налоги и платежи",
+		"empty": "пустой"
 	},
 
 	"checking": {
@@ -62,6 +65,7 @@
 	},
 
 	"months_full": {
+		"ALL": "все месяцы",
 		"JAN": "январь",
 		"FEB": "февраль",
 		"MAR": "март",

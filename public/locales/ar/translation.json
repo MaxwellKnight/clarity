@@ -23,6 +23,7 @@
 		"dreams_goals": "الأحلام والأهداف"
 	},
 
+	"category": "فئة",
 	"categories": {
 		"vacation": "عطلة",
 		"restaurant": "مطعم",
@@ -53,8 +54,10 @@
 		"house_holding": "المنزل",
 		"electricity_bill": "فاتورة الكهرباء",
 		"water_bill": "فاتورة المياه",
+		"gas_bill": "فاتورة الغاز",
 		"health_medication": "الصحة والأدوية",
-		"tax_payments": "الضرائب والمدفوعات"
+		"tax_payments": "الضرائب والمدفوعات",
+		"empty": "فارغ"
 	},
 
 	"checking": {
@@ -62,6 +65,7 @@
 	},
 
 	"months_full": {
+		"ALL": "كل الشهور",
 		"JAN": "يناير",
 		"FEB": "فبراير",
 		"MAR": "مارس",
