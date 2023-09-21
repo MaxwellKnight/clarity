@@ -5,18 +5,14 @@ import { useTranslation } from 'react-i18next';
 import { useEffect, useState } from 'react';
 import './categoryWidget.css';
 
-type Option = {
-	label: string,
-	value: string
-}
-type OptionsType = Option[];
+type Option = { label: string, value: string } [];
 
 type Categories = {
 	categories: string[]
 }
 const CategoryWidget = () => {
 	const { t } = useTranslation();
-	const [options, setOptions] = useState<OptionsType>();
+	const [options, setOptions] = useState<Option>();
 	const { data , loading }: FetchResponse<Categories | null | undefined> = 
 		useFetch('http://localhost:3001/info/budget/categories');
 	

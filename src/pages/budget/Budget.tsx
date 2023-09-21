@@ -89,18 +89,18 @@ const Budget = () => {
 				/>
 			</div>
 			{currentExpenses && averageChecking && 
-			<>
-			<ExpenseSection 
-				expenses={currentExpenses.dynamic_expenses}
-				average={averageChecking.dynamic_expenses} 
-				label='dynamic_expenses'
-			/>
-			<ExpenseSection 
-				expenses={currentExpenses.fixed_expenses}
-				average={averageChecking.fixed_expenses}  
-				label='fixed_expenses'
-			/>
-			</>
+				<>
+					<ExpenseSection 
+						expenses={currentExpenses.dynamic_expenses}
+						average={averageChecking.dynamic_expenses} 
+						label='dynamic_expenses'
+					/>
+					<ExpenseSection 
+						expenses={currentExpenses.fixed_expenses}
+						average={averageChecking.fixed_expenses}  
+						label='fixed_expenses'
+					/>
+				</>
 			}
 			<CategoryWidget />
 		</section>
