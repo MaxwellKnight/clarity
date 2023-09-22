@@ -10,11 +10,12 @@ type Option = { label: string, value: string } [];
 type Categories = {
 	categories: string[]
 }
+type CategoriesFetch = Categories | null | undefined;
+
 const CategoryWidget = () => {
 	const { t } = useTranslation();
 	const [options, setOptions] = useState<Option>();
-	const { data , loading }: FetchResponse<Categories | null | undefined> = 
-		useFetch('http://localhost:3001/info/budget/categories');
+	const { data , loading }: FetchResponse<CategoriesFetch> = useFetch('http://localhost:3001/info/budget/categories');
 	
 	const parseCategories = (categoris: string[]) => categoris.map(category => ({
 		label: t(`translation:categories.${category}`),
