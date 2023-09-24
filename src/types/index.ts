@@ -32,7 +32,7 @@ type MonthlyChecking = {
 type FetchResponse<T> = {
 	data: T,
 	loading: boolean | undefined,
-	error: string | null | undefined
+	error: Error | undefined
 }
 
 export type {

@@ -2,14 +2,14 @@
 type FetchState<T> = {
 	data: T | null | undefined,
 	loading?: boolean,
-	error?: string | null
+	error?: Error
 };
 
 type FetchActionType = 'FETCH_START' | 'FETCH_SUCCESS' | 'FETCH_FAILURE';
 type FetchAction<T> = {
 	type: FetchActionType,
 	data?: T | null,
-	error?: string | null
+	error?: Error
 }
 
 export const initial_fetch = {
