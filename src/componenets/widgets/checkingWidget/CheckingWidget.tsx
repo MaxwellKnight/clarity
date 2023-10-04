@@ -11,6 +11,7 @@ const CheckingWidget = ({income = 0, fixedExpenses = 0, dynamicExpenses = 0}: Ch
 	const { t } = useTranslation();
 	const savings = income - (fixedExpenses + dynamicExpenses);
 	const divisionIncome = income === 0 ? 1 : income;
+
 	return (
 		<div className="checking-widget">
 			<div className="income">

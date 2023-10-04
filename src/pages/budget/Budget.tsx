@@ -16,21 +16,24 @@ const Budget = () => {
 	const [selectedMonth, setSelectedMonth] = useState(0);
 	const [currentExpenses, setCurrentExpenses] = useState<MonthlyCheckingFetch>();
 	
-	const { data: averageChecking}: FetchResponse<MonthlyCheckingFetch> = useFetch(`http://localhost:3001/info/budget/avg`);
-	const { data: currentChecking, loading}: FetchResponse<MonthlyCheckingFetch> = useFetch(
+	const { data: averageChecking, loading: loadingAvg}: FetchResponse<MonthlyCheckingFetch> = useFetch(`http://localhost:3001/info/budget/avg`);
+	const { data: currentChecking, loading: loadingCurr}: FetchResponse<MonthlyCheckingFetch> = useFetch(
 		`http://localhost:3001/info/budget/${selectedMonth}`, 
 		[selectedMonth]
 	);
 
-	const handleChange = (month: string) => setSelectedMonth(Number(month));
+	const handleChange = (month: string) => setSelectedMonth(() => Number(month));
+	console.log(currentChecking);
 	
 	useEffect(() => {
-		if(averageChecking && selectedMonth === AVG_EXPENSES) {
+		if(!loadingAvg && averageChecking && selectedMonth === AVG_EXPENSES){
 			setCurrentExpenses({...averageChecking});
-		}
-		else if(currentChecking) setCurrentExpenses({...currentChecking})
-		
-	}, [selectedMonth, loading])
+			return;
+		} 
+		else if(!loadingCurr && currentChecking) setCurrentExpenses({...currentChecking})
+	}, [selectedMonth, loadingCurr, loadingAvg])
+
+
 	
 	return (
 		<section className='my-budget'>

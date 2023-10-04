@@ -18,11 +18,11 @@ const useFetch = <T,>(url: string, deps: unknown[] = []) => {
 			try{
 				const response = await fetch(url);
 				if(!response.ok) throw new Error(response.statusText);
-				const data = (await response.json()) as T;
-				cache.current[url] = data;
+				const responseData = (await response.json()) as T;
+				cache.current[url] = responseData;
 
 				if(cancelRequest.current) return;
-				dispatch({type: 'FETCH_SUCCESS', data});
+				dispatch({type: 'FETCH_SUCCESS', data: responseData});
 			}catch(error){
 				if(cancelRequest.current) return;
 				dispatch({type: 'FETCH_FAILURE', error: error as Error})

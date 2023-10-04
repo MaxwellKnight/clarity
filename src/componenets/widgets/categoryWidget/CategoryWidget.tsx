@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 import './categoryWidget.css';
 
 type Option = { label: string, value: string } [];
-type Categories = { categories: string[] }
+type Categories = string[]
 type CategoriesFetch = Categories | null | undefined;
 
 const CategoryWidget = () => {
@@ -21,8 +21,8 @@ const CategoryWidget = () => {
 	
 	useEffect(() => {
 		if(!loading && data){
-			data.categories.unshift("empty");
-			setOptions(() => parseCategories(data.categories))
+			data.unshift("empty");
+			setOptions(() => parseCategories(data))
 		}
 	}, [loading]) 
 
