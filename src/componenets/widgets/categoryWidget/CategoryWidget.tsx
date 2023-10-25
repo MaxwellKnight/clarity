@@ -1,34 +1,16 @@
 import { Dropdown } from '../..';
-import { useFetch } from '../../../hooks';
-import { FetchResponse } from '../../../types';
 import { useTranslation } from 'react-i18next';
-import { useEffect, useState } from 'react';
 import './categoryWidget.css';
 
-type Option = { label: string, value: string } [];
-type Categories = string[]
-type CategoriesFetch = Categories | null | undefined;
+type Option = { label: string, value: string };
 
-const CategoryWidget = () => {
+type CategoryWidgetProps = { options: Option[] };
+const CategoryWidget = ({ options }: CategoryWidgetProps) => {
 	const { t } = useTranslation();
-	const [options, setOptions] = useState<Option>([]);
-	const { data , loading }: FetchResponse<CategoriesFetch> = useFetch('http://localhost:3001/info/budget/categories');
-	
-	const parseCategories = (categoris: string[]) => categoris.map(category => ({
-		label: t(`translation:categories.${category}`),
-		value: category
-	}))
-	
-	useEffect(() => {
-		if(!loading && data){
-			data.unshift("empty");
-			setOptions(() => parseCategories(data))
-		}
-	}, [loading]) 
 
 	return (
 		<div className="category-widget">
-		{!loading ?
+		{options ?
 			<div className='category-widget'>
 				<Dropdown label={t("translation:category")} options={options} />
 				<Dropdown options={options} />

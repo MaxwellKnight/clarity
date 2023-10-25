@@ -2,7 +2,7 @@ import { Expense } from '../../types';
 import { generateColors } from '../../utils';
 import { useTranslation } from 'react-i18next';
 import { PieBoxActive, BarBox } from '../../componenets';
-import './budget.css';
+import './_expensesSection.css';
 
 const MAX_COLORS = 23;
 const COLORS = generateColors(MAX_COLORS);

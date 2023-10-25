@@ -3,9 +3,10 @@ import { useFetch } from '../../hooks';
 import { useTranslation } from 'react-i18next';
 import { useEffect, useState } from 'react';
 import {  MonthlyChecking, FetchResponse } from '../../types';
-import { CheckingWidget, Dropdown, CategoryWidget } from '../../componenets';
+import { CheckingWidget, Dropdown } from '../../componenets';
 import ExpenseSection from './ExpenseSection';
 import './budget.css';
+import CategorySection from './CategorySection';
 
 type MonthlyCheckingFetch = MonthlyChecking | null | undefined;
 
@@ -45,23 +46,21 @@ const Budget = () => {
 					dynamicExpenses={currentExpenses?.totalDynamic}
 				/>
 			</div>
-			{currentExpenses && averageChecking && 
-				<>
-					<ExpenseSection 
-						expenses={currentExpenses.dynamic_expenses}
-						totalSum={currentExpenses.totalDynamic}
-						average={averageChecking.dynamic_expenses} 
-						label='dynamic_expenses'
-					/>
-					<ExpenseSection 
-						expenses={currentExpenses.fixed_expenses}
-						totalSum={currentExpenses.totalFixed}
-						average={averageChecking.fixed_expenses}  
-						label='fixed_expenses'
-					/>
-				</>
+			{currentExpenses && averageChecking && <>
+				<ExpenseSection 
+					expenses={currentExpenses.dynamic_expenses}
+					totalSum={currentExpenses.totalDynamic}
+					average={averageChecking.dynamic_expenses} 
+					label='dynamic_expenses'
+				/>
+				<ExpenseSection 
+					expenses={currentExpenses.fixed_expenses}
+					totalSum={currentExpenses.totalFixed}
+					average={averageChecking.fixed_expenses}  
+					label='fixed_expenses'
+				/></>
 			}
-			<CategoryWidget />
+			<CategorySection />
 		</section>
 	)
 };
