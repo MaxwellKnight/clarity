@@ -23,7 +23,6 @@ const Budget = () => {
 	);
 
 	const handleChange = (month: string) => setSelectedMonth(() => Number(month));
-	console.log(currentChecking);
 	
 	useEffect(() => {
 		if(!loadingAvg && averageChecking && selectedMonth === AVG_EXPENSES){
