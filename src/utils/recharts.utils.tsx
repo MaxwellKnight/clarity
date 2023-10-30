@@ -204,8 +204,8 @@ export const CustomChartTooltip = ({
 	}
 }
 
-export const parseExpenses = (expenses: Expense[], average?: Expense[], label?: string) => { 
-	return expenses.map((expense, index) => {
+export const parseExpenses = (expenses: Expense[] | null, average?: Expense[], label?: string) => { 
+	return expenses ? expenses.map((expense, index) => {
 		const found = average?.find((exp) => exp.category === expense.category)
 		return {
 			name: t(`translation:categories.${expense.category}`),
@@ -214,5 +214,5 @@ export const parseExpenses = (expenses: Expense[], average?: Expense[], label?: 
 			label: label,
 			avg: found ? found.value : 0,
 		}
-	})
+	}) : []
 }

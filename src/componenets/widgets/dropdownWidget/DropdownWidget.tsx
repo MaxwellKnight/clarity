@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import './dropdownWidget.css';
 
 type Option = { label: string, value: string };
-type Action = (label: string, key: number) => void
+type Action = (label: string) => void
 type DropdownWidgetProps = { 
 	options: Option[], 
 	dropdownCount: number,
@@ -20,7 +20,7 @@ const DropdownWidget = ({ options, dropdownCount, action}: DropdownWidgetProps) 
 					key={i} 
 					label={i === 0 ? t("translation:category") : undefined} 
 					options={options} 
-					onClick={category => action(category, i)} 
+					onClick={label => action(label)} 
 				/>)
 		}
 		return dropdowns;

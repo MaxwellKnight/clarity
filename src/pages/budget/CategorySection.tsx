@@ -1,38 +1,39 @@
 import { useEffect, useReducer, useState } from "react";
 import { DropdownWidget } from "../../componenets";
-import { useFetch } from "../../hooks";
-import { Expense, FetchResponse } from "../../types";
+import { Expense } from "../../types";
 import { useTranslation } from "react-i18next";
+import { TFunction } from "i18next";
+import { ResponsiveContainer, Line, LineChart } from "recharts";
+import { parseExpenses } from "../../utils";
 import './_categorySection.css';
 
-type Categories = string[];
-type CategoriesFetch = Categories | null | undefined;
 type Option = { label: string, value: string };
 
 
-type GraphState = { [key: number]: Expense | null };
+type GraphState = { [key: string]: Expense[] | null };
 type GraphAction = {
 	type: string,
-	key?: number,
+	key?: string,
 	data?: Expense[] | null
 };
 
-const graphReducer = (state: GraphState, actions: GraphAction) => {
+/**
+ * @param state - current state
+ * @param actions - defined action to run
+ * @returns - new state
+ */
+const graphReducer = (state: GraphState, actions: GraphAction): GraphState => {
 	switch(actions.type){
 		case 'ADD_GRAPH':
-			return {
+			return actions.key ? {
 				...state,
-				[`${Object.keys(state).length}`]: actions.data
-			}
+				[actions.key]: actions.data || null
+			} : {...state}
 		case 'REMOVE_GRAPH': 
-			if(actions.key){
-				return state[actions.key] ? {
-					...state,
-					[actions.key]: null
-				} : 
-				{ ...state }
-			}
-			return { ...state }
+			return actions.key ? {
+				...state,
+				[actions.key]: null
+			} : {...state}
 		default: 
 			return {
 				...state
@@ -40,35 +41,59 @@ const graphReducer = (state: GraphState, actions: GraphAction) => {
 	}
 }
 
-const CategorySection = () => {
+/**
+ * @param categoris - array of strings
+ * @returns - parsed array of objects for ReCharts
+ */
+const parseCategories = (categoris: string[], t: TFunction<"translation", undefined>) => categoris.map(category => {
+	return {
+		label: t(`translation:categories.${category}`),
+		value: category
+	}
+})
+
+type CategorySectionProps = {
+	categories: string[]
+}
+const CategorySection = ({ categories }: CategorySectionProps) => {
 	const { t } = useTranslation();
 	const [options, setOptions] = useState<Option[]>([]);
 	const [graphs, dispatch] = useReducer(graphReducer, {})
-	const { data , loading }: FetchResponse<CategoriesFetch> = useFetch('http://localhost:3001/info/budget/categories');
 
-	const parseCategories = (categoris: string[]) => categoris.map(category => ({
-		label: t(`translation:categories.${category}`),
-		value: category
-	}))
-
-	const toggleGraph = (category: string, key: number) => {
-		if(key in graphs){
-			dispatch({type: 'REMOVE_GRAPH', key});
+	console.log(graphs);
+	/**
+	 * @param category - category name
+	 * @param key - index of expenses
+	 * @returns void
+	 */
+	const toggleGraph = (category: string) => {
+		if(category in graphs){
+			dispatch({type: 'REMOVE_GRAPH', key: category});
 			return;
 		}
-		dispatch({type: 'ADD_GRAPH', data: [{isFixed: false, date: new Date(), category, value: 0}]});
+		dispatch({type: 'ADD_GRAPH', data: [{isFixed: false, date: new Date(), category, value: Math.floor(Math.random() * 10000)}], key: category});
 	}
 	
 	useEffect(() => {
-		if(!loading && data){
-			data.unshift("empty");
-			setOptions(() => parseCategories(data))
+		if(categories){
+			categories.unshift("empty");
+			setOptions(() => parseCategories(categories, t))
 		}
-	}, [loading, data]) 
+	}, [categories]) 
 
 	return (
-		<section>
+		<section className="category-section">
 			<DropdownWidget options={options} dropdownCount={5} action={toggleGraph}/>
+			<ResponsiveContainer width="100%" height="100%">
+				<LineChart width={500} height={300} data={parseExpenses(graphs[0])} >
+					<Line type="monotone" dataKey="value" stroke="#82ca9d" />
+				</LineChart>	
+			</ResponsiveContainer>
+			{/* {Object.keys(graphs).map((key: string) => (
+				<LineChart width={500} height={300} data={parseExpenses(graphs[Number(key)])} >
+					<Line type="monotone" dataKey="value" stroke="#82ca9d" />
+				</LineChart>
+			))} */}
 		</section>
 	)
 }

@@ -9,6 +9,8 @@ import './budget.css';
 import CategorySection from './CategorySection';
 
 type MonthlyCheckingFetch = MonthlyChecking | null | undefined;
+type Categories = string[];
+type CategoriesFetch = Categories | null | undefined;
 
 const AVG_EXPENSES = 12;
 
@@ -18,6 +20,7 @@ const Budget = () => {
 	const [currentExpenses, setCurrentExpenses] = useState<MonthlyCheckingFetch>();
 	
 	const { data: averageChecking, loading: loadingAvg}: FetchResponse<MonthlyCheckingFetch> = useFetch(`http://localhost:3001/info/budget/avg`);
+	const { data: categories , loading: loadingCategories }: FetchResponse<CategoriesFetch> = useFetch('http://localhost:3001/info/budget/categories');
 	const { data: currentChecking, loading: loadingCurr}: FetchResponse<MonthlyCheckingFetch> = useFetch(
 		`http://localhost:3001/info/budget/${selectedMonth}`, 
 		[selectedMonth]
@@ -46,7 +49,7 @@ const Budget = () => {
 					dynamicExpenses={currentExpenses?.totalDynamic}
 				/>
 			</div>
-			{currentExpenses && averageChecking && <>
+			{currentExpenses && averageChecking ? <>
 				<ExpenseSection 
 					expenses={currentExpenses.dynamic_expenses}
 					totalSum={currentExpenses.totalDynamic}
@@ -58,9 +61,9 @@ const Budget = () => {
 					totalSum={currentExpenses.totalFixed}
 					average={averageChecking.fixed_expenses}  
 					label='fixed_expenses'
-				/></>
+				/></> : null
 			}
-			<CategorySection />
+			{!loadingCategories && categories ? <CategorySection categories={categories} /> : null}
 		</section>
 	)
 };
