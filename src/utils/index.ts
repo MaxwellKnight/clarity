@@ -2,6 +2,7 @@ import { generateColors } from "./colors.utils";
 import { getErrorMessage } from "./errors.utils";
 import { CustomizedPieChartLabel } from "./recharts.utils";
 import { CustomPieChartTooltip, CustomCheckingTooltip, renderActiveShape } from "./recharts.utils";
+import { parseExpenses } from "./recharts.utils";
 
 export {
 	generateColors,
@@ -9,5 +10,6 @@ export {
 	CustomPieChartTooltip,
 	CustomCheckingTooltip,
 	getErrorMessage,
-	renderActiveShape
+	renderActiveShape,
+	parseExpenses
 }

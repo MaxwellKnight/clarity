@@ -2,7 +2,13 @@ import { Sector, TooltipProps } from "recharts";
 import { ValueType, NameType } from "recharts/types/component/DefaultTooltipContent";
 import '../styles/recharts.css';
 import { useTranslation } from "react-i18next";
-import { PieChartEntry } from "../types";
+import { Expense, PieChartEntry } from "../types";
+import { t } from "i18next";
+import { generateColors } from ".";
+
+const MAX_COLORS = 23;
+const COLORS = generateColors(MAX_COLORS);
+
 
 interface CustomPieChartLabelProps {
 	cx: number,
@@ -196,4 +202,17 @@ export const CustomChartTooltip = ({
 			</div>
 		);
 	}
+}
+
+export const parseExpenses = (expenses: Expense[], average?: Expense[], label?: string) => { 
+	return expenses.map((expense, index) => {
+		const found = average?.find((exp) => exp.category === expense.category)
+		return {
+			name: t(`translation:categories.${expense.category}`),
+			value: Number(expense.value.toFixed(1)),
+			fill: COLORS[index],
+			label: label,
+			avg: found ? found.value : 0,
+		}
+	})
 }

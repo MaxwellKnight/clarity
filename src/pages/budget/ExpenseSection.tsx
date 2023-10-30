@@ -1,11 +1,8 @@
 import { Expense } from '../../types';
-import { generateColors } from '../../utils';
 import { useTranslation } from 'react-i18next';
 import { PieBoxActive, BarBox } from '../../componenets';
 import './_expensesSection.css';
-
-const MAX_COLORS = 23;
-const COLORS = generateColors(MAX_COLORS);
+import { parseExpenses } from '../../utils';
 
 type ExpenseSectionProps = {
 	expenses: Expense[],
@@ -17,19 +14,6 @@ type ExpenseSectionProps = {
 const ExpenseSection = ({ expenses, average, label, totalSum } : ExpenseSectionProps) => {
 	const { t } = useTranslation();
 
-	const parse = (expenses: Expense[], label?: string) => { 
-		return expenses.map((expense, index) => {
-			const found = average.find((exp) => exp.category === expense.category)
-			return {
-				name: t(`translation:categories.${expense.category}`),
-				value: Number(expense.value.toFixed(1)),
-				fill: COLORS[index],
-				label: label,
-				avg: found ? found.value : 0,
-			}
-		})
-	}
-
 	return (
 		<div className="budget-expenses">
 			<div className="budget-expenses-info">
@@ -37,8 +21,8 @@ const ExpenseSection = ({ expenses, average, label, totalSum } : ExpenseSectionP
 				<p><span>{t("translation:charge")}</span> : ₪{totalSum}</p>
 			</div>
 			<div className="budget-expenses-charts">
-				<PieBoxActive data={parse(expenses, t("translation:total"))} />
-				<BarBox data={parse(expenses)}/>
+				<PieBoxActive data={parseExpenses(expenses, average, t("translation:total"))} />
+				<BarBox data={parseExpenses(expenses, average)}/>
 			</div>
 		</div>
 	)
