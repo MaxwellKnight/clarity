@@ -11,9 +11,9 @@ type GraphActions = {
 type CategoryWidgetProps = { 
 	options: Option[], 
 	dropdownCount: number,
-	graphActions: GraphActions
+	actions: GraphActions
 };
-const CategoryWidget = ({ options, dropdownCount, graphActions}: CategoryWidgetProps) => {
+const CategoryWidget = ({ options, dropdownCount, actions}: CategoryWidgetProps) => {
 	const { t } = useTranslation();
 
 	const getDropdowns = (options: Option[], count: number) => {
@@ -23,7 +23,7 @@ const CategoryWidget = ({ options, dropdownCount, graphActions}: CategoryWidgetP
 				i === 0 ? 
 					<Dropdown key={i} label={t("translation:category")} options={options}/> 
 						:
-					<Dropdown key={i} options={options} onClick={(category) => graphActions.add([{
+					<Dropdown key={i} options={options} onClick={(category) => actions.add([{
 						isFixed: false,
 						date: new Date(),
 						category,

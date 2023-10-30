@@ -66,7 +66,7 @@ const CategorySection = () => {
 
 	return (
 		<section>
-			<CategoryWidget options={options} dropdownCount={5} graphActions={graphStore}/>
+			<CategoryWidget options={options} dropdownCount={5} actions={graphStore}/>
 		</section>
 	)
 }
