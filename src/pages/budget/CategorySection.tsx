@@ -14,7 +14,7 @@ type GraphState = { [key: number]: Expense | null };
 type GraphAction = {
 	type: string,
 	key?: number,
-	data?: Expense
+	data?: Expense[] | null
 };
 
 const graphReducer = (state: GraphState, actions: GraphAction) => {
@@ -46,17 +46,19 @@ const CategorySection = () => {
 	const [graphs, dispatch] = useReducer(graphReducer, {})
 	const { data , loading }: FetchResponse<CategoriesFetch> = useFetch('http://localhost:3001/info/budget/categories');
 
-	console.log(graphs);
 	const parseCategories = (categoris: string[]) => categoris.map(category => ({
 		label: t(`translation:categories.${category}`),
 		value: category
 	}))
 
-	const graphStore = {
-		add: (graph: Expense) => dispatch({type: 'ADD_GRAPH', data: graph}),
-		remove: (key: number) => dispatch({type: 'REMOVE_GRAPH', key})
+	const toggleGraph = (category: string, key: number) => {
+		if(key in graphs){
+			dispatch({type: 'REMOVE_GRAPH', key});
+			return;
+		}
+		dispatch({type: 'ADD_GRAPH', data: [{isFixed: false, date: new Date(), category, value: 0}]});
 	}
-
+	
 	useEffect(() => {
 		if(!loading && data){
 			data.unshift("empty");
@@ -66,7 +68,7 @@ const CategorySection = () => {
 
 	return (
 		<section>
-			<DropdownWidget options={options} dropdownCount={5} actions={graphStore}/>
+			<DropdownWidget options={options} dropdownCount={5} action={toggleGraph}/>
 		</section>
 	)
 }
