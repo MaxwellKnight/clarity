@@ -20,15 +20,13 @@ const DropdownWidget = ({ options, dropdownCount, actions}: DropdownWidgetProps)
 		const dropdowns = []
 		for(let i = 0; i < count; i++){
 			dropdowns.push(
-				i === 0 ? 
-					<Dropdown key={i} label={t("translation:category")} options={options}/> 
-						:
-					<Dropdown key={i} options={options} onClick={(category) => actions.add({
-						isFixed: false,
-						date: new Date(),
-						category,
-						value: 100
-					})} />)
+				<Dropdown key={i} label={i === 0 ? t("translation:category") : undefined} options={options} onClick={(category) => actions.add({
+					isFixed: false,
+					date: new Date(),
+					category,
+					value: 100
+				})} />
+			)
 		}
 		return dropdowns;
 	}
