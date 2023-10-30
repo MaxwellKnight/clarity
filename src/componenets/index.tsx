@@ -13,7 +13,7 @@ import Dropdown from "./dropdown/Dropdown";
 import Icon from "./icon/Icon";
 import PieBoxActive from "./charts/pieBoxActive/PieBoxActive";
 import BarBox from "./charts/barBox/BarBox";
-import CategoryWidget from "./widgets/categoryWidget/CategoryWidget";
+import DropdownWidget from "./widgets/dropdownWidget/DropdownWidget";
 
 export {
 	CategoryBox,
@@ -31,5 +31,5 @@ export {
 	Icon,
 	PieBoxActive,
 	BarBox,
-	CategoryWidget
+	DropdownWidget
 };

@@ -1,5 +1,5 @@
 import { useEffect, useReducer, useState } from "react";
-import { CategoryWidget } from "../../componenets";
+import { DropdownWidget } from "../../componenets";
 import { useFetch } from "../../hooks";
 import { Expense, FetchResponse } from "../../types";
 import { useTranslation } from "react-i18next";
@@ -10,11 +10,11 @@ type CategoriesFetch = Categories | null | undefined;
 type Option = { label: string, value: string };
 
 
-type GraphState = { [key: number]: Expense[] | null };
+type GraphState = { [key: number]: Expense | null };
 type GraphAction = {
 	type: string,
 	key?: number,
-	data?: Expense[]
+	data?: Expense
 };
 
 const graphReducer = (state: GraphState, actions: GraphAction) => {
@@ -53,7 +53,7 @@ const CategorySection = () => {
 	}))
 
 	const graphStore = {
-		add: (graph: Expense[]) => dispatch({type: 'ADD_GRAPH', data: graph}),
+		add: (graph: Expense) => dispatch({type: 'ADD_GRAPH', data: graph}),
 		remove: (key: number) => dispatch({type: 'REMOVE_GRAPH', key})
 	}
 
@@ -66,7 +66,7 @@ const CategorySection = () => {
 
 	return (
 		<section>
-			<CategoryWidget options={options} dropdownCount={5} actions={graphStore}/>
+			<DropdownWidget options={options} dropdownCount={5} actions={graphStore}/>
 		</section>
 	)
 }

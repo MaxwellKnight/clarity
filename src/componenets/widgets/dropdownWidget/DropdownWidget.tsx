@@ -1,19 +1,19 @@
 import { Dropdown } from '../..';
 import { useTranslation } from 'react-i18next';
-import './categoryWidget.css';
 import { Expense } from '../../../types';
+import './dropdownWidget.css';
 
 type Option = { label: string, value: string };
 type GraphActions = { 
-	add: (graph: Expense[]) => void, 
+	add: (graph: Expense) => void, 
 	remove: (key: number) => void
 }
-type CategoryWidgetProps = { 
+type DropdownWidgetProps = { 
 	options: Option[], 
 	dropdownCount: number,
 	actions: GraphActions
 };
-const CategoryWidget = ({ options, dropdownCount, actions}: CategoryWidgetProps) => {
+const DropdownWidget = ({ options, dropdownCount, actions}: DropdownWidgetProps) => {
 	const { t } = useTranslation();
 
 	const getDropdowns = (options: Option[], count: number) => {
@@ -23,12 +23,12 @@ const CategoryWidget = ({ options, dropdownCount, actions}: CategoryWidgetProps)
 				i === 0 ? 
 					<Dropdown key={i} label={t("translation:category")} options={options}/> 
 						:
-					<Dropdown key={i} options={options} onClick={(category) => actions.add([{
+					<Dropdown key={i} options={options} onClick={(category) => actions.add({
 						isFixed: false,
 						date: new Date(),
 						category,
 						value: 100
-					}])} />)
+					})} />)
 		}
 		return dropdowns;
 	}
@@ -40,4 +40,4 @@ const CategoryWidget = ({ options, dropdownCount, actions}: CategoryWidgetProps)
 	)
 }
 
-export default CategoryWidget;
+export default DropdownWidget;
