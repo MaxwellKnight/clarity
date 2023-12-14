@@ -83,8 +83,6 @@ const CategorySection = ({ categories }: CategorySectionProps) => {
 		}
 	}
 
-	console.log(renderOptions);
-
 	useEffect(() => {
 		if(!loading && graphData){
 			const newGraph = parseCategoryExpenses(graphData, graph);
