@@ -43,7 +43,7 @@ export const relaxingColors = new Set([
 	"#7B241C", // Chestnut
 ]);
 
-export const getRandomColor = () => {
+const getRandomColor = () => {
 	const randomIndex = Math.floor(Math.random() * relaxingColors.size);
 	const colorsArray = Array.from(relaxingColors);
 	return colorsArray[randomIndex];

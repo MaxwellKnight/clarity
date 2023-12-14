@@ -1,8 +1,8 @@
 import { Expense } from '../../types';
 import { useTranslation } from 'react-i18next';
 import { PieBoxActive, BarBox } from '../../componenets';
-import './_expensesSection.css';
 import { parseExpenses } from '../../utils';
+import './_expensesSection.css';
 
 type ExpenseSectionProps = {
 	expenses: Expense[],
@@ -29,8 +29,12 @@ const ExpenseSection = ({ expenses, average, label, totalSum } : ExpenseSectionP
 				<p><span>{t("translation:charge")}</span> : ₪{totalSum}</p>
 			</div>
 			<div className="budget-expenses-charts">
-				<PieBoxActive data={parseExpenses(expenses, average, t("translation:total"))} />
-				<BarBox data={parseExpenses(expenses, average)}/>
+				<div>
+					<PieBoxActive data={parseExpenses(expenses, average, t("translation:total"))} />
+				</div>
+				<div>
+					<BarBox data={parseExpenses(expenses, average)}/>
+				</div>
 			</div>
 		</div>
 	)

@@ -193,12 +193,27 @@ export const CustomChartTooltip = ({
 	);
  };
 
- export const CustomTooltip = ({ active, payload } : CustomTooltip) => {
+export const CustomTooltip = ({ active, payload } : CustomTooltip) => {
 	if (active && payload) {
 		return (
 			<div className="custom-tooltip">
 				<p className="label">{payload[0].payload.name}</p>
 				<p className="desc">{payload[0].payload.value}</p>
+			</div>
+		);
+	}
+
+}
+export const GenericTooltip = ({ active, payload } : CustomTooltip) => {
+	const { t } = useTranslation();
+	if (active && payload) {
+		return (
+			<div className="custom-tooltip generic">
+				{payload.map((element, index) => 
+					<p key={index}>
+						<span style={{color: element.color}}>{t(`translation:categories.${element.dataKey}`)}</span> : {element.value}
+					</p>
+				)}
 			</div>
 		);
 	}
@@ -215,4 +230,19 @@ export const parseExpenses = (expenses: Expense[] | null, average?: Expense[], l
 			avg: found ? found.value : 0,
 		}
 	}) : []
+}
+
+export const MONTH_DICT: { [key: number]: string } = {
+	0: 'JAN',
+	1: 'FEB',
+	2: 'MAR',
+	3: 'APR',
+	4: 'MAY',
+	5: 'JUN',
+	6: 'JUL',
+	7: 'AUG',
+	8: 'SEP',
+	9: 'OCT',
+	10: 'NOV',
+	11: 'DEC'
 }
