@@ -77,6 +77,7 @@ const CategorySection = ({ categories }: CategorySectionProps) => {
 		if(option){
 			const newOptions = [...options, option];
 			const newRenderOptions = renderOptions.filter(op => op.value !== category);
+			setSelectedCategory(null);
 			setGraph(newGraph);
 			setOptions(newOptions);
 			setRenderOptions(newRenderOptions);
@@ -89,6 +90,7 @@ const CategorySection = ({ categories }: CategorySectionProps) => {
 			const newOptions = options.filter((option: Option) => option.value !== graphData.category);
 			const removedOption = options.find((option: Option) => option.value === graphData.category);
 			if(removedOption) setRenderOptions((prev) => [...prev, removedOption]);
+			setSelectedCategory(null);
 			setOptions(newOptions);
 			setGraph(newGraph);
 		}
@@ -123,13 +125,13 @@ const CategorySection = ({ categories }: CategorySectionProps) => {
 						tick={{fill: '#c3c3c3'}}
 					/>
 					{renderOptions.map((option: Option, i: number) => 
-						<Line 
+						<Line
 							key={option.value} 
 							type="monotone" 
 							dataKey={option.value} 
 							fill={colors[i]} 
 							stroke={colors[i]} 
-							strokeWidth={3} 
+							strokeWidth={5} 
 						/>
 					)}
 				</ComposedChart>	
