@@ -1,10 +1,10 @@
+import { ResponsiveContainer, Line, XAxis,YAxis, CartesianGrid, Tooltip, ComposedChart } from "recharts";
+import { generateColors, GenericTooltip, MONTH_DICT } from "../../utils";
 import { useEffect, useState } from "react";
-import { Dropdown } from "../../componenets";
 import { useTranslation } from "react-i18next";
+import { Dropdown, Tag } from "../../componenets";
 import { TFunction } from "i18next";
 import { useFetch } from "../../hooks";
-import { ResponsiveContainer, LineChart, Line, XAxis, CartesianGrid, Tooltip } from "recharts";
-import { generateColors, GenericTooltip, MONTH_DICT } from "../../utils";
 import './_categorySection.css';
 
 type Option = { label: string, value: string };
@@ -14,7 +14,6 @@ type ExpensesGraph = { [key: string]: number | string | Date };
 
 const MAX_COLORS = 22
 const colors = generateColors(MAX_COLORS);
-
 
 /**
  * @param categoris - array of strings
@@ -47,6 +46,8 @@ const parseCategoryExpenses = (data: CategoryExpenses | undefined | null, graph:
 	return [...graph];
 }
 
+
+
 type CategorySectionProps = {
 	categories: string[]
 }
@@ -66,6 +67,24 @@ const CategorySection = ({ categories }: CategorySectionProps) => {
 		setSelectedCategory(selectedOption);
 	}
 
+	const removeGraph = (category: string) => {
+		const newGraph: ExpensesGraph[] = []
+		graph.forEach(month => {
+			delete month[category];
+			newGraph.push({...month});
+		})
+		const option = renderOptions.find(op => op.value === category);
+		if(option){
+			const newOptions = [...options, option];
+			const newRenderOptions = renderOptions.filter(op => op.value !== category);
+			setGraph(newGraph);
+			setOptions(newOptions);
+			setRenderOptions(newRenderOptions);
+		}
+	}
+
+	console.log(renderOptions);
+
 	useEffect(() => {
 		if(!loading && graphData){
 			const newGraph = parseCategoryExpenses(graphData, graph);
@@ -75,31 +94,34 @@ const CategorySection = ({ categories }: CategorySectionProps) => {
 			setOptions(newOptions);
 			setGraph(newGraph);
 		}
-	}, [selectedCategory, graphData, renderOptions]);
+	}, [selectedCategory, graphData]);
 
 	useEffect(() => {
 		if(categories){
 			categories.unshift("empty");
-			setOptions(() => parseCategories(categories, t))
+			setOptions(() => parseCategories(categories, t));
 		}
 	}, [categories]);
 
 	return (
 		<section className="category-section">
 			<Dropdown options={options} onClick={handleCategoryChange}/>
-			<ResponsiveContainer width="99%" height="99%">
-				<LineChart width={500} height={300} data={graph} >
-					<CartesianGrid strokeDasharray="3 3"/>
+			<div className="tags-section">
+				{renderOptions.map((option: Option, i: number) => 
+					<Tag key={option.label} action={() => removeGraph(option.value)} color={colors[i]} label={t(`translation:categories.${option.value}`)}/>
+				)}
+			</div>
+			{graphData ? 
+				<ResponsiveContainer width="90%" height="99%">
+				<ComposedChart width={500} height={300} data={graph} >
+					<CartesianGrid strokeDasharray="10 10"/>
 					<Tooltip content={<GenericTooltip />}/>
+					<YAxis width={50} />
 					<XAxis 
 						dataKey="date" 
-						axisLine={false} 
-						tickLine={true} 
+						scale="auto"
 						height={95}
-						angle={-65}
-						dx={0}
-						dy={45}
-						interval={0} 
+						dy={10}
 						tick={{fill: '#c3c3c3'}}
 					/>
 					{renderOptions.map((option: Option, i: number) => 
@@ -107,13 +129,13 @@ const CategorySection = ({ categories }: CategorySectionProps) => {
 							key={option.value} 
 							type="monotone" 
 							dataKey={option.value} 
+							fill={colors[i]} 
 							stroke={colors[i]} 
 							strokeWidth={3} 
-							dot={true}
 						/>
 					)}
-				</LineChart>	
-			</ResponsiveContainer>
+				</ComposedChart>	
+			</ResponsiveContainer> : null}
 		</section>
 	)
 }
