@@ -185,7 +185,7 @@ export const CustomChartTooltip = ({
 		 />
 		 <path d={`M${sx},${sy}L${mx},${my}L${ex},${ey}`} stroke={fill} fill="none" />
 		 <circle cx={ex} cy={ey} r={2} fill={fill} stroke="none" />
-		 <text x={ex + (cos >= 0 ? 1 : -1) * 30} y={ey - 25} textAnchor={textAnchor} fill="#ffff">{`${label} - ₪${value}`}</text>
+		 <text x={ex + (cos >= 0 ? 1 : -1) * 30} y={ey - 25} textAnchor={textAnchor} fill="#ffff">{`${label} - ₪${formatNumber(value)}`}</text>
 		 <text x={ex + (cos >= 0 ? 1 : -1) * 30} y={ey - 25} dy={18} textAnchor={textAnchor} fill="#bbbbbb">
 			{`(${(percent * 100).toFixed(1)}%)`}
 		 </text>
@@ -198,7 +198,7 @@ export const CustomTooltip = ({ active, payload } : CustomTooltip) => {
 		return (
 			<div className="custom-tooltip">
 				<p className="label">{payload[0].payload.name}</p>
-				<p className="desc">{formatNumber(payload[0].payload.value)}</p>
+				<p className="desc">₪{formatNumber(payload[0].payload.value)}</p>
 			</div>
 		);
 	}
@@ -211,7 +211,7 @@ export const GenericTooltip = ({ active, payload } : CustomTooltip) => {
 			<div className="custom-tooltip generic">
 				{payload.map((element, index) => 
 					<p key={index}>
-						<span style={{color: element.color}}>{t(`translation:categories.${element.dataKey}`)} :</span><span> {element.value}</span>
+						<span style={{color: element.color}}>{t(`translation:categories.${element.dataKey}`)} :</span><span> ₪{formatNumber(Number(element.value))}</span>
 					</p>
 				)}
 			</div>

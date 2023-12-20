@@ -119,7 +119,7 @@ const CategorySection = ({ categories }: CategorySectionProps) => {
 				<ComposedChart width={500} height={300} data={graph} >
 					<CartesianGrid strokeDasharray="10 10"/>
 					<Tooltip content={<GenericTooltip />}/>
-					<YAxis width={50} />
+					<YAxis width={50} tickFormatter={(num) => '₪' + new Intl.NumberFormat('en').format(Number(num))}/>
 					<XAxis dataKey="month" scale="auto" height={95} dy={10} tick={{fill: '#c3c3c3'}} />
 					{renderOptions.map((option: Option, i: number) => 
 						<Line key={option.value} type="monotone" dataKey={option.value} fill={colors[i]} stroke={colors[i]} strokeWidth={5} />

@@ -30,11 +30,11 @@ const CheckingWidget = ({income = 0, fixedExpenses = 0, dynamicExpenses = 0}: Ch
 				<p className='dynamic-expenses-amount'>₪{formatNumber(dynamicExpenses)}</p>
 				<span className='dynamic-expenses-percentage'>{formatNumber(Number((dynamicExpenses * 100 / divisionIncome).toFixed(0)))}%</span>
 			</div>
-			{savings > 0 && <div className="savings">
+			<div className="savings">
 				<p className='savings-title'>{t(`translation:savings`)}</p>
 				<p className='savings-amount'>₪{formatNumber(savings)}</p>
 				<span className='savings-percentage'>{formatNumber(Number((savings * 100 / income).toFixed(0)))}%</span>
-			</div>}
+			</div>
 		</div>
 	)
 }
