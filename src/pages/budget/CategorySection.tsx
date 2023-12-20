@@ -120,7 +120,7 @@ const CategorySection = ({ categories }: CategorySectionProps) => {
 					<CartesianGrid strokeDasharray="10 10"/>
 					<Tooltip content={<GenericTooltip />}/>
 					<YAxis width={50} />
-					<XAxis dataKey="date" scale="auto" height={95} dy={10} tick={{fill: '#c3c3c3'}} />
+					<XAxis dataKey="month" scale="auto" height={95} dy={10} tick={{fill: '#c3c3c3'}} />
 					{renderOptions.map((option: Option, i: number) => 
 						<Line key={option.value} type="monotone" dataKey={option.value} fill={colors[i]} stroke={colors[i]} strokeWidth={5} />
 					)}

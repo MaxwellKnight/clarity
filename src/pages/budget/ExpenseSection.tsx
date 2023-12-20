@@ -8,7 +8,7 @@ type ExpenseSectionProps = {
 	expenses: Expense[],
 	average: Expense[],
 	totalSum: number,
-	label: string
+	label: number | string
 }
 
 /**

@@ -1,14 +1,15 @@
 import { useEffect, useState } from 'react';
 import './table.css';
 import { useTranslation } from 'react-i18next';
+import { formatNumber } from '../../utils';
 
-type TableData = {
+type Data = {
 	[label: string]: string | number
 }
 
 type TableProps = {
 	caption: string,
-	content: TableData[],
+	content: Data[],
 	rowKey: string
 }
 
@@ -42,7 +43,7 @@ const Table = ({ caption, content, rowKey}: TableProps): JSX.Element => {
 
 					{content.map(column => 
 						<tr role='rowgroup' key={JSON.stringify(column)}>
-							{rows.map(row => <td role='row' key={row}>{column[row]}</td>)}
+							{rows.map(row => <td role='row' key={row}>{row !== rowKey ? `${formatNumber(column[row])} ₪` : column[row]}</td>)}
 						</tr>	
 					)}
 				</tbody>

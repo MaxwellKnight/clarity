@@ -198,7 +198,7 @@ export const CustomTooltip = ({ active, payload } : CustomTooltip) => {
 		return (
 			<div className="custom-tooltip">
 				<p className="label">{payload[0].payload.name}</p>
-				<p className="desc">{payload[0].payload.value}</p>
+				<p className="desc">{formatNumber(payload[0].payload.value)}</p>
 			</div>
 		);
 	}
@@ -227,7 +227,7 @@ export const parseExpenses = (expenses: Expense[] | null, average?: Expense[], l
 			value: Number(expense.value.toFixed(1)),
 			fill: COLORS[index],
 			label: label,
-			avg: formatNumber(found ? found.value : 0),
+			avg: found ? found.value : 0,
 		}
 	}) : []
 }
