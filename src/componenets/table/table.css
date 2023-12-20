@@ -1,0 +1,35 @@
+.table-wrapper {
+	width: 90%;
+	margin-inline: auto;
+	box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+caption {
+	background-color: hsl(0 0% 0%);
+	color: var(--soft-color);
+	padding-block: 1rem;
+}
+
+.table {
+	border-collapse: collapse;
+	width: 100%;
+	text-align: center;
+	background-color: #252525;
+
+	tbody {
+		font-size: 1.2rem;
+
+		tr > th {
+			background-color: hsl(0 0% 0% / .5);
+			color: var(--soft-color);
+		}
+
+		tr > td, th {
+			padding: 1rem;
+		}
+
+		tr:nth-child(2n){
+			background-color: hsl(0 0% 0% / 0.1);
+		}
+	}
+}

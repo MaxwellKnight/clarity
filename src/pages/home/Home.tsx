@@ -4,12 +4,13 @@ import { pieChartData, income, expense } from '../../data/pie_chart.data';
 import { CategoryBox, ChartBox, CheckingBox, PieBox } from '../../componenets';
 import { getCheckingHistory } from '../../data/checking_box.data';
 import { CheckingHistoryData } from '../../types';
+import { useTranslation } from 'react-i18next';
 
 const colors: string[] = generateColors(pieChartData.length);
-const checkingHistory: CheckingHistoryData[] = getCheckingHistory();
 
 const Home = () : JSX.Element => {
-
+	const { t } = useTranslation();
+	const checkingHistory: CheckingHistoryData[] = getCheckingHistory(t);
 	return (
 		<section className="home">
 			<div className="box box-1">

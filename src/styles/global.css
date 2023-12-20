@@ -17,6 +17,7 @@
 	--main-color: white;
 	--soft-color: #bbbbbb;
 	--dark-color: #2a3447;
+	--darker-color:rgb(23, 28, 39);
 }
 
 [data-type='light'] {
@@ -29,6 +30,7 @@
 	--main-color: #2C2B30;
 	--soft-color: #4F4F51;
 	--dark-color: #232227;
+	--darker-color:rgb(23, 28, 39);
 }
 
 [data-type='emperical'] {
@@ -41,6 +43,7 @@
 	--main-color: #FFFF;
 	--soft-color: #F8C8C6;
 	--dark-color: #F58F7C;
+	--darker-color:rgb(23, 28, 39);
 }
 
 [data-type='positive'] {

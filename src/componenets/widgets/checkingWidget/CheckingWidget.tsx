@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import './checkingWidget.css';
+import { formatNumber } from '../../../utils';
 
 
 interface CheckingWidgetProps {
@@ -16,23 +17,23 @@ const CheckingWidget = ({income = 0, fixedExpenses = 0, dynamicExpenses = 0}: Ch
 		<div className="checking-widget">
 			<div className="income">
 				<p className='income-title'>{t(`translation:income`)}</p>
-				<p className='income-amount'>₪{income}</p>
-				<span className='income-percentage'>{income * 100 / divisionIncome}%</span>
+				<p className='income-amount'>₪{formatNumber(income)}</p>
+				<span className='income-percentage'>{formatNumber(income * 100 / divisionIncome)}%</span>
 			</div>
 			<div className="fixed-expenses">
 				<p className='fixed-expenses-title'>{t(`translation:fixed_expenses`)}</p>
-				<p className='fixed-expenses-amount'>₪{fixedExpenses}</p>
-				<span className='fixed-expenses-percentage'>{(fixedExpenses * 100 / divisionIncome).toFixed(0)}%</span>
+				<p className='fixed-expenses-amount'>₪{formatNumber(fixedExpenses)}</p>
+				<span className='fixed-expenses-percentage'>{formatNumber(Number((fixedExpenses * 100 / divisionIncome).toFixed(0)))}%</span>
 			</div>
 			<div className="dynamic-expenses">
 				<p className='dynamic-expenses-title'>{t(`translation:dynamic_expenses`)}</p>
-				<p className='dynamic-expenses-amount'>₪{dynamicExpenses}</p>
-				<span className='dynamic-expenses-percentage'>{(dynamicExpenses * 100 / divisionIncome).toFixed(0)}%</span>
+				<p className='dynamic-expenses-amount'>₪{formatNumber(dynamicExpenses)}</p>
+				<span className='dynamic-expenses-percentage'>{formatNumber(Number((dynamicExpenses * 100 / divisionIncome).toFixed(0)))}%</span>
 			</div>
 			{savings > 0 && <div className="savings">
 				<p className='savings-title'>{t(`translation:savings`)}</p>
-				<p className='savings-amount'>₪{savings}</p>
-				<span className='savings-percentage'>{(savings * 100 / income).toFixed(0)}%</span>
+				<p className='savings-amount'>₪{formatNumber(savings)}</p>
+				<span className='savings-percentage'>{formatNumber(Number((savings * 100 / income).toFixed(0)))}%</span>
 			</div>}
 		</div>
 	)

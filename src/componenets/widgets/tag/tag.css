@@ -1,10 +1,9 @@
 .tag {
 	aspect-ratio: 3 / 1;
 	position: relative;
-	border-radius: 20px;
 	padding: 1.5rem 1rem;
 	text-align: center;
-	font-size: 1.2rem;
+	font-size: .9rem;
 	font-weight: 700;
 	background-color: var(--dark-bg);
 	box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;

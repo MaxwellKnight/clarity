@@ -16,12 +16,12 @@
 		.menu-container {
 			padding-inline: 1rem;
 			font-size: 20px;
-			border-inline-end: .2rem solid var(--soft-bg);
 			align-self: flex-start;
 		}
 
 		.content-container {
 			padding-inline: 1rem;
+			border-inline-start: .2rem solid var(--soft-bg);
 			width: 100%;
 		}
 	}

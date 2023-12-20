@@ -14,6 +14,8 @@
 	"dynamic_expenses": "переменные расходы",
 	"charge": "заряжать",
 	"total": "общий",
+	"annual_summary": "Годовое резюме",
+	"categories_table": "Таблица расходов по категориям",
 
 	"menu": {
 		"quick_menu": "быстрое меню",

@@ -1,7 +1,7 @@
 import { Expense } from '../../types';
 import { useTranslation } from 'react-i18next';
 import { PieBoxActive, BarBox } from '../../componenets';
-import { parseExpenses } from '../../utils';
+import { formatNumber, parseExpenses } from '../../utils';
 import './_expensesSection.css';
 
 type ExpenseSectionProps = {
@@ -26,7 +26,7 @@ const ExpenseSection = ({ expenses, average, label, totalSum } : ExpenseSectionP
 		<div className="budget-expenses">
 			<div className="budget-expenses-info">
 				<h2>{t(`translation:${label}`)}</h2>
-				<p><span>{t("translation:charge")}</span> : ₪{totalSum}</p>
+				<p><span>{t("translation:charge")}</span> : ₪{formatNumber(totalSum)}</p>
 			</div>
 			<div className="budget-expenses-charts">
 				<div>

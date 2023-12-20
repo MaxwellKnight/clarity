@@ -14,6 +14,8 @@
 	"dynamic_expenses": "المصروفات المتغيرة",
 	"charge": "تكلفة",
 	"total": "المجموع",
+	"annual_summary": "الملخص السنوي",
+	"categories_table": "جدول النفقات حسب الفئات",
 
 	"menu": {
 		"quick_menu": "قائمة سريعة",

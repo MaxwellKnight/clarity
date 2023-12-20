@@ -4,7 +4,13 @@
 	align-items: center;
 	width: 100%;
 	aspect-ratio: 3 / 1;
-	margin: 0 auto;
+	margin: 1rem auto;
+
+	.category-section-info {
+		h2 {
+			font-size: 2rem;
+		}
+	}
 
 	.tags-section {
 		display: flex;

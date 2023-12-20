@@ -14,6 +14,8 @@
 	"dynamic_expenses": "Variable Expenses",
 	"charge": "Charge",
 	"total": "Total",
+	"annual_summary": "Annual Summary",
+	"categories_table": "Table of expenses by categories",
 
 	"menu": {
 		"quick_menu": "Quick Menu",

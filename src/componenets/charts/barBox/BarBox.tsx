@@ -6,7 +6,7 @@ type BarBoxData = {
 	name: string,
 	value: number,
 	fill?: string,
-	avg?: number
+	avg?: string
 }
 type BarBoxProps = {
 	data: BarBoxData[],

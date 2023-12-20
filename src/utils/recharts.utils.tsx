@@ -203,7 +203,7 @@ export const CustomTooltip = ({ active, payload } : CustomTooltip) => {
 		);
 	}
 
-}
+} 
 export const GenericTooltip = ({ active, payload } : CustomTooltip) => {
 	const { t } = useTranslation();
 	if (active && payload) {
@@ -211,7 +211,7 @@ export const GenericTooltip = ({ active, payload } : CustomTooltip) => {
 			<div className="custom-tooltip generic">
 				{payload.map((element, index) => 
 					<p key={index}>
-						<span style={{color: element.color}}>{t(`translation:categories.${element.dataKey}`)}</span> : {element.value}
+						<span style={{color: element.color}}>{t(`translation:categories.${element.dataKey}`)} :</span><span> {element.value}</span>
 					</p>
 				)}
 			</div>
@@ -227,10 +227,26 @@ export const parseExpenses = (expenses: Expense[] | null, average?: Expense[], l
 			value: Number(expense.value.toFixed(1)),
 			fill: COLORS[index],
 			label: label,
-			avg: found ? found.value : 0,
+			avg: formatNumber(found ? found.value : 0),
 		}
 	}) : []
 }
+
+export const formatNumber = (num: number | string): string => {
+	const billion = 1000000000;
+	const million = 1000000;
+ 
+	if (Number(num) >= billion || Number(num) <= -billion) {
+	  // Convert to billions
+	  return (Number(num) / billion).toFixed(2) + 'B';
+	} else if (Number(num) >= million || Number(num) <= -million) {
+	  // Convert to millions
+	  return (Number(num) / million).toFixed(2) + 'M';
+	} else {
+	  // Leave as is
+	  return new Intl.NumberFormat('en').format(Number(num));
+	}
+ }
 
 export const MONTH_DICT: { [key: number]: string } = {
 	0: 'JAN',
