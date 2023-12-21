@@ -1,10 +1,8 @@
 import { useEffect, useReducer, useRef } from "react";
 import fetchReducer, { initial_fetch } from "./reducer";
 
-// Type for caching responses based on URL
 type Cache<T> = { [url: string]: T };
 
-// Default options for the fetch request
 const DEFAULT_OPTIONS = {
   method: 'GET',
   headers: { "Content-Type": "application/json" }
@@ -29,7 +27,7 @@ const useFetch = <T,>(url: string , options = {}, dependencies: unknown[] = []) 
 	 * @param {string} url - The URL for the fetch request.
 	 */
 	const getUrl = async (url: string) => {
-		dispatch({type: 'FETCH_START'}); // Dispatching start of fetch action
+		dispatch({type: 'FETCH_START'});
 
 		if (cache.current[url]) {
 			dispatch({type: 'FETCH_SUCCESS', data: cache.current[url]});
@@ -51,7 +49,6 @@ const useFetch = <T,>(url: string , options = {}, dependencies: unknown[] = []) 
 	useEffect(() => {
 		getUrl(url);
 
-		// Cleanup function to cancel the request on component unmount
 		return () => {
 			cancelRequest.current = true;
 		}
