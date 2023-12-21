@@ -16,9 +16,13 @@ const MAX_COLORS = 22;
 const colors = generateColors(MAX_COLORS);
 
 /**
- * @param categoris - array of strings
- * @returns - parsed array of objects for ReCharts
+ * Parses an array of category strings into an array of objects suitable for ReCharts options.
+ *
+ * @param categories - Array of strings representing categories.
+ * @param t - Translation function for i18n.
+ * @returns Parsed array of objects for ReCharts options.
  */
+
 const parseCategories = (categoris: string[], t: TFunction<"translation", undefined>): Option[] => 
 	categoris.map(category => ({
 		label: t(`translation:${category === "empty" ? "category" : `categories.${category}`}`), 
@@ -26,10 +30,12 @@ const parseCategories = (categoris: string[], t: TFunction<"translation", undefi
 }))
 
 /**
- * 
- * @param data - fetched data from endpoint
- * @param graph - current graph state
- * @returns new graph state 
+ * Parses category expenses data and updates the graph state for the ComposedChart component.
+ *
+ * @param data - Fetched data from the endpoint containing category expenses.
+ * @param graph - Current graph state.
+ * @param t - Translation function for i18n.
+ * @returns New graph state for the ComposedChart component.
  */
 const parseCategoryExpenses = (data: CategoryExpenses | undefined | null, graph: ExpensesGraph[] | [] | undefined = [], t: TFunction<"translation", undefined>) =>  {
 	if(!data) return graph;
