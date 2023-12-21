@@ -5,7 +5,7 @@ type FetchState<T> = {
 	error?: Error
 };
 
-type FetchActionType = 'FETCH_START' | 'FETCH_SUCCESS' | 'FETCH_FAILURE';
+type FetchActionType = 'FETCH_START' | 'FETCH_SUCCESS' | 'FETCH_FAILURE' | 'FETCH_UPDATE';
 type FetchAction<T> = {
 	type: FetchActionType,
 	data?: T | null,
@@ -29,6 +29,8 @@ const fetchReducer = <T>(state: FetchState<T>, action: FetchAction<T>): FetchSta
 				data: action.data,
 				loading: false
 			}
+		case 'FETCH_UPDATE':
+
 		case 'FETCH_FAILURE':
 			return {
 				...state,

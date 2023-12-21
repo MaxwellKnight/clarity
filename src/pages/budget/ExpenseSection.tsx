@@ -29,12 +29,8 @@ const ExpenseSection = ({ expenses, average, label, totalSum } : ExpenseSectionP
 				<p><span>{t("translation:charge")}</span> : ₪{formatNumber(totalSum)}</p>
 			</div>
 			<div className="budget-expenses-charts">
-				<div>
-					<PieBoxActive data={parseExpenses(expenses, average, t("translation:total"))} />
-				</div>
-				<div>
-					<BarBox data={parseExpenses(expenses, average)}/>
-				</div>
+				<PieBoxActive data={parseExpenses(expenses, average, t("translation:total"))} />
+				<BarBox data={parseExpenses(expenses, average)}/>
 			</div>
 		</div>
 	)

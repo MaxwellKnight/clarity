@@ -58,6 +58,7 @@ const CategorySection = ({ categories }: CategorySectionProps) => {
 	const [selectedCategory, setSelectedCategory] = useState<Option | null>(null);
 	const {data: graphData, loading} = useFetch<CategoryExpenses>(
 		`http://localhost:3001/info/budget/category/${selectedCategory && selectedCategory.value}`,
+		{},
 	 	[selectedCategory]
 	);
 
@@ -73,35 +74,36 @@ const CategorySection = ({ categories }: CategorySectionProps) => {
 		 });
 	 
 		const option = renderOptions.find(op => op.value === category);
-	 
-		if (option) {
-		  const newOptions = [...options, option];
-		  const newRenderOptions = renderOptions.filter(op => op.value !== category);
-		  setSelectedCategory(null);
-		  
-		  setGraph([...newGraph]);
-		  setOptions(newOptions);
-		  setRenderOptions(newRenderOptions);
-		}
+		if (!option) return;
+
+		const newOptions = [...options, option];
+		const newRenderOptions = renderOptions.filter(op => op.value !== category);
+		setSelectedCategory(null);
+		
+		setGraph(newGraph);
+		setOptions(newOptions);
+		setRenderOptions(newRenderOptions);
 	 };
 
 	useEffect(() => {
-		if(!loading && graphData){
-			const newGraph = parseCategoryExpenses(graphData, graph, t);
-			const newOptions = options.filter((option: Option) => option.value !== graphData.category);
-			const removedOption = options.find((option: Option) => option.value === graphData.category);
-			if(removedOption) setRenderOptions((prev) => [...prev, removedOption]);
-			setSelectedCategory(null);
-			setOptions(newOptions);
-			setGraph(newGraph);
-		}
+		if(loading || !graphData) return;
+
+		const newGraph = parseCategoryExpenses(graphData, graph, t);
+		const newOptions = options.filter((option: Option) => option.value !== graphData.category);
+		const removedOption = options.find((option: Option) => option.value === graphData.category);
+
+		if(removedOption) setRenderOptions((prev) => [...prev, removedOption]);
+		setSelectedCategory(null);
+		setOptions(newOptions);
+		setGraph(newGraph);
+
 	}, [selectedCategory, graphData]);
 
 	useEffect(() => {
-		if(categories && !categories.includes("empty")){
-			categories.unshift("empty");
-			setOptions(() => parseCategories(categories, t));
-		}
+		if(!categories || categories.includes("empty")) return;
+		categories.unshift("empty");
+		setOptions(() => parseCategories(categories, t));
+
 	}, [categories]);
 
 	return (

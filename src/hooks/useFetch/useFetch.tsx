@@ -3,20 +3,25 @@ import fetchReducer, { initial_fetch } from "./reducer";
 
 type Cache<T> = { [url: string]: T };
 
-const useFetch = <T,>(url: string, deps: unknown[] = []) => {
+const DEFAULT_OPTIONS = {
+	method: 'GET',
+	headers: { "Content-Type": "application/json" }
+}
+
+const useFetch = <T,>(url: string , options = {},dependencies: unknown[] = []) => {
 	const [{ data, loading, error}, dispatch] = useReducer(fetchReducer<T>, initial_fetch);
 	const cache = useRef<Cache<T>>({});
 	const cancelRequest = useRef<boolean>(false);
 
 	useEffect(() => {
-		const fetchData = async () => {
+		const getUrl = async (url: string) => {
 			dispatch({type: 'FETCH_START'});
 			if(cache.current[url]){
 				dispatch({type: 'FETCH_SUCCESS', data: cache.current[url]});
 				return;
 			}
 			try{
-				const response = await fetch(url);
+				const response = await fetch(url, {...DEFAULT_OPTIONS, ...options});
 				if(!response.ok) throw new Error(response.statusText);
 				const responseData = (await response.json()) as T;
 				cache.current[url] = responseData;
@@ -27,15 +32,17 @@ const useFetch = <T,>(url: string, deps: unknown[] = []) => {
 				dispatch({type: 'FETCH_FAILURE', error: error as Error})
 			}
 		}
-		fetchData();
+
+		getUrl(url);
 
 		return () => {
 			cancelRequest.current = true;
 		}
 		
-	}, deps);
+	}, dependencies);
 
 	const reFetch = async () => {
+		if(typeof url !== 'string') return;
 		if(cache.current[url]){
 			dispatch({type: 'FETCH_SUCCESS', data: cache.current[url]});
 			return;

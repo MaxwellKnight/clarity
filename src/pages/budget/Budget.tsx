@@ -22,7 +22,8 @@ const Budget = () => {
 	const { data: averageChecking, loading: loadingAvg}: FetchResponse<MonthlyCheckingFetch> = useFetch(`http://localhost:3001/info/budget/avg`);
 	const { data: categories , loading: loadingCategories }: FetchResponse<CategoriesFetch> = useFetch('http://localhost:3001/info/budget/categories');
 	const { data: currentChecking, loading: loadingCurr}: FetchResponse<MonthlyCheckingFetch> = useFetch(
-		`http://localhost:3001/info/budget/${selectedMonth}`, 
+		`http://localhost:3001/info/budget/${selectedMonth}`,
+		{},
 		[selectedMonth]
 	);
 
