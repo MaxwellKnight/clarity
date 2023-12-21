@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Dropdown, Table, Tag } from "../../componenets";
 import { TFunction } from "i18next";
-import { useFetch } from "../../hooks";
+import { useFetch, useLocalStorage } from "../../hooks";
 import './_categorySection.css';
 
 type Option = { label: string, value: string };
@@ -52,9 +52,9 @@ type CategorySectionProps = {
 }
 const CategorySection = ({ categories }: CategorySectionProps) => {
 	const { t } = useTranslation();
-	const [graph, setGraph] = useState<ExpensesGraph[]>([]);
+	const [graph, setGraph] = useLocalStorage<ExpensesGraph[]>('graph', []);
 	const [options, setOptions] = useState<Option[]>([]);
-	const [renderOptions, setRenderOptions] = useState<Option[]>([]);
+	const [renderOptions, setRenderOptions] = useLocalStorage<Option[]>('options', []);
 	const [selectedCategory, setSelectedCategory] = useState<Option | null>(null);
 	const {data: graphData, loading} = useFetch<CategoryExpenses>(
 		`http://localhost:3001/info/budget/category/${selectedCategory && selectedCategory.value}`,
@@ -92,7 +92,7 @@ const CategorySection = ({ categories }: CategorySectionProps) => {
 		const newOptions = options.filter((option: Option) => option.value !== graphData.category);
 		const removedOption = options.find((option: Option) => option.value === graphData.category);
 
-		if(removedOption) setRenderOptions((prev) => [...prev, removedOption]);
+		if(removedOption) setRenderOptions((prev: Option[]) => [...prev, removedOption]);
 		setSelectedCategory(null);
 		setOptions(newOptions);
 		setGraph(newGraph);

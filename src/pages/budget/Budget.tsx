@@ -1,12 +1,12 @@
 import { months } from '../../data/budget.data';
-import { useFetch } from '../../hooks';
+import { useFetch, useLocalStorage } from '../../hooks';
 import { useTranslation } from 'react-i18next';
 import { useEffect, useState } from 'react';
 import {  MonthlyChecking, FetchResponse } from '../../types';
 import { CheckingWidget, Dropdown } from '../../componenets';
 import ExpenseSection from './ExpenseSection';
-import './budget.css';
 import CategorySection from './CategorySection';
+import './budget.css';
 
 type MonthlyCheckingFetch = MonthlyChecking | null | undefined;
 type Categories = string[];
@@ -16,7 +16,7 @@ const AVG_EXPENSES = 12;
 
 const Budget = () => {
 	const { t } = useTranslation();
-	const [selectedMonth, setSelectedMonth] = useState(0);
+	const [selectedMonth, setSelectedMonth] = useLocalStorage("selectedMonth", 0);
 	const [currentExpenses, setCurrentExpenses] = useState<MonthlyCheckingFetch>();
 	
 	const { data: averageChecking, loading: loadingAvg}: FetchResponse<MonthlyCheckingFetch> = useFetch(`http://localhost:3001/info/budget/avg`);
@@ -42,7 +42,7 @@ const Budget = () => {
 	return (
 		<section className='my-budget'>
 			<div className='month-selector'>
-				<Dropdown className="custom-drop-down" label={t(`translation:choose_month`)} options={months} onClick={handleChange}/>
+				<Dropdown className="custom-drop-down" label={t(`translation:choose_month`)} options={months} onClick={handleChange} defaultValue={selectedMonth}/>
 				
 				<CheckingWidget 
 					income={currentExpenses?.income} 

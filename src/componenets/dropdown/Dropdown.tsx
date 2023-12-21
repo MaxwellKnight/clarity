@@ -9,9 +9,10 @@ interface DropdownProps<Option extends BasicOption> {
 	className?: string,
 	label?: string,
 	options: Option[],
+	defaultValue?: number,
 	onClick?: (value: string) => void
 }
-const Dropdown = <Option extends BasicOption>({ className, label, options, onClick}: DropdownProps<Option>) => {
+const Dropdown = <Option extends BasicOption>({ className, label, options, defaultValue, onClick}: DropdownProps<Option>) => {
 	const { t } = useTranslation();
 
 	const handleOnChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -22,7 +23,7 @@ const Dropdown = <Option extends BasicOption>({ className, label, options, onCli
 	return (
 		<div className={`dropdown ${className ? className: ''}`}>
 			{ label && <p>{label}</p> }
-			<select onChange={handleOnChange} defaultValue={0}>
+			<select onChange={handleOnChange} defaultValue={defaultValue || 0}>
 				{options.map((option, index) => 
 					<option key={index} value={option.value}>
 						{t(option.label.toString())}	
