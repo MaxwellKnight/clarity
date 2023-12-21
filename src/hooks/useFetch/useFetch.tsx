@@ -13,13 +13,12 @@ const DEFAULT_OPTIONS = {
 /**
  * Custom hook for making HTTP fetch requests with caching and state management.
  *
- * @param {string} url - The URL for the fetch request.
- * @param {Object} options - Additional options for the fetch request.
- * @param {Array} dependencies - Dependencies triggering a re-fetch when changed.
- * @returns {Object} - An object containing data, loading state, error, and a function to re-fetch data.
+ * @param { string } url - The URL for the fetch request.
+ * @param { Object } options - Additional options for the fetch request.
+ * @param { Array } dependencies - Dependencies triggering a re-fetch when changed.
+ * @returns { Object } - An object containing data, loading state, error, and a function to re-fetch data.
  */
 const useFetch = <T,>(url: string , options = {}, dependencies: unknown[] = []) => {
-  // Using a reducer to manage the fetch state
 	const [{ data, loading, error}, dispatch] = useReducer(fetchReducer<T>, initial_fetch);
 	const cache = useRef<Cache<T>>({}); // Ref for caching responses
 	const cancelRequest = useRef<boolean>(false); // Ref to track if the request should be canceled
@@ -63,10 +62,8 @@ const useFetch = <T,>(url: string , options = {}, dependencies: unknown[] = []) 
 	 * Function to re-fetch data based on the provided URL.
 	 */
 	const reFetch = async () => {
-		// If the URL is not a string, do nothing
 		if (typeof url !== 'string') return;
 
-		// If the data is already in the cache, use it and dispatch success
 		if (cache.current[url]) {
 			dispatch({type: 'FETCH_SUCCESS', data: cache.current[url]});
 			return;

@@ -8,7 +8,7 @@ import { useState } from "react";
  * @returns {[T, Function]} - A tuple containing the current state and a function to update it.
  */
 const useLocalStorage = <T,>(key: string, defaultValue: T): [T, Function] => {
-  // Get initial state from local storage or use the default value.
+
   const [localStorageValue, setLocalStorageValue] = useState(() => {
     try {
       const storedValue = localStorage.getItem(key);
