@@ -2,8 +2,6 @@
 
 Welcome to the Personal Finance App project! This is an ongoing web application developed using TypeScript and React to help you manage your personal finances effectively.
 
-![Homepage Screenshot](clarity-screenshot.png)
-
 ## Table of Contents
 
 - [Introduction](#introduction)
@@ -41,6 +39,8 @@ The app should now be running at `http://localhost:5173`.
 ## Usage
 
 Here are a few screenshots showcasing the app's functionality:
+
+![Homepage Screenshot](clarity-screenshot.png)
 
 ## Technologies Used
 
