@@ -43,7 +43,7 @@ const Table = ({ caption, content, rowKey}: TableProps): JSX.Element => {
 
 					{content.map(column => 
 						<tr role='rowgroup' key={JSON.stringify(column)}>
-							{rows.map(row => <td data-cell={column[row]} role='row' key={row}>{row !== rowKey ? `${formatNumber(column[row])} ₪` : column[row]}</td>)}
+							{rows.map(row => <td data-cell={t(`translation:categories.${row}`)} role='row' key={row}>{row !== rowKey ? `${formatNumber(column[row])} ₪` : column[row]}</td>)}
 						</tr>	
 					)}
 				</tbody>

@@ -13,67 +13,67 @@ import '../styles/recharts.css';
 
 /**
  * Maximum number of colors used for chart elements.
- * @constant {number}
+ * @constant { number }
  */
 const MAX_COLORS = 23;
 
 /**
  * Array of generated colors for chart elements.
- * @constant {string[]}
+ * @constant { string[] }
  */
 const COLORS = generateColors(MAX_COLORS);
 
 /**
  * Props for the CustomPieChartLabel component.
  * @typedef {Object} CustomPieChartLabelProps
- * @property {number} cx - The x-coordinate of the center of the pie chart.
- * @property {number} cy - The y-coordinate of the center of the pie chart.
- * @property {number} innerRadius - The inner radius of the pie chart.
- * @property {number} outerRadius - The outer radius of the pie chart.
- * @property {number} midAngle - The middle angle of the pie chart segment.
- * @property {number} percent - The percentage of the pie chart segment.
- * @property {number} [index] - The index of the pie chart segment.
+ * @property { number } cx - The x-coordinate of the center of the pie chart.
+ * @property { number } cy - The y-coordinate of the center of the pie chart.
+ * @property { number } innerRadius - The inner radius of the pie chart.
+ * @property { number } outerRadius - The outer radius of the pie chart.
+ * @property { number } midAngle - The middle angle of the pie chart segment.
+ * @property { number } percent - The percentage of the pie chart segment.
+ * @property { number } [index] - The index of the pie chart segment.
  */
 
 /**
  * Props for the CustomTooltipPie component.
- * @typedef {Object} CustomTooltipPie
- * @property {PieChartEntry[]} data - Array of pie chart entries.
+ * @typedef { Object } CustomTooltipPie
+ * @property { PieChartEntry[] } data - Array of pie chart entries.
  */
 
 /**
  * Props for the CustomTooltip component.
- * @typedef {Object} CustomTooltip
- * @property {boolean} active - Indicates whether the tooltip is active.
- * @property {object} payload - Payload object containing tooltip data.
+ * @typedef { Object } CustomTooltip
+ * @property { boolean } active - Indicates whether the tooltip is active.
+ * @property { object } payload - Payload object containing tooltip data.
  */
 
 /**
  * Combined props for the CustomPieChartTooltip component.
- * @typedef {CustomTooltip & CustomTooltipPie} CustomPieTooltiProps
+ * @typedef { CustomTooltip & CustomTooltipPie } CustomPieTooltiProps
  */
 
 /**
  * Payload structure for the ActiveShapePayload type.
- * @typedef {Object} ActiveShapePayload
- * @property {string|number} - Key-value pairs representing data for an active shape.
+ * @typedef { Object } ActiveShapePayload
+ * @property { string | number } - Key-value pairs representing data for an active shape.
  */
 
 /**
  * Props for the RenderActiveShape component.
- * @typedef {Object} RenderActiveShapeProps
- * @property {number} cx - The x-coordinate of the center of the chart.
- * @property {number} cy - The y-coordinate of the center of the chart.
- * @property {number} midAngle - The middle angle of the chart segment.
- * @property {number} innerRadius - The inner radius of the chart.
- * @property {number} outerRadius - The outer radius of the chart.
- * @property {number} startAngle - The start angle of the chart segment.
- * @property {number} endAngle - The end angle of the chart segment.
- * @property {string} fill - The fill color of the chart segment.
- * @property {ActiveShapePayload} payload - Payload object for the active shape.
- * @property {number} percent - The percentage of the chart segment.
- * @property {number} value - The value of the chart segment.
- * @property {string} label - The label for the chart segment.
+ * @typedef { Object } RenderActiveShapeProps
+ * @property { number } cx - The x-coordinate of the center of the chart.
+ * @property { number } cy - The y-coordinate of the center of the chart.
+ * @property { number } midAngle - The middle angle of the chart segment.
+ * @property { number } innerRadius - The inner radius of the chart.
+ * @property { number } outerRadius - The outer radius of the chart.
+ * @property { number } startAngle - The start angle of the chart segment.
+ * @property { number } endAngle - The end angle of the chart segment.
+ * @property { string } fill - The fill color of the chart segment.
+ * @property { ActiveShapePayload } payload - Payload object for the active shape.
+ * @property { number } percent - The percentage of the chart segment.
+ * @property { number } value - The value of the chart segment.
+ * @property { string } label - The label for the chart segment.
  */
 
 
@@ -142,8 +142,8 @@ export const CustomPieChartTooltip = ({
 /**
  * Custom component for rendering labels in a pie chart.
  *
- * @param {CustomPieChartLabelProps} props - Props for the component.
- * @returns {React.ReactNode} - Rendered label component.
+ * @param { CustomPieChartLabelProps } props - Props for the component.
+ * @returns { React.ReactNode } - Rendered label component.
  */
 export const CustomizedPieChartLabel = ({ 
 	cx, 
@@ -168,8 +168,8 @@ export const CustomizedPieChartLabel = ({
 /**
  * Custom component for rendering a tooltip for a checking component.
  *
- * @param {CustomTooltip} props - Props for the component.
- * @returns {React.ReactNode} - Rendered tooltip component.
+ * @param { CustomTooltip } props - Props for the component.
+ * @returns { React.ReactNode } - Rendered tooltip component.
  */
 export const CustomCheckingTooltip = ({
 	active,
@@ -208,8 +208,8 @@ export const CustomCheckingTooltip = ({
 /**
  * Custom component for rendering a tooltip for a chart component.
  *
- * @param {CustomTooltip} props - Props for the component.
- * @returns {React.ReactNode} - Rendered tooltip component.
+ * @param { CustomTooltip } props - Props for the component.
+ * @returns { React.ReactNode } - Rendered tooltip component.
  */
 export const CustomChartTooltip = ({
 	active,
@@ -228,8 +228,8 @@ export const CustomChartTooltip = ({
 /**
  * Function to render an active shape in a pie chart.
  *
- * @param {RenderActiveShapeProps} props - Props for the function.
- * @returns {React.ReactNode} - Rendered active shape component.
+ * @param { RenderActiveShapeProps } props - Props for the function.
+ * @returns { React.ReactNode } - Rendered active shape component.
  */
 export const renderActiveShape = ({
 	cx, cy, midAngle, innerRadius, outerRadius, startAngle, endAngle, fill, payload, percent, value, label 
@@ -282,8 +282,8 @@ export const renderActiveShape = ({
 /**
  * Custom component for rendering a generic tooltip.
  *
- * @param {CustomTooltip} props - Props for the component.
- * @returns {React.ReactNode} - Rendered tooltip component.
+ * @param { CustomTooltip } props - Props for the component.
+ * @returns { React.ReactNode } - Rendered tooltip component.
  */
 export const CustomTooltip = ({ active, payload } : CustomTooltip) => {
 	if (active && payload) {
@@ -300,8 +300,8 @@ export const CustomTooltip = ({ active, payload } : CustomTooltip) => {
 /**
  * Custom component for rendering a generic tooltip with multiple data points.
  *
- * @param {CustomTooltip} props - Props for the component.
- * @returns {React.ReactNode} - Rendered tooltip component.
+ * @param { CustomTooltip } props - Props for the component.
+ * @returns { React.ReactNode } - Rendered tooltip component.
  */
 export const GenericTooltip = ({ active, payload } : CustomTooltip) => {
 	const { t } = useTranslation();
@@ -321,10 +321,10 @@ export const GenericTooltip = ({ active, payload } : CustomTooltip) => {
 /**
  * Function to parse expense data into a format suitable for pie charts.
  *
- * @param {Expense[] | null} expenses - Array of expense data.
- * @param {Expense[]} [average] - Array of average expense data.
- * @param {string} [label] - Label for the chart segment.
- * @returns {PieChartEntry[]} - Parsed array of pie chart entries.
+ * @param { Expense[] | null } expenses - Array of expense data.
+ * @param { Expense[] } [ average ] - Array of average expense data.
+ * @param { string } [ label ] - Label for the chart segment.
+ * @returns { PieChartEntry[] } - Parsed array of pie chart entries.
  */
 export const parseExpenses = (expenses: Expense[] | null, average?: Expense[], label?: string) => { 
 	return expenses ? expenses.map((expense, index) => {
@@ -342,8 +342,8 @@ export const parseExpenses = (expenses: Expense[] | null, average?: Expense[], l
 /**
  * Function to format a number with appropriate suffix (B, M) for large values.
  *
- * @param {number | string} num - Number to be formatted.
- * @returns {string} - Formatted number with appropriate suffix.
+ * @param { number | string } num - Number to be formatted.
+ * @returns { string } - Formatted number with appropriate suffix.
  */
 export const formatNumber = (num: number | string): string => {
 	const billion = 1000000000;

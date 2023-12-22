@@ -4,17 +4,21 @@
 	align-items: center;
 	width: 100%;
 	aspect-ratio: 3 / 1;
-	margin: 1rem auto;
+	margin: 5rem auto;
+	border-block-start: 2px solid rgb(0 0 0 / .1);
 
 	.category-section-info {
 		h2 {
 			font-size: 2rem;
+			margin-block: 1rem;
 		}
 	}
 
 	.tags-section {
 		display: flex;
 		flex-wrap: wrap;
+		align-items: center;
+		justify-content: center;
 		gap: 1rem;
 		margin-block: 2rem;
 	}

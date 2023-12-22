@@ -11,6 +11,7 @@ type Option = { label: string, value: string };
 type Expense = { date: Date, expense: number};
 type CategoryExpenses = { category: string, expenses: Expense[] };
 type ExpensesGraph = { [key: string]: number | string };
+type TranslationFunction = TFunction<"translation", undefined>;
 
 const MAX_COLORS = 22;
 const colors = generateColors(MAX_COLORS);
@@ -18,13 +19,12 @@ const colors = generateColors(MAX_COLORS);
 /**
  * Parses an array of category strings into an array of objects suitable for ReCharts options.
  *
- * @param categories - Array of strings representing categories.
- * @param t - Translation function for i18n.
- * @returns Parsed array of objects for ReCharts options.
+ * @param { string[] } cetegories - Array of strings representing categories.
+ * @param { TranslationFunction } t - Translation function for i18n.
+ * @returns { Option[] } - Parsed array of objects for ReCharts options.
  */
-
-const parseCategories = (categoris: string[], t: TFunction<"translation", undefined>): Option[] => 
-	categoris.map(category => ({
+const parseCategories = (cetegories: string[], t: TranslationFunction): Option[] => 
+	cetegories.map(category => ({
 		label: t(`translation:${category === "empty" ? "category" : `categories.${category}`}`), 
 		value: category
 }))
@@ -32,12 +32,12 @@ const parseCategories = (categoris: string[], t: TFunction<"translation", undefi
 /**
  * Parses category expenses data and updates the graph state for the ComposedChart component.
  *
- * @param data - Fetched data from the endpoint containing category expenses.
- * @param graph - Current graph state.
- * @param t - Translation function for i18n.
- * @returns New graph state for the ComposedChart component.
+ * @param { CategoryExpenses } data - Fetched data from the endpoint containing category expenses.
+ * @param { ExpensesGraph } graph - Current graph state.
+ * @param { TranslationFunction } t - Translation function for i18n.
+ * @returns { ExpensesGraph[] } - New graph state for the ComposedChart component.
  */
-const parseCategoryExpenses = (data: CategoryExpenses | undefined | null, graph: ExpensesGraph[] | [] | undefined = [], t: TFunction<"translation", undefined>) =>  {
+const parseCategoryExpenses = (data: CategoryExpenses | undefined | null, graph: ExpensesGraph[] | [] | undefined = [], t: TranslationFunction): ExpensesGraph[] =>  {
 	if(!data) return graph;
 
 	const { category, expenses } = data;
@@ -50,7 +50,6 @@ const parseCategoryExpenses = (data: CategoryExpenses | undefined | null, graph:
 	}
 	return [...graph];
 }
-
 
 
 type CategorySectionProps = {
@@ -117,24 +116,26 @@ const CategorySection = ({ categories }: CategorySectionProps) => {
 			<div className="category-section-info">
 				<h2>{t(`translation:annual_summary`)}</h2>
 			</div>
-			<Dropdown options={options} onClick={handleCategoryChange}/>
+			<Dropdown options={options} onClick={handleCategoryChange} />
 			<div className="tags-section">
 				{renderOptions.map((option: Option, i: number) => 
 					<Tag key={option.label} action={() => removeGraph(option.value)} color={colors[i]} label={t(`translation:categories.${option.value}`)}/>
 				)}
 			</div>
-			<ResponsiveContainer key={JSON.stringify(graph)} width="90%" height="99%">
-				<ComposedChart width={500} height={300} data={graph} >
-					<CartesianGrid strokeDasharray="10 10"/>
-					<Tooltip content={<GenericTooltip />}/>
-					<YAxis width={50} tickFormatter={(num) => '₪' + new Intl.NumberFormat('en').format(Number(num))}/>
-					<XAxis dataKey="month" scale="auto" height={95} dy={10} tick={{fill: '#c3c3c3'}} />
-					{renderOptions.map((option: Option, i: number) => 
-						<Line key={option.value} type="monotone" dataKey={option.value} fill={colors[i]} stroke={colors[i]} strokeWidth={5} />
-					)}
-				</ComposedChart>	
-			</ResponsiveContainer>
-			<Table caption={t(`translation:categories_table`)} content={graph} rowKey='month'/>
+			{renderOptions.length > 0 ? <>
+				<ResponsiveContainer key={JSON.stringify(graph)} width="90%" height="99%">
+					<ComposedChart width={500} height={300} data={graph} >
+						<CartesianGrid strokeDasharray="10 10"/>
+						<Tooltip content={<GenericTooltip />}/>
+						<YAxis width={50} tickFormatter={(num) => '₪' + new Intl.NumberFormat('en').format(Number(num))}/>
+						<XAxis dataKey="month" scale="auto" height={95} dy={10} tick={{fill: '#c3c3c3'}} />
+						{renderOptions.map((option: Option, i: number) => 
+							<Line key={option.value} type="monotone" dataKey={option.value} fill={colors[i]} stroke={colors[i]} strokeWidth={5} />
+						)}
+					</ComposedChart>	
+				</ResponsiveContainer>
+				<Table caption={t(`translation:categories_table`)} content={graph} rowKey='month'/>
+			</> : null}
 		</section>
 	)
 }

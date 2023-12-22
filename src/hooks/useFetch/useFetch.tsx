@@ -4,9 +4,11 @@ import fetchReducer, { initial_fetch } from "./reducer";
 type Cache<T> = { [url: string]: T };
 
 const DEFAULT_OPTIONS = {
-  method: 'GET',
-  headers: { "Content-Type": "application/json" }
-}
+	method: 'GET',
+	headers: { 
+		"Content-Type": "application/json" 
+	}
+};
 
 /**
  * Custom hook for making HTTP fetch requests with caching and state management.
@@ -42,7 +44,7 @@ const useFetch = <T,>(url: string , options = {}, dependencies: unknown[] = []) 
 			dispatch({type: 'FETCH_SUCCESS', data: cache.current[url]});
 		} catch (error) {
 			if (cancelRequest.current) return;
-			dispatch({type: 'FETCH_FAILURE', error: error as Error})
+			dispatch({type: 'FETCH_FAILURE', error: error as Error});
 		}
 	}
 
@@ -76,8 +78,7 @@ const useFetch = <T,>(url: string , options = {}, dependencies: unknown[] = []) 
 			if (cancelRequest.current) return;
 			dispatch({type: 'FETCH_SUCCESS', data});
 		} catch (error) {
-
-			dispatch({type: 'FETCH_FAILURE', error: error as Error})
+			dispatch({type: 'FETCH_FAILURE', error: error as Error});
 		}
 	}
 	return { data, loading, error, reFetch };

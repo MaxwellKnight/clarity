@@ -1,4 +1,4 @@
-import { useDynamicSVG } from "./useDynamicSVG/DynamicSVG";
+import { useDynamicSVG } from "./useDynamicSVG/useDynamicSVG";
 import useFetch from "./useFetch/useFetch";
 import useLocalStorage from "./useLocalStorage/useLocalStorage";
 

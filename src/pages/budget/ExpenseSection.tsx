@@ -11,14 +11,6 @@ type ExpenseSectionProps = {
 	label: number | string
 }
 
-/**
- * 
- * @param expenses - seleceted expenses
- * @param average - average expenses
- * @param label - label of the section
- * @param totalSum - total sum of expenses 
- * @returns ExpenseSection component
- */
 const ExpenseSection = ({ expenses, average, label, totalSum } : ExpenseSectionProps) => {
 	const { t } = useTranslation();
 
