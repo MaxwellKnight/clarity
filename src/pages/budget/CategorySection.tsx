@@ -57,8 +57,8 @@ type CategorySectionProps = {
 }
 const CategorySection = ({ categories }: CategorySectionProps) => {
 	const { t } = useTranslation();
-	const [graph, setGraph] = useLocalStorage<ExpensesGraph[]>('graph', []);
 	const [options, setOptions] = useState<Option[]>([]);
+	const [graph, setGraph] = useLocalStorage<ExpensesGraph[]>('graph', []);
 	const [renderOptions, setRenderOptions] = useLocalStorage<Option[]>('options', []);
 	const [selectedCategory, setSelectedCategory] = useState<Option | null>(null);
 	const {data: graphData, loading} = useFetch<CategoryExpenses>(
@@ -67,8 +67,8 @@ const CategorySection = ({ categories }: CategorySectionProps) => {
 	 	[selectedCategory]
 	);
 
-	const handleCategoryChange = (value:string)=>{
-		const selectedOption = options.find(({value: optionValue}) => optionValue === value) || null;
+	const handleCategoryChange = (value: string) => {
+		const selectedOption = options.find(({ value: optionValue }) => optionValue === value) || null;
 		setSelectedCategory(selectedOption);
 	}
 
@@ -76,19 +76,18 @@ const CategorySection = ({ categories }: CategorySectionProps) => {
 		const newGraph = graph.map(month => {
 			const { [category]: removedCategory, ...updatedMonth } = month;
 			return updatedMonth;
-		 });
+		});
 	 
 		const option = renderOptions.find(op => op.value === category);
 		if (!option) return;
 
 		const newOptions = [...options, option];
 		const newRenderOptions = renderOptions.filter(op => op.value !== category);
-		setSelectedCategory(null);
-		
-		setGraph(newGraph);
-		setOptions(newOptions);
 		setRenderOptions(newRenderOptions);
-	 };
+		setSelectedCategory(null);
+		setOptions(newOptions);
+		setGraph(newGraph);
+	};
 
 	useEffect(() => {
 		if(loading || !graphData) return;
@@ -134,7 +133,7 @@ const CategorySection = ({ categories }: CategorySectionProps) => {
 						)}
 					</ComposedChart>	
 				</ResponsiveContainer>
-				<Table caption={t(`translation:categories_table`)} content={graph} rowKey='month'/>
+				<Table caption={t(`translation:categories_table`)} content={graph} rowKey='month' translation="translation:categories"/>
 			</> : null}
 		</section>
 	)

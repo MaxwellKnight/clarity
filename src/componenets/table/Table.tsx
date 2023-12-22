@@ -10,10 +10,11 @@ type Data = {
 type TableProps = {
 	caption: string,
 	content: Data[],
-	rowKey: string
+	rowKey: string,
+	translation: string
 }
 
-const Table = ({ caption, content, rowKey}: TableProps): JSX.Element => {
+const Table = ({ caption, content, rowKey, translation }: TableProps): JSX.Element => {
 	const { t } = useTranslation();
 	const [headers, setHeaders] = useState<string[]>([]);
 	const [rows, setRows] = useState<string[]>([]);
@@ -21,7 +22,7 @@ const Table = ({ caption, content, rowKey}: TableProps): JSX.Element => {
 	useEffect(() => {
 		if(!(content.length > 0 && rowKey in content[0])) return;
 		setHeaders(() => 
-			Object.keys(content[0]).map(header => header !== rowKey ? t(`translation:categories.${header}`) : '')
+			Object.keys(content[0]).map(header => header !== rowKey ? t(`${translation}.${header}`) : '')
 		);
 
 		setRows(() => 
@@ -43,7 +44,11 @@ const Table = ({ caption, content, rowKey}: TableProps): JSX.Element => {
 
 					{content.map(column => 
 						<tr role='rowgroup' key={JSON.stringify(column)}>
-							{rows.map(row => <td data-cell={t(`translation:categories.${row}`)} role='row' key={row}>{row !== rowKey ? `${formatNumber(column[row])} ₪` : column[row]}</td>)}
+							{rows.map(row => 
+								<td data-cell={t(`${translation}.${row}`)} role='row' key={row}>
+									{row !== rowKey ? `${formatNumber(column[row])} ₪` : column[row]}
+								</td>
+							)}
 						</tr>	
 					)}
 				</tbody>
