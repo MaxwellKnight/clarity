@@ -1,4 +1,4 @@
-# Personal Finance App
+# Personal Finance App (Ongoing project)
 
 Welcome to the Personal Finance App project! This is an ongoing web application developed using TypeScript and React to help you manage your personal finances effectively.
 
@@ -9,8 +9,6 @@ Welcome to the Personal Finance App project! This is an ongoing web application 
 - [Getting Started](#getting-started)
 - [Usage](#usage)
 - [Technologies Used](#technologies-used)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Introduction
 
@@ -47,4 +45,4 @@ Here are a few screenshots showcasing the app's functionality:
 - TypeScript
 - React
 - CSS (or your preferred styling method)
-- ...
+- ReCharts (react library for rendering charts)
