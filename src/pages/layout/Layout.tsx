@@ -1,8 +1,9 @@
 import { Outlet } from 'react-router-dom';
 import { Footer, Menu, Navigation } from '../../componenets';
 import { AccountContextProvier, useTheme } from '../../context';
-import './layout.css';
 import { Suspense } from 'react';
+import { motion } from 'framer-motion';
+import './layout.css';
 
 export interface NotificationData {
 	title: string,
@@ -26,7 +27,7 @@ const Layout = ({isMobileNavOpen, notifications, closeMobileNav, dir}: LayoutPro
 					notifications={notifications} 
 					closeMobileNav={closeMobileNav}
 				/>
-				<div className="container">
+				<motion.div layout className="container">
 					<div className="menu-container">
 						<Menu />
 					</div>
@@ -35,7 +36,7 @@ const Layout = ({isMobileNavOpen, notifications, closeMobileNav, dir}: LayoutPro
 							<Outlet />
 						</AccountContextProvier>
 					</main>
-				</div>
+				</motion.div>
 				<Footer />
 			</div>
 		</Suspense>

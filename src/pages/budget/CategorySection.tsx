@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 import { Dropdown, Table, Tag } from "../../componenets";
 import { TFunction } from "i18next";
 import { useFetch, useLocalStorage } from "../../hooks";
+import { AnimatePresence, motion } from "framer-motion";
 import './_categorySection.css';
 
 type Option = { label: string, value: string };
@@ -111,23 +112,32 @@ const CategorySection = ({ categories }: CategorySectionProps) => {
 	}, [categories]);
 
 	return (
-		<section className="category-section">
+		<motion.div 
+			initial={{opacity: 0}}
+			animate={{opacity: 1}}
+			exit={{opacity: 0}}
+			transition={{duration: 1, ease: "linear"}}
+			className="category-section"
+			key="category-section"
+		>
 			<div className="category-section-info">
 				<h2>{t(`translation:annual_summary`)}</h2>
 			</div>
 			<Dropdown options={options} onClick={handleCategoryChange} />
-			<div className="tags-section">
-				{renderOptions.map((option: Option, i: number) => 
-					<Tag key={option.label} action={() => removeGraph(option.value)} color={colors[i]} label={t(`translation:categories.${option.value}`)}/>
-				)}
-			</div>
+			<motion.div layout className="tags-section">
+				<AnimatePresence>
+					{renderOptions.map((option: Option, i: number) => 
+						<Tag key={option.label} action={() => removeGraph(option.value)} color={colors[i]} label={t(`translation:categories.${option.value}`)}/>
+					)}
+				</AnimatePresence>
+			</motion.div>
 			{renderOptions.length > 0 ? <>
-				<ResponsiveContainer key={JSON.stringify(graph)} width="90%" height="99%">
+				<ResponsiveContainer key={JSON.stringify(graph)} width="90%">
 					<ComposedChart width={500} height={300} data={graph} >
 						<CartesianGrid strokeDasharray="10 10"/>
 						<Tooltip content={<GenericTooltip />}/>
 						<YAxis width={50} tickFormatter={(num) => '₪' + new Intl.NumberFormat('en').format(Number(num))}/>
-						<XAxis dataKey="month" scale="auto" height={95} dy={10} tick={{fill: '#c3c3c3'}} />
+						<XAxis dataKey="month" scale="auto"	 dy={10} tick={{fill: '#c3c3c3'}} />
 						{renderOptions.map((option: Option, i: number) => 
 							<Line key={option.value} type="monotone" dataKey={option.value} fill={colors[i]} stroke={colors[i]} strokeWidth={5} />
 						)}
@@ -135,7 +145,7 @@ const CategorySection = ({ categories }: CategorySectionProps) => {
 				</ResponsiveContainer>
 				<Table caption={t(`translation:categories_table`)} content={graph} rowKey='month' translation="translation:categories"/>
 			</> : null}
-		</section>
+		</motion.div>
 	)
 }
 
