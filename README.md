@@ -44,5 +44,5 @@ Here are a few screenshots showcasing the app's functionality:
 
 - TypeScript
 - React
-- CSS (or your preferred styling method)
+- Vanilla CSS
 - ReCharts (react library for rendering charts)
