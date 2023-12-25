@@ -16,9 +16,17 @@
 	"total": "Total",
 	"annual_summary": "Annual Summary",
 	"categories_table": "Table of expenses by categories",
+	"annual_avergae": "Annual Average",
+
+	"greeting": {
+		"good_morning": "Good morning",
+		"good_afternoon": "Good afternoon",
+		"good_evening": "Good evening"
+	},
 
 	"menu": {
 		"quick_menu": "Quick Menu",
+		"quick_overview": "Quick Overview",
 		"month_management": "Month Management",
 		"info_center": "Info Center",
 		"expense_explorer": "Expense Explorer",

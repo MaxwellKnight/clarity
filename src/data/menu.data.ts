@@ -6,7 +6,7 @@ export const menu = [
 		list_items: [
 			{
 				id: 1,
-				title: "month_management",
+				title: "quick_overview",
 				url: "easy-glanse.svg",
 				link: "/"
 			},
@@ -18,12 +18,18 @@ export const menu = [
 			},
 			{
 				id: 3,
+				title: "month_management",
+				url: "easy-glanse.svg",
+				link: "/management"
+			},
+			{
+				id: 4,
 				title: "expense_explorer",
 				url: "expenses.svg",
 				link: "/expenses",
 			},
 			{
-				id: 4,
+				id: 5,
 				title: "dreams_goals",
 				url: "goals.svg",
 				link: "/savings",

@@ -16,9 +16,17 @@
 	"total": "المجموع",
 	"annual_summary": "الملخص السنوي",
 	"categories_table": "جدول النفقات حسب الفئات",
+	"annual_average": "المتوسط ​​السنوي",
+
+	"greeting": {
+		"good_morning": "صباح الخير",
+		"good_afternoon": "مساء الخير",
+		"good_evening": "مساء الخير"
+	},
 
 	"menu": {
 		"quick_menu": "قائمة سريعة",
+		"quick_overview": "لمحة سريعة",
 		"month_management": "إدارة الشهر",
 		"info_center": "مركز المعلومات",
 		"expense_explorer": "استكشاف المصروفات",

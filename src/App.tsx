@@ -8,6 +8,7 @@ import {
 	Home,
 	Layout,
 	Login,
+	Management,
 	Register,
 	Savings
 } from "./pages";
@@ -53,7 +54,8 @@ const App = () : JSX.Element => {
 			{ path: "/", element: <Home /> },
 			{ path: "/expenses", element: <Expenses /> },
 			{ path: "/savings", element: <Savings /> },
-			{ path: "/budget", element: <Budget /> }
+			{ path: "/budget", element: <Budget /> },
+			{ path: "/management", element: <Management /> }
 		]},
 
 		{ path: "/login", element: <Login /> },

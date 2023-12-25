@@ -55,6 +55,10 @@
 		width: 100%;
 		display: flex;
 		justify-content: space-between;
+		
+		span {
+			padding-inline: 1rem;
+		}
 	}
 }
 

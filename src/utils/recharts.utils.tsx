@@ -91,7 +91,7 @@ interface CustomTooltipPie  {
 	data: PieChartEntry[]
 }
 
-type CustomTooltip = TooltipProps<ValueType, NameType> 
+type CustomTooltip = TooltipProps<ValueType, NameType> & { translation?: string };
 
 type CustomPieTooltiProps = TooltipProps<ValueType, NameType> & CustomTooltipPie;
 
@@ -286,11 +286,15 @@ export const renderActiveShape = ({
  * @returns { React.ReactNode } - Rendered tooltip component.
  */
 export const CustomTooltip = ({ active, payload } : CustomTooltip) => {
+	const { t } = useTranslation();
+
 	if (active && payload) {
 		return (
 			<div className="custom-tooltip">
 				<p className="label">{payload[0].payload.name}</p>
 				<p className="desc">₪{formatNumber(payload[0].payload.value)}</p>
+				<p className="label">{t('translation:annual_average')}</p>
+				<p className="desc">₪{formatNumber(payload[1].payload.avg)}</p>
 			</div>
 		);
 	}
@@ -310,7 +314,7 @@ export const GenericTooltip = ({ active, payload } : CustomTooltip) => {
 			<div className="custom-tooltip generic">
 				{payload.map((element, index) => 
 					<p key={index}>
-						<span style={{color: element.color}}>{t(`translation:categories.${element.dataKey}`)} :</span><span> ₪{formatNumber(Number(element.value))}</span>
+						<span style={{color: element.color}}>{t(`translation:categories.${element.dataKey}`)}</span><span> ₪{formatNumber(Number(element.value))}</span>
 					</p>
 				)}
 			</div>
@@ -322,19 +326,19 @@ export const GenericTooltip = ({ active, payload } : CustomTooltip) => {
  * Function to parse expense data into a format suitable for pie charts.
  *
  * @param { Expense[] | null } expenses - Array of expense data.
- * @param { Expense[] } [ average ] - Array of average expense data.
+ * @param { Expense[] } [ total ] - Array of total expense data.
  * @param { string } [ label ] - Label for the chart segment.
  * @returns { PieChartEntry[] } - Parsed array of pie chart entries.
  */
-export const parseExpenses = (expenses: Expense[] | null, average?: Expense[], label?: string) => { 
+export const parseExpenses = (expenses: Expense[] | null, total?: Expense[], label?: string) => { 
 	return expenses ? expenses.map((expense, index) => {
-		const found = average?.find((exp) => exp.category === expense.category)
+		const found = total?.find((exp) => exp.category === expense.category)
 		return {
 			name: t(`translation:categories.${expense.category}`),
 			value: Number(expense.value.toFixed(1)),
 			fill: COLORS[index],
 			label: label,
-			avg: found ? found.value : 0,
+			avg: found ? found.value / 12 : 0,
 		}
 	}) : []
 }

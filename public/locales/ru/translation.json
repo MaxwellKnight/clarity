@@ -16,9 +16,17 @@
 	"total": "общий",
 	"annual_summary": "Годовое резюме",
 	"categories_table": "Таблица расходов по категориям",
+	"annual_average": "",
+
+	"greeting": {
+		"good_morning": "Доброе утро",
+		"good_afternoon": "Добрый день",
+		"good_evening": "добрый вечер"
+	},
 
 	"menu": {
 		"quick_menu": "быстрое меню",
+		"quick_overview": "Краткая информация",
 		"month_management": "Управление месяца",
 		"info_center": "информационный центр",
 		"expense_explorer": "исследование расходов",

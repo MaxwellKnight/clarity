@@ -16,9 +16,22 @@
 	"total": "סכום",
 	"annual_summary": "סיכום שנתי",
 	"categories_table": "טבלת הוצאות לפי קטגריות",
+	"annual_average": "ממוצע שנתי",
+
+	"greeting": {
+		"good_morning": "בוקר טוב",
+		"good_afternoon": "צהריים טובים",
+		"good_evening": "ערב טוב",
+		"left": "נותרו עוד",
+		"days": "ימים",
+		"to_charge_day": "עד למועד החיוב",
+		"you_posses": "לרשותך",
+		"for_spending": "לבזבוזים"
+	},
 
 	"menu": {
 		"quick_menu": "ניווט מהיר",
+		"quick_overview": "סקירה מהירה",
 		"month_management": "ניהול החודש",
 		"info_center": "מרכז המידע",
 		"expense_explorer": "הוצאות",

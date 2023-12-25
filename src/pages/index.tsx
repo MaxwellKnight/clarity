@@ -5,6 +5,7 @@ import Login from "./login/Login";
 import Register from "./register/Register";
 import Savings from "./savings/Savings";
 import Layout from "./layout/Layout";
+import Management from "./management/Management";
 
 export {
 	Budget,
@@ -13,5 +14,6 @@ export {
 	Login,
 	Register,
 	Savings,
-	Layout
+	Layout,
+	Management
 };

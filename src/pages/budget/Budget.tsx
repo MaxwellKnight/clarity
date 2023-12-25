@@ -20,7 +20,7 @@ const Budget = () => {
 	const [selectedMonth, setSelectedMonth] = useLocalStorage("selectedMonth", 0);
 	const [currentExpenses, setCurrentExpenses] = useState<MonthlyCheckingFetch>();
 	
-	const { data: averageChecking, loading: loadingAvg}: FetchResponse<MonthlyCheckingFetch> = useFetch(`http://localhost:3001/info/budget/avg`);
+	const { data: totalChecking, loading: loadingAvg}: FetchResponse<MonthlyCheckingFetch> = useFetch(`http://localhost:3001/info/budget/avg`);
 	const { data: categories , loading: loadingCategories }: FetchResponse<CategoriesFetch> = useFetch('http://localhost:3001/info/budget/categories');
 	const { data: currentChecking, loading: loadingCurr}: FetchResponse<MonthlyCheckingFetch> = useFetch(
 		`http://localhost:3001/info/budget/${selectedMonth}`,
@@ -31,14 +31,12 @@ const Budget = () => {
 	const handleChange = (month: string) => setSelectedMonth(() => Number(month));
 	
 	useEffect(() => {
-		if(!loadingAvg && averageChecking && selectedMonth === AVG_EXPENSES){
-			setCurrentExpenses({...averageChecking});
+		if(!loadingAvg && totalChecking && selectedMonth === AVG_EXPENSES){
+			setCurrentExpenses({...totalChecking});
 			return;
 		} 
-		else if(!loadingCurr && currentChecking) setCurrentExpenses({...currentChecking})
-	}, [selectedMonth, loadingCurr, loadingAvg])
-
-
+		else if(!loadingCurr && currentChecking) setCurrentExpenses({...currentChecking});
+	}, [selectedMonth, loadingCurr, loadingAvg]);
 	
 	return (
 		<AnimatePresence>
@@ -58,17 +56,17 @@ const Budget = () => {
 						dynamicExpenses={currentExpenses?.totalDynamic}
 					/>
 				</div>
-				{currentExpenses && averageChecking ? <>
+				{currentExpenses && totalChecking ? <>
 					<ExpenseSection 
 						expenses={currentExpenses.dynamic_expenses}
 						totalSum={currentExpenses.totalDynamic}
-						average={averageChecking.dynamic_expenses} 
+						average={totalChecking.dynamic_expenses} 
 						label='dynamic_expenses'
 					/>
 					<ExpenseSection 
 						expenses={currentExpenses.fixed_expenses}
 						totalSum={currentExpenses.totalFixed}
-						average={averageChecking.fixed_expenses}  
+						average={totalChecking.fixed_expenses}  
 						label='fixed_expenses'
 					/></> : null
 				}
