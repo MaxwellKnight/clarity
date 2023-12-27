@@ -1,0 +1,79 @@
+.custom-tooltip {
+	background-color: var(--dark-bg);
+	padding: .5rem 1rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+	font-weight: bold;
+	border-radius: 1rem;
+
+	& .label {
+		color: var(--soft-color);
+	}
+
+	& .desc {
+		font-size: 1.2rem;
+		color: white;
+		text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
+	}
+}
+
+.checking {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: space-between;
+	text-transform: capitalize;
+	font-weight: 400;
+	gap: 1rem;
+	font-size: 1rem;
+
+	.checking-item {
+		width: 100%;
+		display: flex;
+		gap: 1rem;
+		justify-content: space-between;
+
+		& > :nth-child(2) {
+			font-weight: 500;
+		}
+	}
+}
+
+.custom-chart-tooltip {
+	font-size: 1rem;
+	font-weight: 400;
+	z-index: 1000;
+}
+
+.generic {
+	font-size: 1.2rem;
+
+	& > p{
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		
+		span {
+			padding-inline: 1rem;
+		}
+	}
+}
+
+.none {
+	display: block;
+}
+
+@media (min-width: 800px){
+	.checking {
+		font-size: 1.2rem;
+	}
+}
+
+@media (max-width: 500px){
+	.none {
+		display: none;
+	}
+}

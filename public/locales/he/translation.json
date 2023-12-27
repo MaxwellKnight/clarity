@@ -1,0 +1,112 @@
+{
+	"overview": "מבט על",
+	"my_budget": "התקציב שלי",
+	"my_goals": "יעדים ומטרות",
+	"compared_to_last_month": "בהשוואה לחודש קודם",
+	"income": "הכנסות",
+	"net_income": "הכנסה נטו",
+	"expenses": "הוצאות",
+	"savings": "חסכונות",
+	"saving": "חסכון",
+	"month": "חודש",
+	"choose_month": "בחר חודש",
+	"fixed_expenses": "הוצאות קבועות",
+	"dynamic_expenses": "הוצאות משתנות",
+	"charge": "חיוב",
+	"total": "סכום",
+	"annual_summary": "סיכום שנתי",
+	"categories_table": "טבלת הוצאות לפי קטגריות",
+	"annual_average": "ממוצע שנתי",
+
+	"greeting": {
+		"good_morning": "בוקר טוב",
+		"good_afternoon": "צהריים טובים",
+		"good_evening": "ערב טוב",
+		"left": "נותרו עוד",
+		"days": "ימים",
+		"to_charge_day": "עד למועד החיוב",
+		"you_posses": "לרשותך",
+		"for_spending": "לבזבוזים"
+	},
+
+	"menu": {
+		"quick_menu": "ניווט מהיר",
+		"quick_overview": "סקירה מהירה",
+		"month_management": "ניהול החודש",
+		"info_center": "מרכז המידע",
+		"expense_explorer": "הוצאות",
+		"dreams_goals": "יעדים ומטרות"
+	},
+
+	"category": "קטגוריה",
+	"categories": {
+		"vacation": "חופשה",
+		"restaurant": "מסעדנות",
+		"hobby": "תחביב",
+		"grocery": "מכולת",
+		"clothing": "בגדים",
+		"hygiene": "הגיינה",
+		"health": "בריאות",
+		"home": "בית",
+		"insurance": "ביטוח",
+		"travel": "תחבורה",
+		"loan_mortgage": "הלוואה/משכנתא",
+		"investment": "השקעה",
+		"check": "צ'ק",
+		"tax": "מס",
+		"cash": "מזומן",
+		"gift": "מתנות",
+		"gifts": "מתנות",
+		"gym": "חדר כושר",
+		"rent_mortgage": "שכירות/משכנתא",
+		"home_tax": "ארנונה",
+		"loans": "הלוואות",
+		"cellular_cables": "סלולר וכבלים",
+		"car_insurance": "ביטוח רכב",
+		"house_insurance": "ביטוח בית",
+		"health_insurance": "ביטוח בריאות",
+		"car_holding": "אחזקת רכב",
+		"house_holding": "אחזקת בית",
+		"electricity_bill": "חשבון חשמל",
+		"water_bill": "חשבון מים",
+		"gas_bill": "חשבון גז",
+		"health_medication": "בריאות ותרופות",
+		"tax_payments": "מיסים ותשלומים",
+		"empty": "ריק"
+	},
+
+	"checking": {
+		"title": "היסטוריית הכנסות כנגד הוצאות"
+	},
+
+	"months_full": {
+		"ALL": "כל החודשים",
+		"JAN": "ינואר",
+		"FEB": "פברואר",
+		"MAR": "מרץ",
+		"APR": "אפריל",
+		"MAY": "מאי",
+		"JUN": "יוני",
+		"JUL": "יולי",
+		"AUG": "אוגוסט",
+		"SEP": "ספטמבר",
+		"OCT": "אוקטובר",
+		"NOV": "נובמבר",
+		"DEC": "דצמבר"
+	},
+
+	"months_short": {
+		"JAN": "ינו",
+		"FEB": "פבר",
+		"MAR": "מרץ",
+		"APR": "אפר",
+		"MAY": "מאי",
+		"JUN": "יונ",
+		"JUL": "יול",
+		"AUG": "אוג",
+		"SEP": "ספט",
+		"OCT": "אוק",
+		"NOV": "נוב",
+		"DEC": "דצמ"
+	}
+}

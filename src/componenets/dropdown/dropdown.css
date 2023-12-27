@@ -1,0 +1,31 @@
+.dropdown {
+	width: 100%;
+	text-align: center;
+	margin-block: 1.2rem;
+
+	> p {
+		font-size: 1.5rem;
+		font-weight: 500;
+		margin-block: 1rem;
+	}
+
+	> select {
+		width: 50%;
+		padding: .5rem;
+		border: none;
+		text-align: center;
+		font-size: 1.2rem;
+		background-color: var(--dark-bg);
+		color: var(--soft-color);
+
+		> option {
+			font-size: 1.2rem;
+			border: none;
+			text-align: center;
+		}
+
+		&:hover{
+			cursor: pointer;
+		}
+	}
+}
