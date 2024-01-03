@@ -4,6 +4,8 @@
 	position: relative;
 	gap: 1rem;
 	font-size: .7rem;
+	height: 90%;
+
 	.box {
 		padding: 1rem;
 		border-radius: .5rem;

@@ -2,7 +2,6 @@
 	font-family: 'Noto Sans Hebrew', sans-serif;
 	background-color: var(--main-bg);
 	color: var(--main-color);
-	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -10,7 +9,6 @@
 
 	.container {
 		display: flex;
-		align-items: center;
 		height: 100%;
 
 		.menu-container {
