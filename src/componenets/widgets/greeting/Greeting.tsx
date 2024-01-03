@@ -35,7 +35,7 @@ const GreetingWidget = ({ day, amount }: GreetingWidgetProps) => {
 
 	return (
 		<div className="greeting">
-			<p>{new Date().toLocaleDateString('en-GB')}</p>
+			<p>{new Date().toLocaleDateString()}</p>
 			<Greet />
 			<p>{t(`${prefix}.left`)} {daysDifference} {t(`${prefix}.days`)} {t(`${prefix}.to_charge_day`)}! {t(`${prefix}.you_posses`)} <span>₪{amount} </span>{t(`${prefix}.for_spending`)} .</p>
 		</div>

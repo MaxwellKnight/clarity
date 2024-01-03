@@ -19,7 +19,7 @@ export const menu = [
 			{
 				id: 3,
 				title: "month_management",
-				url: "management-icon.svg",
+				url: "easy-glanse.svg",
 				link: "/management"
 			},
 			{
