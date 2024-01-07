@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import './greeting.css';
 
-const NOON = 12, EVENING = 18;
+const NOON = 12, EVENING = 18, MORNING = 5;
 
 type GreetingWidgetProps = {
 	day: Date,
@@ -13,8 +13,8 @@ const Greet = (): JSX.Element => {
 	const hour = new Date().getHours();
 	let greeting = "", emoji = '☕️';
 
-	if(hour <  NOON) greeting = "good_morning";
-	else if(hour < EVENING){
+	if(MORNING < hour && hour <  NOON) greeting = "good_morning";
+	else if(NOON < hour && hour < EVENING){
 		greeting = "good_afternoon";
 		emoji = '☀️'
 	}
@@ -22,7 +22,7 @@ const Greet = (): JSX.Element => {
 		greeting = "good_evening";
 		emoji = '🌙'
 	}
-	return <p>{t(`translation:greeting.${greeting}`)} {emoji}</p>;
+	return <p>{t(`translation:greeting.${greeting}`)}  {emoji}</p>;
 }
 
 const GreetingWidget = ({ day, amount }: GreetingWidgetProps) => {

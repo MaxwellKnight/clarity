@@ -45,7 +45,7 @@ const Table = ({ caption, content, rowKey, translation }: TableProps): JSX.Eleme
 					{content.map(column => 
 						<tr role='rowgroup' key={JSON.stringify(column)}>
 							{rows.map(row => 
-								<td data-cell={t(`${translation}.${row}`)} role='row' key={row}>
+								<td data-cell={row !== rowKey ? t(`${translation}.${row}`) : t('translation:month')} role='row' key={row}>
 									{row !== rowKey ? `${formatNumber(column[row])} ₪` : column[row]}
 								</td>
 							)}

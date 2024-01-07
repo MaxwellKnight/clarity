@@ -1,0 +1,18 @@
+.management-page {
+	width: 100%;
+}
+
+.info-section {
+	--gap: 1rem;
+	display: flex;
+	gap: var(--gap);
+	
+	& > .info-card {
+		flex: 1;
+		background-color: dodgerblue;
+
+		table {
+			width: 100%;
+		}
+	}
+}
