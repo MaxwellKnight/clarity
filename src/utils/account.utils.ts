@@ -1,13 +1,15 @@
-export const expenses = (credit: number, cash: number, fixed: number) => 
-	credit + cash + fixed
+import { Account } from "../types";
 
-export const netIncome = (income: number, expenses: number) => income - expenses;
+export const expenses = (account: Account) => 
+	account.credit + account.cash + account.fixed
 
-export const basicExpenses = (housing: number, fixedBasic: number, fixedFromBank: number) =>
-	housing + fixedBasic + fixedFromBank;
+export const netIncome = (account: Account) => account.income - basicExpenses(account);
 
-export const luxuryExpenses = (income: number, basicExpenses: number, savingGoal: number) =>
-	income - basicExpenses - savingGoal;
+export const basicExpenses = (account: Account) =>
+	account.housing + account.fixedBasic + account.fixedFromBank;
+
+export const luxuryExpenses = (account: Account) =>
+	account.income - basicExpenses(account) - account.savingGoal;
 
 export const basicNonCredit = (rent: number, fixedFromBank: number) => 
 	rent + fixedFromBank;

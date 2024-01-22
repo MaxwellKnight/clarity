@@ -1,8 +1,27 @@
 import { GreetingWidget } from '../../componenets';
 import { motion } from 'framer-motion';
+import InfoSection from './InfoSection';
 import './management.css';
+import { formatNumber } from '../../utils';
 
 const Management = () => {
+
+	const example = [
+		{
+			caption: "Checking",
+			rows: [{label: "Balance", value: formatNumber(231312)}, {label: "Net Income", value: formatNumber(65644)}, {label: "example 3", value: formatNumber(31231312)},{label: "example 4", value: formatNumber(31231312)}, {label: "example 5", value: formatNumber(31231312)}]
+		},
+		{
+			caption: "Caption 2",
+			rows: [{label: "example 1", value: formatNumber(1123)}, {label: "example 2", value: formatNumber(31322)}, {label: "example 3", value: formatNumber(31231312)}, {label: "example 4", value: formatNumber(31231312)}, {label: "example 5", value: formatNumber(12346)}]
+		},
+		{
+			caption: "Caption 3",
+			rows: [{label: "example 1", value: formatNumber(1123)}, {label: "example 2", value: formatNumber(31322)}, {label: "example 3", value: formatNumber(31231312)}, {label: "example 4", value: formatNumber(34656)}, {label: "example 5", value: formatNumber(74654)}]
+		}
+	];
+
+
 	return(
 		<motion.main 
 			className="management-page"
@@ -11,33 +30,7 @@ const Management = () => {
 			transition={{duration: .5}}
 		>
 			<GreetingWidget day={new Date('1/10/2024')} amount={2500}/>
-			<section className="info-section">
-				<div className="info-card">
-					<table>
-						<caption>Caption</caption>
-						<tbody>
-							<tr>
-								<td>Example</td>
-								<td>11576.7</td>
-							</tr>
-							<tr>
-								<td>Example</td>
-								<td>11576.7</td>
-							</tr>
-							<tr>
-								<td>Example</td>
-								<td>11576.7</td>
-							</tr>
-							<tr>
-								<td>Example</td>
-								<td>11,576.7</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-				<div className="info-card">s</div>
-				<div className="info-card">s</div>
-			</section>
+			<InfoSection data={example}/>
 		</motion.main>
 	)
 }

@@ -1,0 +1,27 @@
+.info-section {
+	--gap: 1rem;
+	display: flex;
+	gap: var(--gap);
+	margin-block: 3rem;
+	
+	& > .info-card {
+		flex: 1;
+
+		table {
+			width: 100%;
+			border-collapse: collapse;
+			--gap: .5rem;
+			td {
+				padding-block: var(--gap);
+				text-align: center;
+				border: 1px solid black;
+			}
+
+			& > caption {
+				background-color: rgb(0 0 0 / .5);
+				color: var(--text-color);
+				font-weight: bold;
+			}
+		}
+	}
+}
